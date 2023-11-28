@@ -1,3 +1,7 @@
+! Title: GDUB filter list
+! Description: Block and customize css on specific sites
+! Updated: 2023-11-28
+! Expires: 1 day (update frequency)
 www.kode24.no###diamond-partners-list-tile
 www.kode24.no##.podcast-player
 www.kode24.no##.patreons
