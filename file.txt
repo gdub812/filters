@@ -4,9 +4,28 @@
 ! Version: 2023-28-11
 ! Homepage: https://github.com/gdub812/filter
 
-www.kode24.no###diamond-partners-list-tile
+! 2023-11-23 https://www.kode24.no styling for better experience
+! notification
+www.kode24.no###top-notification
+! job counter icons
+www.kode24.no###job-menu-item > .counter
+www.kode24.no###events-menu-item > .counter
+! podcast player
 www.kode24.no##.podcast-player
-www.kode24.no##.patreons
-www.kode24.no##.job-list.preview-list.preview
-www.kode24.no###job-menu-item>.counter
-www.kode24.no###events-menu-item>.counter
+! blinking article border
+www.kode24.no##article::before
+! commercial/ads
+www.kode24.no##.commercial-content
+www.kode24.no###diamond-partners-list-tile
+www.kode24.no##.commercial
+! info box article
+www.kode24.no##aside.panel
+www.kode24.no###desktop-rows
+www.kode24.no###tip-us-call-to-action
+! make layout compact
+www.kode24.no##.article-entity .columns.byline, footer.main-footer div.row:style(padding:0rem!important;)
+www.kode24.no###hyvor-talk-iframe, div.row, .main-footer:style(margin:0rem!important;)
+www.kode24.no##div.frontpage.wide:style(padding-bottom:0rem!important;)
+www.kode24.no##div.frontpage.wide:style(padding-top:4rem!important;)
+! background color fix
+www.kode24.no###page-body, .frontpage.wide, #left-menu, .preview.columns.compact:style(background: none !important;)
