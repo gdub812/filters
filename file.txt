@@ -1,0 +1,6 @@
+www.kode24.no###diamond-partners-list-tile
+www.kode24.no##.podcast-player
+www.kode24.no##.patreons
+www.kode24.no##.job-list.preview-list.preview
+www.kode24.no###job-menu-item > .counter
+www.kode24.no###events-menu-item > .counter
