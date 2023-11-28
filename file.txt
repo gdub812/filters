@@ -7,6 +7,8 @@
 ! 2023-11-23 https://www.kode24.no styling for better experience
 ! notification
 www.kode24.no###top-notification
+! Right sidebar
+www.kode24.no###desktop-sidemenu-front
 ! job counter icons
 www.kode24.no###job-menu-item > .counter
 www.kode24.no###events-menu-item > .counter
