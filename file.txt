@@ -1,4 +1,5 @@
 ! Title: GDUB filter list
+! Expires: 1 day
 ! Description: Block and customize css on specific sites
 ! Version: 2023-28-11
 ! Homepage: https://github.com/gdub812/filter
