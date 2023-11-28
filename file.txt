@@ -1,8 +1,13 @@
 ! Title: GDUB filter list
+! Expires: 1 day (update frequency)
 ! Description: Block and customize css on specific sites
-www.kode24.no###diamond-partners-list-tile
-www.kode24.no##.podcast-player
-www.kode24.no##.patreons
-www.kode24.no##.job-list.preview-list.preview
-www.kode24.no###job-menu-item > .counter
-www.kode24.no###events-menu-item > .counter
+! Homepage: https://github.com/gdub812/filter
+
+! General
+
+kode24.no###diamond-partners-list-tile
+kode24.no##.podcast-player
+kode24.no##.patreons
+kode24.no##.job-list.preview-list.preview
+kode24.no###job-menu-item > .counter
+kode24.no###events-menu-item > .counter
