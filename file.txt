@@ -56,6 +56,8 @@ e24.no##.netboard-row
 ! style - paid article less visible
 e24.no##.has-icon-e24pluss.article-teaser:style(opacity: 0.3 !important;)
 !// article page
+! random extra padding top
+e24.no##.page-layout-supertop
 ! ad between text
 e24.no##div.hyperion-css-1xm198b
 ! more article bottom
