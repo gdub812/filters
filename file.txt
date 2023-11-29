@@ -82,6 +82,8 @@ www.digi.no##footer.leading-snug:style(margin-top:0rem!important;padding-top:1re
 ! // article
 ! author and share button
 www.digi.no##.flex-col.flex.mx-auto.max-w-body:has(span:contains("Del"))
+! --style - fix space text after removing element
+www.digi.no##.top-image-caption:style(margin-bottom:1rem!important;)
 ! info article guidelines
 www.digi.no##.max-w-body.mx-auto:has(a[href^="https://www.digi.no/artikler/retningslinjer-for-debattinnlegg"])
 ! ad
