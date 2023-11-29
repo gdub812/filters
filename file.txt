@@ -66,6 +66,18 @@ e24.no##.hyperion-css-ryevka
 e24.no##.hyperion-css-18sd1a9
 ! ad job positions
 e24.no##.hyperion-css-nl6qrg.default
+! info text link back to homepage
+e24.no##.hyperion-css-1lemvax:has(a.default[href^="https://e24.no/"])
+! related paid article
+e24.no##a.inline.imagePosition-top:has([class^="hyperion-css"]:contains("E24+"))
+! style - 
+e24.no##a.inline.imagePosition-top:style(opacity: 0.3 !important;)
+! author top
+e24.no##div[data-test-tag="byline"]
+! timestamp top
+e24.no##.friendly.timestamp
+! share buttons top and bottom
+e24.no##section[class^="hyperion-css"]
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: https://www.digi.no
