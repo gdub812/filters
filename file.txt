@@ -7,9 +7,9 @@
 ! //////////////////////////////////////////////////////////////
 
 ! //////////////////////////////////////////////////////////////
-! // Site: https://www.kode24.no
-! // Update: 2023-11-23
-! // Description: With styling for better experience
+! //// Site: https://www.kode24.no
+! //// Update: 2023-11-23
+! //// Description: With styling for better experience
 ! notification banner bottom
 www.kode24.no###top-notification
 ! Right sidebar
@@ -38,8 +38,8 @@ www.kode24.no##div.frontpage.wide:style(padding-top:4rem!important;)
 www.kode24.no###page-body, .frontpage.wide, #left-menu, .preview.columns.compact:style(background: none !important;)
 
 ! //////////////////////////////////////////////////////////////
-! // Site: https://e24.no
-! // Update: 2023-11-29
+! //// Site: https://e24.no
+! //// Update: 2023-11-29
 ! // homepage
 ! fix remove ads
 e24.no##.component_content-marketing
@@ -64,3 +64,31 @@ e24.no##.hyperion-css-ryevka
 e24.no##.hyperion-css-18sd1a9
 ! ad job positions
 e24.no##.hyperion-css-nl6qrg.default
+
+! //////////////////////////////////////////////////////////////
+! //// Site: https://www.digi.no
+! //// Update: 2023-11-29
+! // homepage
+! ad
+www.digi.no##.col-span-12:has(div:contains("annons"))
+! style - paid article less visible
+www.digi.no##div.col-span-12.flex:has(use[href="/sprite.svg#ekstra-badge-text"]):style(opacity: 0.3 !important;)
+! ad job positions
+www.digi.no##.col-span-12:has(a.block.group)
+! extra entertainment
+www.digi.no##.col-span-12:has(span:contains("Hjerne"))
+! style - remove space footer top
+www.digi.no##footer.leading-snug:style(margin-top:0rem!important;padding-top:1rem!important;)
+! // article
+! author and share button
+www.digi.no##.flex-col.flex.mx-auto.max-w-body:has(span:contains("Del"))
+! info article guidelines
+www.digi.no##.max-w-body.mx-auto:has(a[href^="https://www.digi.no/artikler/retningslinjer-for-debattinnlegg"])
+! ad
+www.digi.no##div[id^="adContainer"]
+! ad job positions
+www.digi.no##.max-w-body-wide.mx-auto:has([href^="https://tekjobb.no/stillinger"])
+! style - related articles
+www.digi.no##div.related-article.related-article-placeholder:style(opacity: 0.3 !important;)
+
+! //////////////////////////////////////////////////////////////
