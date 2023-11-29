@@ -1,11 +1,16 @@
+! //////////////////////////////////////////////////////////////
 ! Title: GDUB filter list
 ! Expires: 1 day
 ! Description: Block and customize css on specific sites
 ! Version: 2023-28-11
 ! Homepage: https://github.com/gdub812/filter
+! //////////////////////////////////////////////////////////////
 
-! 2023-11-23 https://www.kode24.no styling for better experience
-! notification
+! //////////////////////////////////////////////////////////////
+! // Site: https://www.kode24.no
+! // Update: 2023-11-23
+! // Description: With styling for better experience
+! notification banner bottom
 www.kode24.no###top-notification
 ! Right sidebar
 www.kode24.no###desktop-sidemenu-front
@@ -31,3 +36,31 @@ www.kode24.no##div.frontpage.wide:style(padding-bottom:0rem!important;)
 www.kode24.no##div.frontpage.wide:style(padding-top:4rem!important;)
 ! background color fix
 www.kode24.no###page-body, .frontpage.wide, #left-menu, .preview.columns.compact:style(background: none !important;)
+
+! //////////////////////////////////////////////////////////////
+! // Site: https://e24.no
+! // Update: 2023-11-29
+! // homepage
+! fix remove ads
+e24.no##.component_content-marketing
+! extra spacing after removed ad article
+e24.no##.grid-wrapper > .row-with-bottom-border.row
+! ad job positions
+e24.no##.carousel
+! video
+e24.no##.front-container:has(#player)
+! message if you want to contact
+e24.no##.front-container > .row :has(a[href^="https://calendly.com"])
+! more paid articles and real time info
+e24.no##.netboard-row
+! style - paid article less visible
+e24.no##.has-icon-e24pluss.article-teaser:style(opacity: 0.3 !important;)
+!// article page
+! ad between text
+e24.no##div.hyperion-css-1xm198b
+! more article bottom
+e24.no##.hyperion-css-ryevka
+! bottom ad
+e24.no##.hyperion-css-18sd1a9
+! ad job positions
+e24.no##.hyperion-css-nl6qrg.default
