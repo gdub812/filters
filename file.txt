@@ -5,11 +5,21 @@
 ! Version: 2023-28-11
 ! Homepage: https://github.com/gdub812/filter
 ! //////////////////////////////////////////////////////////////
+! Grades
+! High: Removed all extra content and really checked everything is working
+! Mid: Removed extra content and most important stuff working
+! Low: Removed most annoying content
+! //////////////////////////////////////////////////////////////
 
 ! //////////////////////////////////////////////////////////////
-! //// Site: https://www.kode24.no
+! News
+! //////////////////////////////////////////////////////////////
+
+! //////////////////////////////////////////////////////////////
+! //// Site: www.kode24.no
 ! //// Update: 2024-02-08
 ! //// Description: With styling for better experience
+! //// Grade: Mid
 ! // Whole site and homepage
 ! notification banner bottom
 www.kode24.no###top-notification
@@ -59,7 +69,54 @@ www.kode24.no##div.frontpage.wide:style(padding-top:4rem!important;)
 www.kode24.no##.article-entity.artikkel article.medium-12.small-12.large-12.preview:style(opacity: 0.3 !important;)
 
 ! //////////////////////////////////////////////////////////////
-! //// Site: https://e24.no
+! //// Site: https://www.nrk.no
+! //// Update: 2024-02-08
+! //// Grade: Mid
+! // Whole site and homepage
+! banner top
+www.nrk.no##.nrk-masthead__apps
+! --style-- fix padding after removed header
+www.nrk.no##.nrk-masthead.lp_masthead:style(padding-top:0rem!important;)
+! remove newest messages banner and not articles
+www.nrk.no##section.kur-floor--normal.kur-floor--top-is-wide.kur-floor--top.kur-floor:nth-of-type(1)
+! explore more block
+www.nrk.no##.kur-floor--oppdag-mer.kur-floor--apartment.kur-floor--mix.kur-floor
+! district news block
+www.nrk.no##.exp-dh-nrkno-district-parent-room.tracklp
+! video block
+www.nrk.no##.kur-floor--video
+! radio block
+www.nrk.no##div.radio-multi-app
+! reminder article block
+www.nrk.no##dh-langlesing-v0
+! extra blocks not much used
+www.nrk.no##section.kur-floor--apartment.kur-floor--mix.kur-floor
+
+! // Article
+! nav bar
+www.nrk.no##.group-reference.sAUTO.fc.col.g100
+! --style-- padding article top
+www.nrk.no##div.group.widget.rich.cf.container-widget:style(padding-top:0rem!important;)
+! audio block
+www.nrk.no##.audio-reference
+! sidebar related articles
+www.nrk.no##div.article-sidebar.lp_related
+! --style-- related articles
+www.nrk.no##div.article.widget.reference:style(opacity:0.3!important;)
+! end related articles
+www.nrk.no##.universe-reference
+! playlist block
+www.nrk.no##.playlist-container
+! recommend end of article
+www.nrk.no##.lp_relatedglobal.elglobo
+! other info end of article
+www.nrk.no##div.group-reference.sg12.sg9.sg6.s18.fc.col.g100:nth-of-type(4)
+www.nrk.no##div.group.widget.rich.cf.container-widget > *:not(:first-child)
+! feedback box
+www.nrk.no##hei-boksen-v1
+
+! //////////////////////////////////////////////////////////////
+! //// Site: e24.no
 ! //// Update: 2023-11-29
 ! // homepage
 ! fix remove ads
@@ -101,13 +158,13 @@ e24.no##.friendly.timestamp
 e24.no##section[class^="hyperion-css"]
 
 ! //////////////////////////////////////////////////////////////
-! //// Site: https://www.digi.no
+! //// Site: www.digi.no
 ! //// Update: 2023-11-29
 ! // homepage
 ! ad
 www.digi.no##.col-span-12:has(div:contains("annons"))
 ! style - paid article less visible
-www.digi.no##div.col-span-12.flex:has(use[href="/sprite.svg#ekstra-badge-text"]):style(opacity: 0.3 !important;)
+www.digi.no##div.col-span-12.flex:has(use[href="/sprite.svg#ekstra-badge-text"]):style(opacity:0.3!important;)
 ! ad job positions
 www.digi.no##.col-span-12:has(a.block.group)
 ! extra entertainment
@@ -126,6 +183,41 @@ www.digi.no##div[id^="adContainer"]
 ! ad job positions
 www.digi.no##.max-w-body-wide.mx-auto:has([href^="https://tekjobb.no/stillinger"])
 ! style - related articles
-www.digi.no##div.related-article.related-article-placeholder:style(opacity: 0.3 !important;)
+www.digi.no##div.related-article.related-article-placeholder:style(opacity:0.3!important;)
 
 ! //////////////////////////////////////////////////////////////
+! Manga
+! //////////////////////////////////////////////////////////////
+
+! //////////////////////////////////////////////////////////////
+! //// Site: asuratoon.com
+! //// Update: 2024-02-08
+! //// Grade: Mid
+! // Whole site and homepage
+! hide all elements except nav, main content and footer
+asuratoon.com##body > *:not(div.th, div#content, div#footer, nav#main-menu)
+asuratoon.com###sidebar
+! optimized for also category pages
+asuratoon.com###content > .wrapper > .postbody > *:not(.bixbox, article.hentry)
+asuratoon.com##div.bixbox.hothome
+! button dark mode
+asuratoon.com###thememode
+
+! // Articles
+asuratoon.com##div.chapterbody > .postarea > article > *:not(div.headpost, div.entry-content)
+asuratoon.com##div.chapterbody > .postarea > div.bixbox:not(#comments)
+asuratoon.com##div.chdesc
+
+! //////////////////////////////////////////////////////////////
+! //// Site: reaperscans.com
+! //// Update: 2024-02-08
+! //// Grade: Mid
+! // Whole site and homepage
+reaperscans.com##main.mb-auto > *:not(:nth-child(2))
+! fix for article pages and categories
+reaperscans.com##main.mb-auto > div.mx-auto > *:not(.space-y-4, div.text-center, nav.flex.items-center.justify-between, img, div#comments, [wire\:id])
+reaperscans.com##main.mb-auto > div.mx-auto > .space-y-4:not(:nth-of-type(2))
+
+! // Article
+! recruiting image
+reaperscans.com##main.mb-auto > div.mx-auto > img.max-w-full[src*="999.jpg"]
