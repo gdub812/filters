@@ -263,8 +263,9 @@ flamecomics.com###radio_content
 flamecomics.com##div.big-slider.swiper-container.swiper-pointer-events
 ! discord and other element
 flamecomics.com###content > *:not(div.wrapper)
-! slider
+! sliders
 flamecomics.com##div.hotslid
+flamecomics.com##div.big-slider.swiper-container
 ! more info elements
 flamecomics.com##div.postbody > *:not(div.bixbox, article)
 ! remove image
