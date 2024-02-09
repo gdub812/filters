@@ -36,6 +36,8 @@ www.kode24.no##article::before
 www.kode24.no##.commercial-content
 www.kode24.no###diamond-partners-list-tile
 www.kode24.no##.commercial
+! fix mobile ad banner
+www.kode24.no##div[id*="ad-banner"]
 ! nav bar
 www.kode24.no###nav-top
 !:not(#search-component-wrapper)
