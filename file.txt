@@ -119,28 +119,33 @@ www.nrk.no##div.group-reference.sg12.sg9.sg6.s18.fc.col.g100:nth-of-type(4)
 www.nrk.no##div.group.widget.rich.cf.container-widget > *:not(:first-child)
 www.nrk.no##div.group.widget.rich.floor.floor-bottom.negative.cf.container-widget
 
-
 ! //////////////////////////////////////////////////////////////
 ! //// Site: e24.no
-! //// Update: 2023-11-29
-! // homepage
-! fix remove ads
-e24.no##.component_content-marketing
-! extra spacing after removed ad article
-e24.no##.grid-wrapper > .row-with-bottom-border.row
+! //// Update: 2024-02-09
+! //// Grade: Low
+! // Whole site and homepage
+! top news bar
+e24.no##div.component_stocks-stripe
+! remove create account
+e24.no##div:has(>a[href*="bli-abonnent"])
+! remove logg inn
+e24.no##div.styles-module_m4g3JW8 > button.styles-module_AoakuDo
+! remove ads
+e24.no##div[class*="advertory-e24"]
+e24.no##.row-with-bottom-border:has(.advertory-e24-brandboard-wrapper__front)
+e24.no##div.row:has(.component_content-marketing)
 ! ad job positions
 e24.no##.carousel
 ! video
 e24.no##.front-container:has(#player)
 ! message if you want to contact
 e24.no##.front-container > .row :has(a[href^="https://calendly.com"])
-! more paid articles and real time info
+! real time info
 e24.no##.netboard-row
-! style - paid article less visible
+! --style-- paid article less visible
 e24.no##.has-icon-e24pluss.article-teaser:style(opacity: 0.3 !important;)
-!// article page
-! random extra padding top
-e24.no##.page-layout-supertop
+
+! // article page
 ! ad between text
 e24.no##div.hyperion-css-1xm198b
 ! more article bottom
@@ -149,18 +154,16 @@ e24.no##.hyperion-css-ryevka
 e24.no##.hyperion-css-18sd1a9
 ! ad job positions
 e24.no##.hyperion-css-nl6qrg.default
-! info text link back to homepage
-e24.no##.hyperion-css-1lemvax:has(a.default[href^="https://e24.no/"])
-! related paid article
-e24.no##a.inline.imagePosition-top:has([class^="hyperion-css"]:contains("E24+"))
-! style - 
+! --style-- related articles opacity
 e24.no##a.inline.imagePosition-top:style(opacity: 0.3 !important;)
-! author top
-e24.no##div[data-test-tag="byline"]
-! timestamp top
-e24.no##.friendly.timestamp
 ! share buttons top and bottom
 e24.no##section[class^="hyperion-css"]
+
+! // extra disabled article pages
+! info text link back to homepage
+!e24.no##.hyperion-css-1lemvax:has(a.default[href^="https://e24.no/"])
+! related paid article
+!e24.no##a.inline.imagePosition-top:has([class^="hyperion-css"]:contains("E24+"))
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: www.digi.no
