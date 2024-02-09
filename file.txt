@@ -1,7 +1,7 @@
 ! //////////////////////////////////////////////////////////////
 ! Title: GDUB filter list
 ! Expires: 1 day
-! Description: Block and customize css on specific sites
+! Description: Remove website annoyance on sites
 ! Version: 2023-28-11
 ! Homepage: https://github.com/gdub812/filter
 ! //////////////////////////////////////////////////////////////
@@ -18,7 +18,6 @@
 ! //////////////////////////////////////////////////////////////
 ! //// Site: www.kode24.no
 ! //// Update: 2024-02-08
-! //// Description: With styling for better experience
 ! //// Grade: Mid
 ! // Whole site and homepage
 ! notification banner bottom
@@ -225,3 +224,55 @@ reaperscans.com##main.mb-auto > div.mx-auto > .space-y-4:not(:nth-of-type(2))
 ! // Article
 ! recruiting image
 reaperscans.com##main.mb-auto > div.mx-auto > img.max-w-full[src*="999.jpg"]
+
+! //////////////////////////////////////////////////////////////
+! //// Site: lumitoon.com
+! //// Update: 2024-02-09
+! //// Grade: 
+! // Whole site and homepage
+! radio button
+lumitoon.com###radio_content
+! show only header, article and footer
+lumitoon.com##body > *:not(.th, #content, #footer)
+! show only need content
+lumitoon.com###content > *:not(.wrapper)
+lumitoon.com###content > div.wrapper > *:not(div.postbody, div.chapterbody)
+! --style-- remove extra space around content
+lumitoon.com###content:style(margin-top:0rem!important;padding-bottom:0rem!important;)
+! hide novels
+lumitoon.com##div.bixbox:nth-of-type(2)
+
+! // Article
+! Text about manga
+lumitoon.com##article > div.entry-content > div.chdesc
+! Discord image
+lumitoon.com##a[href*="discord.gg"]
+! Chapter tags
+lumitoon.com##div.chaptertags
+
+! //////////////////////////////////////////////////////////////
+! //// Site: flamecomics.com
+! //// Update: 2024-02-09
+! //// Grade: Mid
+! // Whole site and homepage
+! radio button
+flamecomics.com###radio_content
+! slider top
+flamecomics.com##div.big-slider.swiper-container.swiper-pointer-events
+! discord and other element
+flamecomics.com###content > *:not(div.wrapper)
+! slider
+flamecomics.com##div.hotslid
+! more info elements
+flamecomics.com##div.postbody > *:not(div.bixbox, article)
+! remove image
+flamecomics.com##div.bixbox > div.flame.flame-1
+
+! // Category
+flamecomics.com##div.postbody.full > article > *:not(#comments, div.main-info)
+
+! // Article
+! promo banner
+flamecomics.com##div.promo-banner
+! Other series
+flamecomics.com##div.chapterbody > .postarea > .bixbox:not(#comments)
