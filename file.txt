@@ -126,11 +126,9 @@ www.nrk.no##div.group.widget.rich.floor.floor-bottom.negative.cf.container-widge
 ! // Whole site and homepage
 ! top news bar
 e24.no##div.component_stocks-stripe
-! remove create account
-e24.no##div:has(>a[href*="bli-abonnent"])
-! remove logg inn
-e24.no##div.styles-module_m4g3JW8 > button.styles-module_AoakuDo
-! remove ads
+! top bar extra buttons
+e24.no##header.e24-hovedmenyen div.styles-module_m4g3JW8 > *:not(button.Button-module_x8T5-5k)
+! ads
 e24.no##div[class*="advertory-e24"]
 e24.no##.row-with-bottom-border:has(.advertory-e24-brandboard-wrapper__front)
 e24.no##div.row:has(.component_content-marketing)
@@ -152,8 +150,8 @@ e24.no##div.hyperion-css-1xm198b
 e24.no##.hyperion-css-ryevka
 ! bottom ad
 e24.no##.hyperion-css-18sd1a9
-! ad job positions
-e24.no##.hyperion-css-nl6qrg.default
+! job ads bottom
+e24.no##div.hyperion-css-0:has(iframe[src*="e24.no/stilling"])
 ! --style-- related articles opacity
 e24.no##a.inline.imagePosition-top:style(opacity: 0.3 !important;)
 ! share buttons top and bottom
@@ -164,6 +162,13 @@ e24.no##section[class^="hyperion-css"]
 !e24.no##.hyperion-css-1lemvax:has(a.default[href^="https://e24.no/"])
 ! related paid article
 !e24.no##a.inline.imagePosition-top:has([class^="hyperion-css"]:contains("E24+"))
+! remove div element with create account extra, but slower
+!e24.no##div:has(>a[href*="bli-abonnent"])
+! create account
+!e24.no##a.styles-module_w3tYybq.styles-module_CjYrEiL.styles-module_n3Bu4jm
+! logg inn
+!e24.no##div.styles-module_m4g3JW8 > button.styles-module_AoakuDo
+
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: www.digi.no
