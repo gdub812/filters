@@ -80,7 +80,7 @@ www.kode24.no##.article-entity.artikkel article.medium-12.small-12.large-12.prev
 
 
 ! //////////////////////////////////////////////////////////////
-! //// Site: https://www.nrk.no
+! //// Site: www.nrk.no
 ! //// Update: 2024-02-09
 ! //// Grade: Mid
 ! // Whole site and homepage
@@ -132,13 +132,21 @@ www.nrk.no##div.group.widget.rich.floor.floor-bottom.negative.cf.container-widge
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: e24.no
-! //// Update: 2024-02-09
-! //// Grade: Low
+! //// Update: 2024-02-26
+! //// Grade: Mid
 ! // Whole site and homepage
 ! top news bar
 e24.no##div.component_stocks-stripe
 ! top bar extra buttons
 e24.no##header.e24-hovedmenyen div.styles-module_m4g3JW8 > *:not(button.Button-module_x8T5-5k)
+! top bar text
+e24.no##header > div > div > a > span.styles-module_eHa7rZf.styles-module_70heY6o
+! signup sale top
+e24.no##main > div > div.touchpoint
+! --style-- spacing top
+e24.no##main > div.grid-wrapper:style(padding-top:0rem!important;)
+! --style-- spacing top first article
+e24.no##main > div.grid-wrapper > div[data-row-id="1"]:style(margin-top:0rem!important;)
 ! ads
 e24.no##div[class*="advertory-e24"]
 e24.no##.row-with-bottom-border:has(.advertory-e24-brandboard-wrapper__front)
@@ -155,6 +163,8 @@ e24.no##.netboard-row
 e24.no##.has-icon-e24pluss.article-teaser:style(opacity: 0.3 !important;)
 
 ! // article page
+! signup sale top
+e24.no##div#main > div > div > div.hyperion-css-5qyf4o
 ! ad between text
 e24.no##div.hyperion-css-1xm198b
 ! more article bottom
