@@ -12,6 +12,12 @@
 ! //////////////////////////////////////////////////////////////
 
 ! //////////////////////////////////////////////////////////////
+! Cross sites
+! //////////////////////////////////////////////////////////////
+! Google login popup
+##iframe[src^="https://accounts.google.com/gsi/iframe/select?client_id"]
+
+! //////////////////////////////////////////////////////////////
 ! News
 ! //////////////////////////////////////////////////////////////
 
@@ -237,7 +243,7 @@ reaperscans.com##main.mb-auto > div.mx-auto > img.max-w-full[src*="999.jpg"]
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: lumitoon.com
-! //// Update: 2024-02-09
+! //// Update: 2024-02-26
 ! //// Grade: 
 ! // Whole site and homepage
 ! radio button
@@ -250,7 +256,7 @@ lumitoon.com###content > div.wrapper > *:not(div.postbody, div.chapterbody)
 ! --style-- remove extra space around content
 lumitoon.com###content:style(margin-top:0rem!important;padding-bottom:0rem!important;)
 ! hide novels
-lumitoon.com##div.bixbox:nth-of-type(2)
+lumitoon.com##div.postbody > div.bixbox:has(a[href^="https://home.luminousscans.gg/genres/novel/"])
 
 ! // Article
 ! Text about manga
