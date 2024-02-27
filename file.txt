@@ -81,11 +81,14 @@ www.kode24.no##.article-entity.artikkel article.medium-12.small-12.large-12.prev
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: www.nrk.no
-! //// Update: 2024-02-09
+! //// Update: 2024-02-27
 ! //// Grade: Mid
 ! // Whole site and homepage
 ! banner top
 www.nrk.no##.nrk-masthead__apps
+! nav buttons
+www.nrk.no##header.nrk-masthead > *:not(#nrk-masthead__jump-anchor, .nrk-masthead__logo)
+www.nrk.no##div.nrk-masthead__user
 ! --style-- fix padding after removed header
 www.nrk.no##.nrk-masthead.lp_masthead:style(padding-top:0rem!important;)
 ! remove newest messages banner and not articles
@@ -102,6 +105,7 @@ www.nrk.no##div.radio-multi-app
 www.nrk.no##dh-langlesing-v0
 ! --style-- not always important so lower opacity
 www.nrk.no##section.kur-floor--apartment.kur-floor--mix.kur-floor:style(opacity:0.3!important;)
+www.nrk.no##nrkno-oppdag-mer:style(opacity:0.3!important;)
 
 ! // Article
 ! nav bar
