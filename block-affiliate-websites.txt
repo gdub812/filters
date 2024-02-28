@@ -1,11 +1,24 @@
+! //////////////////////////////////////////////////////////////
+! Title: Block affiliate websites on Kagi
+! Expires: 1 day
+! Description: Remove SEO affiliate websites on Kagi at front-end, and not high SEO ranked sites. Recommended block big sites like tiktok and quora with kagi's internal blocker instead.
+! Version: 2024-02-28
+! Homepage: https://github.com/gdub812/filter
+! //////////////////////////////////////////////////////////////
 ! Default template
 ! kagi.com##main#main div._0_provider-content > div:has(a[data-domain=""])
 
+
+! //////////////////////////////////////////////////////////////
 ! All subdomains
+! //////////////////////////////////////////////////////////////
 kagi.com##main#main div._0_provider-content > div:has(a[data-domain*="quora.com"])
 kagi.com##main#main div._0_provider-content > div:has(a[data-domain*="pinterest"])
 
+
+! //////////////////////////////////////////////////////////////
 ! Specific domains
+! //////////////////////////////////////////////////////////////
 kagi.com##main#main div._0_provider-content > div:has(a[data-domain="experte.com"])
 kagi.com##main#main div._0_provider-content > div:has(a[data-domain="howtowatchstreaming.com"])
 kagi.com##main#main div._0_provider-content > div:has(a[data-domain="bleepingcomputer.com"])
