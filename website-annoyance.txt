@@ -3,12 +3,17 @@
 ! Expires: 1 day
 ! Description: Remove website annoyance on specific sites
 ! Version: 2024-03-05
-! Homepage: https://github.com/gdub812/filter
+! Homepage: https://github.com/gdub812/filters
 ! //////////////////////////////////////////////////////////////
 ! Grades
-! High: Removed all extra content and really checked everything is working
-! Mid: Removed extra content and most important stuff working
-! Low: Removed most annoying content
+! High: High effort, Removed all extra content and really checked everything is working
+! Mid: Some effort, Removed extra content and most important stuff working
+! Low: Low effort, Removed most annoying content
+! //////////////////////////////////////////////////////////////
+! WARNING!
+! Some sites has rotating classes, meaning that classes on whole website changes from day to day. Therefore use xpath and attribute for targeting instead.
+! Affected sites is marked with:
+! //// Warning: Rotating classes!
 ! //////////////////////////////////////////////////////////////
 
 
@@ -227,31 +232,33 @@ www.digi.no##div.related-article.related-article-placeholder:style(opacity:0.3!i
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: www.tek.no
-! //// Update: 2024-02-26
+! //// Update: 2024-03-05
 ! //// Grade: Mid
+! //// Warning: Rotating classes!
 ! // Whole site and homepage
-! extra element header
-www.tek.no##header nav.lX, header div.cu.pr, header button.pu.jS.jQ.jO
+! extra element header desktop
+www.tek.no##header > div > div > div > nav, header > div > div > div > div > *:not(button[tabindex="2"], div[aria-hidden="false"])
+! extra element header mobile
+www.tek.no##header > div:nth-of-type(2)
 ! remove padding top
-www.tek.no##div.an > div.aJ
+www.tek.no##body > div:first-child > div > div:nth-child(2):style(height:0rem!important;)
 www.tek.no###maincontent:style(padding-top:0rem!important;)
-! other than news elements
-www.tek.no##main#maincontent > div.g > div
+! other than news elements // upsell end of article
+www.tek.no##main#maincontent > div > div
 ! mood buttons
-www.tek.no##div.al > div.ga
+www.tek.no##body > div:nth-of-type(1) > div > div:nth-of-type(3) > div > div:nth-of-type(1)
 
 ! // Article
-! upsellend of article 
-www.tek.no##main#maincontent > div.aT > *:not(article, div.aY)
-! extra header buttons
-www.tek.no##header.cf > div.pB
+! buttons header article
+www.tek.no##body > div:nth-of-type(1) > header > div:nth-of-type(3):not([aria-hidden])
+www.tek.no##body > div:nth-of-type(1) > header > div:nth-of-type(4):not([aria-hidden])
 ! --style-- fix spacing
-www.tek.no##main#maincontent article.cZ:style(padding-top:0rem!important;)
-www.tek.no##main#maincontent article.cZ > div.ia:style(margin-bottom:0rem!important)
-www.tek.no##main#maincontent article.cZ > h1.hk:style(padding-bottom:0.5rem!important;)
-www.tek.no##main#maincontent article.cZ > *:not(div.ia, div.ei, h1.hk):style(margin-bottom:1.2rem!important;margin-top:0rem!important; padding-bottom:0rem!important;)
+www.tek.no##main#maincontent > div > article:style(padding-top:0rem!important;)
+www.tek.no##main#maincontent > div > article > div:style(margin-bottom:0rem!important)
+www.tek.no##main#maincontent > div > article > h1:style(padding-bottom:0.5rem!important;)
+www.tek.no##main#maincontent > div > article > *:not(h1, div[tabindex]):style(margin-bottom:1.2rem!important;margin-top:0rem!important; padding-bottom:0rem!important;)
 ! --style-- low opacity other articles
-www.tek.no##main#maincontent article.cZ > div.hd:style(opacity:0.3!important;)
+www.tek.no##main#maincontent > div > article > div:has(a > div > div > img):style(opacity:0.3!important;)
 
 
 ! //////////////////////////////////////////////////////////////
