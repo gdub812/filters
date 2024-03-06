@@ -2,7 +2,7 @@
 ! Title: GDUB - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on specific sites
-! Version: 2024-03-05
+! Version: 2024-03-06
 ! Homepage: https://github.com/gdub812/filters
 ! //////////////////////////////////////////////////////////////
 ! Grades
@@ -86,7 +86,7 @@ www.kode24.no##.article-entity.artikkel article.medium-12.small-12.large-12.prev
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: www.nrk.no
-! //// Update: 2024-02-27
+! //// Update: 2024-03-06
 ! //// Grade: Mid
 ! // Whole site and homepage
 ! banner top
@@ -114,7 +114,7 @@ www.nrk.no##nrkno-oppdag-mer:style(opacity:0.3!important;)
 
 ! // Article
 ! nav bar
-www.nrk.no##.g100.col.fl.s18.sg6.sg9.sg12.menu-reference
+www.nrk.no##nav.rich.widget.menu
 ! --style-- padding article top
 www.nrk.no##div.group.widget.rich.cf.container-widget:style(padding-top:0rem!important;)
 ! audio block
@@ -141,7 +141,7 @@ www.nrk.no##div.group.widget.rich.floor.floor-bottom.negative.cf.container-widge
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: e24.no
-! //// Update: 2024-02-28
+! //// Update: 2024-03-06
 ! //// Grade: Mid
 ! // Whole site and homepage
 ! top news bar
@@ -172,32 +172,27 @@ e24.no##.netboard-row
 e24.no##.has-icon-e24pluss.article-teaser:style(opacity: 0.3 !important;)
 
 ! // article page
+! hide all main elements except article and timestamp
+e24.no##div#main > div:nth-of-type(2) > div:nth-of-type(2) > *:not(article, .timestamp)
 ! signup sale top
 e24.no##div#main > div > div > div.hyperion-css-5qyf4o
 ! ad between text
 e24.no##div.hyperion-css-1xm198b
-! more article bottom
-e24.no##.hyperion-css-ryevka
-! bottom ad
-e24.no##.hyperion-css-18sd1a9
-! job ads bottom
-e24.no##div.hyperion-css-0:has(iframe[src*="e24.no/stilling"])
 ! --style-- related articles opacity
 e24.no##a.inline.imagePosition-top:style(opacity: 0.3 !important;)
 ! share buttons top and bottom
 e24.no##section[class^="hyperion-css"]
+! podcast player
+e24.no###main article > div.fullWidthMobile.hyperion-css-tqenmn
 
-! // extra disabled article pages
-! info text link back to homepage
-!e24.no##.hyperion-css-1lemvax:has(a.default[href^="https://e24.no/"])
-! related paid article
-!e24.no##a.inline.imagePosition-top:has([class^="hyperion-css"]:contains("E24+"))
-! remove div element with create account extra, but slower
-!e24.no##div:has(>a[href*="bli-abonnent"])
-! create account
-!e24.no##a.styles-module_w3tYybq.styles-module_CjYrEiL.styles-module_n3Bu4jm
-! logg inn
-!e24.no##div.styles-module_m4g3JW8 > button.styles-module_AoakuDo
+
+! // old removed 2024-03-06
+! more article bottom
+!e24.no##.hyperion-css-ryevka
+! bottom ad
+!e24.no##.hyperion-css-18sd1a9
+! job ads bottom
+!e24.no##div.hyperion-css-0:has(iframe[src*="e24.no/stilling"])
 
 
 ! //////////////////////////////////////////////////////////////
