@@ -10,6 +10,16 @@
 
 
 ! //////////////////////////////////////////////////////////////
+! SECURITY - phishing with unicode domains - containing "XN--"
+! //////////////////////////////////////////////////////////////
+! Info: Domains with unicode can show as "apple.com" when real domain is "xn--80ak6aa92e.com"
+! Firefox settings: about:config -> network.IDN_show_punycode -> true
+! Link: https://www.xudongz.com/blog/2017/idn-phishing/
+! Give warning on these domains:
+*xn--$document
+
+
+! //////////////////////////////////////////////////////////////
 ! Filter risk word's in domain, --style-- less visible
 ! //////////////////////////////////////////////////////////////
 kagi.com##main#main div._0_provider-content > div:has(a[data-domain*="vpn"]):style(opacity:0.3;)
