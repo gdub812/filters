@@ -1,24 +1,86 @@
 ! //////////////////////////////////////////////////////////////
 ! Title: GDUB - website-annoyance
 ! Expires: 1 day
-! Description: Remove website annoyance on specific sites
+! Description: Remove website annoyance on sites
 ! Version: 2024-03-13
 ! Homepage: https://github.com/gdub812/filters
+! Author: GDUB
 ! //////////////////////////////////////////////////////////////
-! Grades
-! High: High effort, Removed all extra content and really checked everything is working
-! Mid: Some effort, Removed extra content and most important stuff working
-! Low: Low effort, Removed most annoying content
+! //// Documentation/Info
 ! //////////////////////////////////////////////////////////////
-! WARNING!
-! Some sites has rotating classes, meaning that classes on whole website changes from day to day. Therefore use xpath and attribute for targeting instead.
+! //// Good resources Ublock Origin
+! https://github.com/gorhill/uBlock/wiki/Static-filter-syntax
+! https://github.com/gorhill/uBlock/wiki/Procedural-cosmetic-filters
+! https://github.com/gorhill/uBlock/wiki/Filter-Performance
+! //////////////////////////////////////////////////////////////
+! //// Grades - higher grade is more effort
+! // High:
+! +Removed most/all annoying content
+! +Also removed unnessesary elements
+! +Filter for specific pages/subpages (:matches-path())
+! +Check most webpages working correctly
+! +Styling making webpages better
+! +Structured filter comments
+!
+! // Mid:
+! +Removed most/all annoying content
+! +Checked most important webpages working correctly
+! +Fix layout with styling 
+! -Filters target globally, filters might impact wrong webpages 
+! -Easy filter comments
+!
+! // Low:
+! +Removed some annoying content
+! -Checked if other pages working correctly
+! -Used styling
+! -Global filters
+! -No filter comments
+! //////////////////////////////////////////////////////////////
+! //// Efficient filtering rules
+! // Important! Create filters that match as accurately (target excatly the element you want), efficient (the smallest number of selectors) and performance (load fast) as possible.
+! 1. Use CSS targeting with element, class, id, attribute ...
+! Better performance, removing elements faster
+! Recommended: Elements above the fold (what you see when at top of new webpage) like header, title etc.
+! 2. Use procedural cosmetic filters (:has, :has-text, :match-path, :not)
+! Bit slower, but more tools to select elements more accurately and efficient
+! Recommended: :match-path - target specific subpages like homepage, category, article, blog 
+! Recommended: :has - remove parent element where child only has identifiable element (div -> a, a class="yes", div -> a)
+! Not recommended: Elements above the fold
+
+! // Example layout: <body id="mainbody"><div class="box align-center"><header class="header-top box-element"><nav class="navbar"><div class="button-link"><button class="link"><a class="style">This amazing link text!</a> <-- Annoying element wants removed
+! // Good example: example.com##header > nav > div.button-link
+! +Used bracket ">" for direct children
+! +Always used elements in selector (not classes alone)
+! +Only used what was needed for targting (no ekstra elements, id or classes)
+! +Target highest possible parent of element wanted to be removed, div.button-link instead of a.style
+! Could use :not or :has if needed (+accurately +efficient -performance)
+! //Bad example: example.com##body#mainbody .box.align-center .header-top .button-link a.style:has-text("This amazing link text!")
+! -No bracket ">" for direct children
+! -Classes alone, should also had elements (div, a, header)
+! -Too many selectors than needed
+! -Used :has-text when not needed, and could be shortened to more unique words like "amazing"
+
+! //// WARNING!
+! Some websites has dynamic classes, meaning that classes changes from time to time automatically. Therefore use xpath and attribute selector instead for targeting.
 ! Affected sites is marked with:
 ! //// Warning: Rotating classes!
 ! //////////////////////////////////////////////////////////////
+! //// Comment on specific filters
+! Where placed - first vertical axis and then horizontal, inside element (article) or whole page (header, content, footer) - start - maincontent, top-left - navbar
+! What Element - header, button, div, link - div popup, button link
+! Purpose - what does the element do? - signup, flash effect, popup sale
+! Example: top-right - navbar, button, login
+! Example: start - content, buttons - links, share social media
+! //////////////////////////////////////////////////////////////
+! //// Layout setup for websites
+! 1. Info about filter, which site, last updated, which grade, any warnings?
+! 2. Divided into different part of the website: whole site, homepage, category, article
+! 3. Specific filters with comment directly over the filter. Filters should go in the order of where on the webpage the content is removed from first top to bottom, and starting from left to right. Therefore this order top-left, top-center, top-rigt then middle-left, middle-center...
+! //////////////////////////////////////////////////////////////
 
 
 ! //////////////////////////////////////////////////////////////
-! Cross sites
+! Global filter (Across websites)
 ! //////////////////////////////////////////////////////////////
 ! Google login popup (reddit and other sites)
 ##iframe[src^="https://accounts.google.com/gsi/iframe/select?client_id"]
@@ -26,7 +88,7 @@
 
 
 ! //////////////////////////////////////////////////////////////
-! News
+! News sites
 ! //////////////////////////////////////////////////////////////
 
 
@@ -264,7 +326,7 @@ tek.no##main#maincontent > div > article > div > iframe
 
 
 ! //////////////////////////////////////////////////////////////
-! Manga
+! Manga sites
 ! //////////////////////////////////////////////////////////////
 
 
