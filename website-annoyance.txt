@@ -2,7 +2,7 @@
 ! Title: GDUB - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on specific sites
-! Version: 2024-03-09
+! Version: 2024-03-13
 ! Homepage: https://github.com/gdub812/filters
 ! //////////////////////////////////////////////////////////////
 ! Grades
@@ -31,113 +31,115 @@
 
 
 ! //////////////////////////////////////////////////////////////
-! //// Site: www.kode24.no
+! //// Site: kode24.no
 ! //// Update: 2024-02-08
 ! //// Grade: Mid
 ! // Whole site and homepage
 ! notification banner bottom
-www.kode24.no###top-notification
+kode24.no###top-notification
 ! Right sidebar
-www.kode24.no###desktop-sidemenu-front
+kode24.no###desktop-sidemenu-front
 ! Left sidebar
-www.kode24.no###left-menu
+kode24.no###left-menu
 ! --style-- All after removing left and right bar
-www.kode24.no##div.frontpage.wide:style(grid-template-columns:0rem!important;)
+kode24.no##div.frontpage.wide:style(grid-template-columns:0rem!important;)
 ! dark mode button
-www.kode24.no###mode-toggle
+kode24.no###mode-toggle
 ! blinking article border
-www.kode24.no##article::before
+kode24.no##article::before
 ! commercial/ads
-www.kode24.no##.commercial-content
-www.kode24.no###diamond-partners-list-tile
-www.kode24.no##.commercial
+kode24.no##.commercial-content
+kode24.no###diamond-partners-list-tile
+kode24.no##.commercial
 ! fix mobile ad banner
-www.kode24.no##div[id*="ad-banner"]
+kode24.no##div[id*="ad-banner"]
 ! nav bar
-www.kode24.no###nav-top
+kode24.no###nav-top
 !:not(#search-component-wrapper)
 ! remove banner
-www.kode24.no###banner-top-wide-container
+kode24.no###banner-top-wide-container
 ! sort button, siste, reaksjoner and kommentarer
-www.kode24.no###sort-latest-articles
+kode24.no###sort-latest-articles
 ! lasts comments box
-www.kode24.no##div.show-for-medium-up.row
+kode24.no##div.show-for-medium-up.row
 ! news card for old articles in categories
-www.kode24.no##.card.desktop-row.row
+kode24.no##.card.desktop-row.row
 ! --style-- background color fix
-www.kode24.no###page-body, .frontpage.wide, #left-menu, .preview.columns.compact:style(background: none !important;)
+kode24.no###page-body, .frontpage.wide, #left-menu, .preview.columns.compact:style(background: none !important;)
 ! --style-- spacing logo
-www.kode24.no###top-bar-logo:style(margin:0.5rem;)
+kode24.no###top-bar-logo:style(margin:0.5rem;)
 ! fjerne kommentarer under artikkler
-www.kode24.no##.article-content-wrapper > .article-preview-text > .article-social > .oneline.comment-tile
+kode24.no##.article-content-wrapper > .article-preview-text > .article-social > .oneline.comment-tile
 
 ! // Article
 ! info box article
-www.kode24.no##aside.panel
-www.kode24.no###desktop-rows
-www.kode24.no###tip-us-call-to-action
+kode24.no##aside.panel
+kode24.no###desktop-rows
+kode24.no###tip-us-call-to-action
 ! --style-- more compact layout
-www.kode24.no##.article-entity .columns.byline, footer.main-footer div.row:style(padding:0rem!important;)
-www.kode24.no###hyvor-talk-iframe, div.row, .main-footer:style(margin:0rem!important;)
-www.kode24.no##div.frontpage.wide:style(padding-bottom:0rem!important;)
-www.kode24.no##div.frontpage.wide:style(padding-top:4rem!important;)
+kode24.no##.article-entity .columns.byline, footer.main-footer div.row:style(padding:0rem!important;)
+kode24.no###hyvor-talk-iframe, div.row, .main-footer:style(margin:0rem!important;)
+kode24.no##div.frontpage.wide:style(padding-bottom:0rem!important;)
+kode24.no##div.frontpage.wide:style(padding-top:4rem!important;)
 ! --style-- less visible extra articles
-www.kode24.no##.article-entity.artikkel article.medium-12.small-12.large-12.preview:style(opacity: 0.3 !important;)
+kode24.no##.article-entity.artikkel article.medium-12.small-12.large-12.preview:style(opacity: 0.3 !important;)
 
 
 ! //////////////////////////////////////////////////////////////
-! //// Site: www.nrk.no
-! //// Update: 2024-03-06
+! //// Site: nrk.no
+! //// Update: 2024-03-13
 ! //// Grade: Mid
 ! // Whole site and homepage
 ! banner top
-www.nrk.no##.nrk-masthead__apps
+nrk.no##.nrk-masthead__apps
 ! nav buttons
-www.nrk.no##header.nrk-masthead > *:not(#nrk-masthead__jump-anchor, .nrk-masthead__logo)
-www.nrk.no##div.nrk-masthead__user
+nrk.no##header.nrk-masthead > *:not(#nrk-masthead__jump-anchor, .nrk-masthead__logo)
+nrk.no##div.nrk-masthead__user
 ! --style-- fix padding after removed header
-www.nrk.no##.nrk-masthead.lp_masthead:style(padding-top:0rem!important;)
+nrk.no##.nrk-masthead.lp_masthead:style(padding-top:0rem!important;)
 ! remove newest messages banner and not articles
-www.nrk.no##kur-newsfeed.kur-newsfeed.lp_newsfeed
+nrk.no##kur-newsfeed.kur-newsfeed.lp_newsfeed
 ! explore more block
-www.nrk.no##.kur-floor--oppdag-mer.kur-floor--apartment.kur-floor--mix.kur-floor
+nrk.no##.kur-floor--oppdag-mer.kur-floor--apartment.kur-floor--mix.kur-floor
 ! district news block
-www.nrk.no##.exp-dh-nrkno-district-parent-room.tracklp
+nrk.no##.exp-dh-nrkno-district-parent-room.tracklp
 ! video block
-www.nrk.no##.kur-floor--video
+nrk.no##.kur-floor--video
 ! radio block
-www.nrk.no##div.radio-multi-app
+nrk.no##div.radio-multi-app
 ! reminder article block
-www.nrk.no##dh-langlesing-v0
+nrk.no##dh-langlesing-v0
 ! --style-- not always important so lower opacity
-www.nrk.no##section.kur-floor--apartment.kur-floor--mix.kur-floor:style(opacity:0.3!important;)
-www.nrk.no##nrkno-oppdag-mer:style(opacity:0.3!important;)
+nrk.no##section.kur-floor--apartment.kur-floor--mix.kur-floor:style(opacity:0.3!important;)
+nrk.no##nrkno-oppdag-mer:style(opacity:0.3!important;)
+! Animation red dot latest news
+nrk.no##span.kur-label__tag-icon
 
 ! // Article
 ! nav bar
-www.nrk.no##nav.rich.widget.menu
+nrk.no##nav.rich.widget.menu
 ! --style-- padding article top
-www.nrk.no##div.group.widget.rich.cf.container-widget:style(padding-top:0rem!important;)
+nrk.no##div.group.widget.rich.cf.container-widget:style(padding-top:0rem!important;)
 ! audio block
-www.nrk.no##.audio-reference
+nrk.no##.audio-reference
 ! sidebar related articles
-www.nrk.no##div.article-sidebar.lp_related
+nrk.no##div.article-sidebar.lp_related
 !sidebar share
-www.nrk.no##aside.article-share
+nrk.no##aside.article-share
 ! --style-- related articles
-www.nrk.no##div.article.widget.reference:style(opacity:0.3!important;)
+nrk.no##div.article.widget.reference:style(opacity:0.3!important;)
 ! end related articles
-www.nrk.no##.universe-reference
+nrk.no##.universe-reference
 ! playlist block
-www.nrk.no##.playlist-container
+nrk.no##.playlist-container
 ! feedback box
-www.nrk.no##hei-boksen-v1
+nrk.no##hei-boksen-v1
 ! recommend end of article
-www.nrk.no##.lp_relatedglobal.elglobo
+nrk.no##.lp_relatedglobal.elglobo
 ! other info end of article
-www.nrk.no##div.group-reference.sg12.sg9.sg6.s18.fc.col.g100:nth-of-type(4)
-www.nrk.no##div.group.widget.rich.cf.container-widget > *:not(:first-child)
-www.nrk.no##div.group.widget.rich.floor.floor-bottom.negative.cf.container-widget
+nrk.no##div.group-reference.sg12.sg9.sg6.s18.fc.col.g100:nth-of-type(4)
+nrk.no##div.group.widget.rich.cf.container-widget > *:not(:first-child)
+nrk.no##div.group.widget.rich.floor.floor-bottom.negative.cf.container-widget
 
 
 ! //////////////////////////////////////////////////////////////
@@ -197,68 +199,68 @@ e24.no###main article > div.fullWidthMobile.hyperion-css-tqenmn
 
 
 ! //////////////////////////////////////////////////////////////
-! //// Site: www.digi.no
+! //// Site: digi.no
 ! //// Update: 2023-11-29
 ! // homepage
 ! ad
-www.digi.no##.col-span-12:has(div:contains("annons"))
+digi.no##.col-span-12:has(div:contains("annons"))
 ! style - paid article less visible
-www.digi.no##div.col-span-12.flex:has(use[href="/sprite.svg#ekstra-badge-text"]):style(opacity:0.3!important;)
+digi.no##div.col-span-12.flex:has(use[href="/sprite.svg#ekstra-badge-text"]):style(opacity:0.3!important;)
 ! ad job positions
-www.digi.no##.col-span-12:has(a.block.group)
+digi.no##.col-span-12:has(a.block.group)
 ! extra entertainment
-www.digi.no##.col-span-12:has(span:contains("Hjerne"))
+digi.no##.col-span-12:has(span:contains("Hjerne"))
 ! style - remove space footer top
-www.digi.no##footer.leading-snug:style(margin-top:0rem!important;padding-top:1rem!important;)
+digi.no##footer.leading-snug:style(margin-top:0rem!important;padding-top:1rem!important;)
 
 ! // article
 ! author and share button
-www.digi.no##.flex-col.flex.mx-auto.max-w-body:has(span:contains("Del"))
+digi.no##.flex-col.flex.mx-auto.max-w-body:has(span:contains("Del"))
 ! --style - fix space text after removing element
-www.digi.no##.top-image-caption:style(margin-bottom:1rem!important;)
+digi.no##.top-image-caption:style(margin-bottom:1rem!important;)
 ! info article guidelines
-www.digi.no##.max-w-body.mx-auto:has(a[href^="https://www.digi.no/artikler/retningslinjer-for-debattinnlegg"])
+digi.no##.max-w-body.mx-auto:has(a[href^="https://digi.no/artikler/retningslinjer-for-debattinnlegg"])
 ! ad
-www.digi.no##div[id^="adContainer"]
+digi.no##div[id^="adContainer"]
 ! ad job positions
-www.digi.no##.max-w-body-wide.mx-auto:has([href^="https://tekjobb.no/stillinger"])
+digi.no##.max-w-body-wide.mx-auto:has([href^="https://tekjobb.no/stillinger"])
 ! style - related articles
-www.digi.no##div.related-article.related-article-placeholder:style(opacity:0.3!important;)
+digi.no##div.related-article.related-article-placeholder:style(opacity:0.3!important;)
 
 
 ! //////////////////////////////////////////////////////////////
-! //// Site: www.tek.no
+! //// Site: tek.no
 ! //// Update: 2024-03-09
 ! //// Grade: Mid
 ! //// Warning: Rotating classes!
 ! // Whole site and homepage
 ! extra element header desktop
-www.tek.no##header > div > div > div > nav, header > div > div > div > div > *:not(button[tabindex="2"], div[aria-hidden="false"])
+tek.no##header > div > div > div > nav, header > div > div > div > div > *:not(button[tabindex="2"], div[aria-hidden="false"])
 ! extra element header mobile
-www.tek.no##header > div:nth-of-type(2)
+tek.no##header > div:nth-of-type(2)
 ! remove padding top
-www.tek.no##body > div:first-child > div > div:nth-child(2):empty:style(height:0rem!important;)
-www.tek.no###maincontent:style(padding-top:0rem!important;)
+tek.no##body > div:first-child > div > div:nth-child(2):empty:style(height:0rem!important;)
+tek.no###maincontent:style(padding-top:0rem!important;)
 ! other than news elements // upsell end of article
-www.tek.no##main#maincontent > div > div
+tek.no##main#maincontent > div > div
 ! mood buttons
-www.tek.no##body > div:nth-of-type(1) > div > div:nth-of-type(3) > div > div:nth-of-type(1)
+tek.no##body > div:nth-of-type(1) > div > div:nth-of-type(3) > div > div:nth-of-type(1)
 
 ! // Article
 ! buttons header article
-www.tek.no##body > div:nth-of-type(1) > header > div:nth-of-type(3):not([aria-hidden])
-www.tek.no##body > div:nth-of-type(1) > header > div:nth-of-type(4):not([aria-hidden])
+tek.no##body > div:nth-of-type(1) > header > div:nth-of-type(3):not([aria-hidden])
+tek.no##body > div:nth-of-type(1) > header > div:nth-of-type(4):not([aria-hidden])
 ! --style-- fix spacing
-www.tek.no##main#maincontent > div > article:style(padding-top:0rem!important;)
-www.tek.no##main#maincontent > div > article > div:style(margin-bottom:0rem!important)
-www.tek.no##main#maincontent > div > article > h1:style(padding-bottom:0.5rem!important;)
-www.tek.no##main#maincontent > div > article > *:not(h1, div[tabindex]):style(margin-bottom:1.2rem!important;margin-top:0rem!important; padding-bottom:0rem!important;)
+tek.no##main#maincontent > div > article:style(padding-top:0rem!important;)
+tek.no##main#maincontent > div > article > div:style(margin-bottom:0rem!important)
+tek.no##main#maincontent > div > article > h1:style(padding-bottom:0.5rem!important;)
+tek.no##main#maincontent > div > article > *:not(h1, div[tabindex]):style(margin-bottom:1.2rem!important;margin-top:0rem!important; padding-bottom:0rem!important;)
 ! --style-- low opacity other articles
-www.tek.no##main#maincontent > div > article > div:has(a > div > div > img):style(opacity:0.3!important;)
+tek.no##main#maincontent > div > article > div:has(a > div > div > img):style(opacity:0.3!important;)
 ! mood button
-www.tek.no##body > div:nth-of-type(1) > div > div:nth-of-type(2) > div > *:not(main, footer)
+tek.no##body > div:nth-of-type(1) > div > div:nth-of-type(2) > div > *:not(main, footer)
 ! remove add bottom mobile
-www.tek.no##main#maincontent > div > article > div > iframe
+tek.no##main#maincontent > div > article > div > iframe
 
 
 ! //////////////////////////////////////////////////////////////
