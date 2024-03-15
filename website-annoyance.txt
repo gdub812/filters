@@ -40,12 +40,12 @@
 ! // Important! Create filters that match as accurately (target excatly the element you want), efficient (the smallest number of selectors) and performance (load fast) as possible.
 ! 1. Use CSS targeting with element, class, id, attribute ...
 ! Better performance, removing elements faster
-! Recommended: Elements above the fold (what you see when at top of new webpage) like header, title etc.
+! Recommended: Elements above the fold (what you see when at top of new webpage) like header and start of content
 ! 2. Use procedural cosmetic filters (:has, :has-text, :match-path, :not)
 ! Bit slower, but more tools to select elements more accurately and efficient
-! Recommended: :match-path - target specific subpages like homepage, category, article, blog 
+! Recommended: :match-path - target specific subpages like homepage, category, article, blog
 ! Recommended: :has - remove parent element where child only has identifiable element (div -> a, a class="yes", div -> a)
-! Not recommended: Elements above the fold
+! Not recommended: Elements above the fold, like header and start of content
 
 ! // Example layout: <body id="mainbody"><div class="box align-center"><header class="header-top box-element"><nav class="navbar"><div class="button-link"><button class="link"><a class="style">This amazing link text!</a> <-- Annoying element wants removed
 ! // Good example: example.com##header > nav > div.button-link
@@ -75,7 +75,7 @@
 ! //// Layout setup for websites
 ! 1. Info about filter, which site, last updated, which grade, any warnings?
 ! 2. Divided into different part of the website: whole site, homepage, category, article
-! 3. Specific filters with comment directly over the filter. Filters should go in the order of where on the webpage the content is removed from first top to bottom (header -> content -> footer), and starting from left to right. Therefore this order top-left, top-center, top-rigt then middle-left, middle-center...
+! 3. Specific filters put under which part of the website targeted (homepage, category). Comments over filters explaining where on webpage and what purpose. Filters should go in the order of where on the webpage the content is removed from top to bottom (header -> content -> footer), and starting from left to right. Therefore this order top-left, top-center, top-rigt then middle-left, middle-center...
 ! //////////////////////////////////////////////////////////////
 
 
