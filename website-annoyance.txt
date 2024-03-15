@@ -66,7 +66,7 @@
 ! //// Warning: Rotating classes!
 ! //////////////////////////////////////////////////////////////
 ! //// Comment on specific filters
-! Where placed - first vertical axis and then horizontal, inside element (article) or whole page (header, content, footer) - start - maincontent, top-left - navbar
+! Where placed - first vertical (header -> content -> footer)(top, middle, bottom) then horizontal (left, center, right). Like: header - right, content - middle, footer - top-left
 ! What Element - header, button, div, link - div popup, button link
 ! Purpose - what does the element do? - signup, flash effect, popup sale
 ! Example: top-right - navbar, button, login
@@ -75,7 +75,7 @@
 ! //// Layout setup for websites
 ! 1. Info about filter, which site, last updated, which grade, any warnings?
 ! 2. Divided into different part of the website: whole site, homepage, category, article
-! 3. Specific filters with comment directly over the filter. Filters should go in the order of where on the webpage the content is removed from first top to bottom, and starting from left to right. Therefore this order top-left, top-center, top-rigt then middle-left, middle-center...
+! 3. Specific filters with comment directly over the filter. Filters should go in the order of where on the webpage the content is removed from first top to bottom (header -> content -> footer), and starting from left to right. Therefore this order top-left, top-center, top-rigt then middle-left, middle-center...
 ! //////////////////////////////////////////////////////////////
 
 
