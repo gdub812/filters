@@ -66,11 +66,11 @@
 ! //// Warning: Rotating classes!
 ! //////////////////////////////////////////////////////////////
 ! //// Comment on specific filters
-! Where placed - first vertical (header -> content -> footer)(top, middle, bottom) then horizontal (left, center, right). Like: header - right, content - middle, footer - top-left
+! Where placed - first vertical (header -> content -> footer)(top, middle, bottom) then horizontal (left, center, right). Like: header right, content middle, footer top-left
 ! What Element - header, button, div, link - div popup, button link
 ! Purpose - what does the element do? - signup, flash effect, popup sale
-! Example: top-right - navbar, button, login
-! Example: start - content, buttons - links, share social media
+! Example: header top-right - button - login
+! Example: content top, buttons links, share social media
 ! //////////////////////////////////////////////////////////////
 ! //// Layout setup for websites
 ! 1. Info about filter, which site, last updated, which grade, any warnings?
