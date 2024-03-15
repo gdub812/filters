@@ -1,0 +1,173 @@
+! //////////////////////////////////////////////////////////////
+! //// Site: youtube.com
+! //// Update: 2024-03-12
+! //// Grade: High
+! //// Resource: https://www.reddit.com/r/uBlockOrigin/wiki/solutions/youtube/#wiki_shorts
+! // Whole site
+! --cookie-- dark mode -- need to before reject cookie
+youtube.com##+js(trusted-set-cookie, PREF, tz=UTC&f4=4000000&f7=100&f6=400, ,none, reload, 1)
+! --cookie-- theator mode
+youtube.com##+js(set-cookie, wide, 1)
+! --cookie-- reject cookie set
+youtube.com##+js(trusted-set-cookie, SOCS, CAESEwgDEgk2MTQ0OTE3NDMaAmVuIAEaBgiAtr6vBg, ,none, reload, 1)
+! Remove annontations video
+/annotations_module.js$script,xhr,important,domain=youtube.com
+! Remove end screen
+/endscreen.js$script,xhr,important,domain=youtube.com
+! stop youtube viewcount from updating live
+https://www.youtube.com/youtubei/v1/updated_metadata*
+! login button
+youtube.com##ytd-masthead#masthead div#buttons > ytd-button-renderer
+! menu icon
+youtube.com##div#start > yt-icon-button#guide-button
+! mini left-sidebar
+youtube.com##div#content > ytd-mini-guide-renderer
+! big left-sidebar
+youtube.com##tp-yt-app-drawer
+! subscribe button
+youtube.com##div#subscribe-button
+! "join" community button
+youtube.com##div#sponsor-button
+
+
+! // Homepage :matches-path(/^/$/)
+! Maincontent
+youtube.com##:matches-path(/^/$/) ytd-browse[page-subtype="home"]
+
+
+! // Channel page :matches-path(@)
+
+
+! // Search page :matches-path(results?search)
+! YT Search - just videos + channels
+youtube.com##:matches-path(results?search) ytd-search ytd-item-section-renderer > #contents > :not(ytd-video-renderer, ytd-channel-renderer)
+youtube.com##:matches-path(results?search) ytd-secondary-search-container-renderer
+
+
+! // Video page :matches-path(watch?v=)
+! / player
+! player - "next video"
+youtube.com##:matches-path(watch?v=) a.ytp-next-button.ytp-button[data-title-no-tooltip="Next"]
+! player - "autoplay"
+youtube.com##:matches-path(watch?v=) button.ytp-button[data-tooltip-target-id="ytp-autonav-toggle-button"]
+! player - "miniplayer"
+youtube.com##:matches-path(watch?v=) button.ytp-button[data-tooltip-target-id="ytp-miniplayer-button"]
+! player - "theater/normal"
+youtube.com##:matches-path(watch?v=) button.ytp-button[data-title-no-tooltip="Default view"]
+! player - "full screen"
+youtube.com##:matches-path(watch?v=) button.ytp-button[data-title-no-tooltip="Full screen"]
+! paid content overlay
+youtube.com##:matches-path(watch?v=) div#movie_player > div.ytp-paid-content-overlay
+! / video navbar
+! "Save" button to playlist video navbar
+youtube.com##:matches-path(watch?v=) div#top-row div#menu > ytd-menu-renderer > div#flexible-item-buttons
+! "Report" button video navbar
+youtube.com##:matches-path(watch?v=) div#top-row div#menu > ytd-menu-renderer > yt-button-shape#button-shape
+! clarify box like covid under video
+youtube.com##:matches-path(watch?v=) div#clarify-box
+! comment box
+youtube.com##:matches-path(watch?v=) div#simple-box
+! / comment section
+! "Report" button comment section
+youtube.com##:matches-path(watch?v=) div#action-menu.ytd-comment-view-model
+! --style-- max width comments section (better readability)
+youtube.com##:matches-path(watch?v=) ytd-comment-renderer > div > div#main:style(max-width: 80rem!important;)
+! "reply" button comment section
+youtube.com##:matches-path(watch?v=) ytd-button-renderer#reply-button-end
+! dislike button in comment section
+youtube.com##:matches-path(watch?v=) ytd-toggle-button-renderer#dislike-button
+! --style-- disable clickable like buttons comments
+youtube.com##:matches-path(watch?v=) yt-button-shape > a[aria-label^="Like this"]:style(pointer-events: none; cursor: default;)
+! / related videos
+! --style-- margin top related videos
+youtube.com##:matches-path(watch?v=) div#related:style(margin-top: 10rem!important;)
+! dropdown button on related videos
+youtube.com##:matches-path(watch?v=) ytd-menu-renderer.ytd-compact-video-renderer
+! hover buttons on related videos
+youtube.com##:matches-path(watch?v=) div#hover-overlays.ytd-thumbnail
+
+! //////////////////////////////////////////////////////////////
+! Was not consistent enough when clicking through youtube. Worked often only when refreshed page manually
+! //////////////////////////////////////////////////////////////
+! --js local storage-- Set 1080p
+!youtube.com##+js(trusted-set-local-storage-item, yt-player-quality, '{"data":"{\"quality\":1080,\"previousQuality\":1080}","expiration":1800000000000,"creation":1700000000000}')
+! --js- local storage-- fake good bandwidth for 1080p
+!youtube.com##+js(trusted-set-local-storage-item, yt-player-bandwidth, '{"data":"{\"delay\":0.03000000000000000,\"stall\":0,\"byterate\":9990000000,\"init\":1700000000000}","expiration":1800000000000,"creation":1700000000000}')
+! --js click-- turn off auto play -- even if hidden
+!www.youtube.com##+js(trusted-click-element, ytd-watch-flexy.ytd-page-manager button.ytp-button[data-tooltip-target-id="ytp-autonav-toggle-button"][aria-label="Autoplay is on"])
+! --js click-- sett 1080p (HD) --> 1 settings icon, 2 quality, 3 1080p
+!www.youtube.com##+js(trusted-click-element, 'ytd-watch-flexy.ytd-page-manager button.ytp-button[data-tooltip-target-id="ytp-settings-button"], ytd-watch-flexy.ytd-page-manager div.ytp-settings-menu > div.ytp-panel > div.ytp-panel-menu > :last-child, ytd-watch-flexy.ytd-page-manager div.ytp-popup.ytp-settings-menu > div.ytp-quality-menu > div.ytp-panel-menu > :nth-last-child(7)')
+! --js click-- auto pause channel page video
+!www.youtube.com##+js(trusted-click-element, ytd-channel-video-player-renderer.style-scope.ytd-item-section-renderer div.html5-video-player button.ytp-play-button.ytp-button[data-title-no-tooltip="Pause"])
+! Hide channel introduction video -- bug kan still play in background
+!www.youtube.com##:matches-path(@) div#primary > ytd-section-list-renderer > div#contents > :first-child:has(#header, #spinner-container, #contents, #continuations)
+
+
+! //////////////////////////////////////////////////////////////
+! OLD setup
+! //////////////////////////////////////////////////////////////
+! end part of description box with: related from creator, channel, transcript
+!www.youtube.com###structured-description
+! // unsure excactly what
+! ?? channel page?
+!www.youtube.com##.ytp-cards-button-icon
+! ?? paid content?
+!www.youtube.com##.ytp-paid-content-overlay-link
+! ?? channel page? lots of elements
+!www.youtube.com##.ytd-shelf-renderer.style-scope
+! ?? under info box from video, but what?
+!www.youtube.com##.ytd-metadata-row-container-renderer.style-scope
+! ?? search button with voice input
+!www.youtube.com###voice-search-button
+! ??
+!www.youtube.com##.style-scope.ytd-popup-container[horizontal-align="center"]
+! // not found at all
+! XX
+!www.youtube.com##.ysm-tags.style-default.ytd-masthead.style-scope > .ytd-topbar-menu-button-renderer.style-scope
+! XX
+!www.youtube.com##.ysm-order-button.ytd-grid-video-renderer.style-scope
+! XX
+!www.youtube.com###segmented-dislike-button
+! XX
+!www.youtube.com##.on.ysm-btn-list-move-container
+!// added in new filter
+! ?? left-sidebar elements
+!www.youtube.com##.style-scope.ytd-guide-renderer .style-scope.ytd-guide-renderer:not(.guide-section.yms-block-groups.hover-action-menu-trigger)
+! dropdown button on related videoes
+!www.youtube.com##.ytd-compact-video-renderer.style-scope > .ytd-menu-renderer.style-scope.dropdown-trigger
+! reels (short videoes) in search
+!www.youtube.com##ytd-reel-shelf-renderer.ytd-item-section-renderer.style-scope
+! dislike button in comment section
+!www.youtube.com###dislike-button
+! "reply" button comments
+!www.youtube.com###reply-button-end > .ytd-comment-action-buttons-renderer.style-scope
+! sidebar
+!www.youtube.com##ytd-guide-section-renderer.ytd-guide-renderer.style-scope:nth-of-type(1)
+! mini sidebar
+!www.youtube.com##ytd-mini-guide-renderer.ytd-app.style-scope
+! main content homepage
+!www.youtube.com##ytd-two-column-browse-results-renderer[page-subtype="home"]
+! "join" button
+!www.youtube.com###sponsor-button
+! comment box
+!www.youtube.com###simple-box
+! sign in button
+!www.youtube.com##ytd-button-renderer.ytd-masthead.style-scope
+! left-sidebar copyright info
+!www.youtube.com###copyright
+! player - autoplay button
+!www.youtube.com##.ytp-button[data-tooltip-target-id="ytp-autonav-toggle-button"]
+! clarify box like covid under video
+!www.youtube.com###clarify-box
+! "subscribe" button
+!www.youtube.com##.ytd-watch-metadata.style-scope > .ytd-subscribe-button-renderer.style-scope
+! ?? "save" button
+!www.youtube.com###flexible-item-buttons > .ytd-menu-renderer.style-scope
+! player - next button
+!www.youtube.com##.ytp-button.ytp-next-button
+! player - fullscreen button
+!www.youtube.com##.ytp-button.ytp-fullscreen-button
+! player - theater/normal button
+!www.youtube.com##.ytp-button.ytp-size-button
+! player - miniplayer button
+!www.youtube.com##.ytp-button.ytp-miniplayer-button
