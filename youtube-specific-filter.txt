@@ -1,6 +1,10 @@
 ! //////////////////////////////////////////////////////////////
-! //// Site: youtube.com
-! //// Update: 2024-03-12
+! Title: GDUB - youtube specific filter
+! Expires: 1 day
+! Description: Create a better youtube experience with auto set cookie, remove annoyance and change layout.
+! Version: 2024-03-12
+! Homepage: https://github.com/gdub812/filter
+! //////////////////////////////////////////////////////////////
 ! //// Grade: High
 ! //// Resource: https://www.reddit.com/r/uBlockOrigin/wiki/solutions/youtube/#wiki_shorts
 ! // Whole site
