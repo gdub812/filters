@@ -2,7 +2,7 @@
 ! Title: GDUB - youtube specific filter
 ! Expires: 1 day
 ! Description: Create a better youtube experience with auto set cookie, remove annoyance and change layout.
-! Version: 2024-03-12
+! Version: 2024-03-15
 ! Homepage: https://github.com/gdub812/filter
 ! //////////////////////////////////////////////////////////////
 ! //// Grade: High
@@ -33,20 +33,19 @@ youtube.com##div#subscribe-button
 ! "join" community button
 youtube.com##div#sponsor-button
 
-
 ! // Homepage :matches-path(/^/$/)
-! Maincontent
-youtube.com##:matches-path(/^/$/) ytd-browse[page-subtype="home"]
-
+! Content all - info boxes
+youtube.com##ytd-feed-nudge-renderer > div#dismissible
 
 ! // Channel page :matches-path(@)
 
-
 ! // Search page :matches-path(results?search)
 ! YT Search - just videos + channels
-youtube.com##:matches-path(results?search) ytd-search ytd-item-section-renderer > #contents > :not(ytd-video-renderer, ytd-channel-renderer)
-youtube.com##:matches-path(results?search) ytd-secondary-search-container-renderer
-
+youtube.com##ytd-search ytd-item-section-renderer > #contents > :not(ytd-video-renderer, ytd-channel-renderer)
+youtube.com##ytd-secondary-search-container-renderer
+! Content top - search filters buttons
+youtube.com##ytd-search-header-renderer > div#chip-bar
+youtube.com##ytd-search-header-renderer > div#about-these-results
 
 ! // Video page :matches-path(watch?v=)
 ! / player
