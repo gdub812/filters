@@ -231,7 +231,7 @@ reddit.com##aside[aria-label="Community information"]:active:style(opacity: 1; t
 ! content top-right - "create post" and "join" button
 reddit.com##div.masthead > section > div > div:last-child
 ! content top - community banner
-reddit.com##div.masthead > div
+reddit.com##div.community-banner
 ! --style-- content top - fix logo layout mobile and desktop
 reddit.com##div.masthead > section:style(position: static!important;)
 
