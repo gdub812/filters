@@ -90,6 +90,159 @@
 
 
 ! //////////////////////////////////////////////////////////////
+! Sosial media
+! //////////////////////////////////////////////////////////////
+! Title: GDUB - youtube specific filter
+! Expires: 1 day
+! Description: Create a better youtube experience with auto set cookie, remove annoyance and change layout.
+! Version: 2024-03-15
+! Homepage: https://github.com/gdub812/filter
+! //////////////////////////////////////////////////////////////
+! //// Grade: High
+! //// Resource: https://www.reddit.com/r/uBlockOrigin/wiki/solutions/youtube/#wiki_shorts
+! // Whole site
+! --cookie-- dark mode -- need to before reject cookie
+youtube.com##+js(trusted-set-cookie, PREF, tz=UTC&f4=4000000&f7=100&f6=400, ,none, reload, 1)
+! --cookie-- theator mode
+youtube.com##+js(set-cookie, wide, 1)
+! --cookie-- reject cookie set
+youtube.com##+js(trusted-set-cookie, SOCS, CAESEwgDEgk2MTQ0OTE3NDMaAmVuIAEaBgiAtr6vBg, ,none, reload, 1)
+! Remove annontations video
+/annotations_module.js$script,xhr,important,domain=youtube.com
+! Remove end screen
+/endscreen.js$script,xhr,important,domain=youtube.com
+! stop youtube viewcount from updating live
+https://www.youtube.com/youtubei/v1/updated_metadata*
+! login button
+youtube.com##ytd-masthead#masthead div#buttons > ytd-button-renderer
+! menu icon
+youtube.com##div#start > yt-icon-button#guide-button
+! mini left-sidebar
+youtube.com##div#content > ytd-mini-guide-renderer
+! big left-sidebar
+youtube.com##tp-yt-app-drawer
+! subscribe button
+youtube.com##div#subscribe-button
+! "join" community button
+youtube.com##div#sponsor-button
+
+! // Homepage :matches-path(/^/$/)
+! Content all - info boxes
+youtube.com##ytd-feed-nudge-renderer > div#dismissible
+
+! // Channel page :matches-path(@)
+
+! // Search page :matches-path(results?search)
+! YT Search - just videos + channels
+youtube.com##ytd-search ytd-item-section-renderer > #contents > :not(ytd-video-renderer, ytd-channel-renderer)
+youtube.com##ytd-secondary-search-container-renderer
+! Content top - search filters buttons
+youtube.com##ytd-search-header-renderer > div#chip-bar
+youtube.com##ytd-search-header-renderer > div#about-these-results
+
+! // Video page :matches-path(watch?v=)
+! / player
+! player - "next video"
+youtube.com##:matches-path(watch?v=) a.ytp-next-button.ytp-button[data-title-no-tooltip="Next"]
+! player - "autoplay"
+youtube.com##:matches-path(watch?v=) button.ytp-button[data-tooltip-target-id="ytp-autonav-toggle-button"]
+! player - "miniplayer"
+youtube.com##:matches-path(watch?v=) button.ytp-button[data-tooltip-target-id="ytp-miniplayer-button"]
+! player - "theater/normal"
+youtube.com##:matches-path(watch?v=) button.ytp-button[data-title-no-tooltip="Default view"]
+! player - "full screen"
+youtube.com##:matches-path(watch?v=) button.ytp-button[data-title-no-tooltip="Full screen"]
+! paid content overlay
+youtube.com##:matches-path(watch?v=) div#movie_player > div.ytp-paid-content-overlay
+! / video navbar
+! "Save" button to playlist video navbar
+youtube.com##:matches-path(watch?v=) div#top-row div#menu > ytd-menu-renderer > div#flexible-item-buttons
+! "Report" button video navbar
+youtube.com##:matches-path(watch?v=) div#top-row div#menu > ytd-menu-renderer > yt-button-shape#button-shape
+! clarify box like covid under video
+youtube.com##:matches-path(watch?v=) div#clarify-box
+! comment box
+youtube.com##:matches-path(watch?v=) div#simple-box
+! / comment section
+! "Report" button comment section
+youtube.com##:matches-path(watch?v=) div#action-menu.ytd-comment-view-model
+! --style-- max width comments section (better readability)
+youtube.com##:matches-path(watch?v=) ytd-comment-renderer > div > div#main:style(max-width: 80rem!important;)
+! "reply" button comment section
+youtube.com##:matches-path(watch?v=) ytd-button-renderer#reply-button-end
+! dislike button in comment section
+youtube.com##:matches-path(watch?v=) ytd-toggle-button-renderer#dislike-button
+! --style-- disable clickable like buttons comments
+youtube.com##:matches-path(watch?v=) yt-button-shape > a[aria-label^="Like this"]:style(pointer-events: none; cursor: default;)
+! / related videos
+! --style-- margin top related videos
+youtube.com##:matches-path(watch?v=) div#related:style(margin-top: 10rem!important;)
+! dropdown button on related videos
+youtube.com##:matches-path(watch?v=) ytd-menu-renderer.ytd-compact-video-renderer
+! hover buttons on related videos
+youtube.com##:matches-path(watch?v=) div#hover-overlays.ytd-thumbnail
+
+
+! //////////////////////////////////////////////////////////////
+! //// Site: reddit.com
+! //// Update: 2024-03-15
+! //// Grade: High
+! // Whole site
+! --js local storage-- remove popup "see reddit in" app or browser
+reddit.com##+js(trusted-set-local-storage-item, xpromo-consolidation, $now$)
+! --js cookie-- card view
+reddit.com##+js(trusted-set-cookie, compact, false, , /, reload, 1)
+! popup top-right - log in google
+reddit.com##body > div#credential_picker_container
+! header right - log in and other nav buttons
+reddit.com##header > nav > :last-child > :not(button#expand-search-button)
+! left - sticky navigation
+reddit.com##div#left-sidebar-container
+! header center searchbar - hide trending info
+reddit.com##div.reddit-search-bar > div > ul#reddit-trending-searches-partial-container
+reddit.com##div.reddit-search-bar > div > div
+! header center searchbar - remove people from results
+reddit.com##ul#reddit-typeahead-results-partial-container > div[data-testid="typeahead-by-type-people-header"]
+reddit.com##ul#reddit-typeahead-results-partial-container > faceplate-tracker[data-faceplate-tracking-context*='"profile"']
+! --mobile-- header navbar left - hamburger menu
+reddit.com##nav > div > faceplate-tracker[noun="hamburger_menu"]
+
+! content post top - remove join and other button
+reddit.com##shreddit-post > span > span:last-child
+! --style-- content post top - less visible reddit forum og publish time
+reddit.com##span[slot="credit-bar"]:nth-child(2):style(opacity: 0.3;)
+! --style-- content post bottom - disable clicking like and dislike
+reddit.com##button[upvote=""]:style(pointer-events: none; cursor: default;)
+reddit.com##button[downvote=""]:style(pointer-events: none; cursor: default;)
+! --style-- content post bottom - less visible stats likes and comments
+reddit.com##div.flex.flex-row.overflow-hidden.justify-start:last-child:style(opacity: 0.3;)
+
+! // Homepage
+! Content - hide alle content homepage
+reddit.com##shreddit-app[routename="frontpage"] > div.grid-container
+
+! // Search page
+reddit.com##section[aria-label="Related people"]
+
+! // Forums
+! --style-- sidebar right - very low visibility until clicked
+reddit.com##aside[aria-label="Community information"]:style(transition-property: opacity; transition-duration: 2s; transition-delay: 5s; opacity: 0.05;)
+reddit.com##aside[aria-label="Community information"]:active:style(opacity: 1; transition-delay: 0s; transition-duration: 0s;)
+! content top-right - "create post" and "join" button
+reddit.com##div.masthead > section > div > div:last-child
+! content top - community banner
+reddit.com##div.masthead > div
+! --style-- content top - fix logo layout mobile and desktop
+reddit.com##div.masthead > section:style(position: static!important;)
+
+! // Posts
+! sidebar right - popular content
+reddit.com##pdp-right-rail.pdp
+! content middle - comment button
+reddit.com##faceplate-tracker[source="shreddit_comment_count_button"]
+
+
+! //////////////////////////////////////////////////////////////
 ! News sites
 ! //////////////////////////////////////////////////////////////
 ! //// Site: kode24.no
