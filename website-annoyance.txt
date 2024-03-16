@@ -501,13 +501,13 @@ asuratoon.com##div.chdesc
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: reaperscans.com
-! //// Update: 2024-02-08
+! //// Update: 2024-03-16
 ! //// Grade: Mid
-! // Whole site and homepage
-reaperscans.com##main.mb-auto > *:not(:nth-child(2))
-! fix for article pages and categories
-reaperscans.com##main.mb-auto > div.mx-auto > *:not(.space-y-4, div.text-center, nav.flex.items-center.justify-between, img, div#comments, [wire\:id])
-reaperscans.com##main.mb-auto > div.mx-auto > .space-y-4:not(:nth-of-type(2))
+! // Whole site
+! content top and bottom - extra div
+reaperscans.com##main > div:not(:nth-child(2))
+! content all - show only important stuff
+reaperscans.com##main > div > :not(div.space-y-4:nth-of-type(2), nav.flex.items-center.justify-between, img, div#comments, div.p-2, div[wire\:id])
 
 ! // Article
 ! recruiting image
