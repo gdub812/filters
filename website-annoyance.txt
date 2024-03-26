@@ -237,7 +237,7 @@ reddit.com##div.masthead > section:style(position: static!important;)
 
 ! // Posts
 ! sidebar right - popular content
-reddit.com##pdp-right-rail.pdp
+reddit.com##pdp-right-rail
 ! content middle - comment button
 reddit.com##faceplate-tracker[source="shreddit_comment_count_button"]
 
