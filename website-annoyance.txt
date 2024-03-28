@@ -2,7 +2,7 @@
 ! Title: GDUB - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on sites
-! Version: 2024-03-13
+! Version: 2024-03-28
 ! Homepage: https://github.com/gdub812/filters
 ! Author: GDUB
 ! //////////////////////////////////////////////////////////////
@@ -185,8 +185,8 @@ youtube.com##:matches-path(watch?v=) div#hover-overlays.ytd-thumbnail
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: reddit.com
-! //// Update: 2024-03-15
-! //// Grade: High
+! //// Update: 2024-03-28
+! //// Grade: Mid - not checked or fixed mobile
 ! // Whole site
 ! --js local storage-- remove popup "see reddit in" app or browser
 reddit.com##+js(trusted-set-local-storage-item, xpromo-consolidation, $now$)
@@ -228,6 +228,8 @@ reddit.com##section[aria-label="Related people"]
 ! --style-- sidebar right - very low visibility until clicked
 reddit.com##aside[aria-label="Community information"]:style(transition-property: opacity; transition-duration: 2s; transition-delay: 5s; opacity: 0.05;)
 reddit.com##aside[aria-label="Community information"]:active:style(opacity: 1; transition-delay: 0s; transition-duration: 0s;)
+! --style-- sidebar right - hide scrollbar
+reddit.com##div#right-sidebar-container:style(scrollbar-width: none;)
 ! content top-right - "create post" and "join" button
 reddit.com##div.masthead > section > div > div:last-child
 ! content top - community banner
