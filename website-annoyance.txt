@@ -2,7 +2,7 @@
 ! Title: GDUB - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on sites
-! Version: 2024-03-28
+! Version: 2024-04-09
 ! Homepage: https://github.com/gdub812/filters
 ! Author: GDUB
 ! //////////////////////////////////////////////////////////////
@@ -248,7 +248,7 @@ reddit.com##faceplate-tracker[source="shreddit_comment_count_button"]
 ! News sites
 ! //////////////////////////////////////////////////////////////
 ! //// Site: kode24.no
-! //// Update: 2024-02-08
+! //// Update: 2024-04-09
 ! //// Grade: Mid
 ! // Whole site and homepage
 ! notification banner bottom
@@ -257,8 +257,9 @@ kode24.no###top-notification
 kode24.no###desktop-sidemenu-front
 ! Left sidebar
 kode24.no###left-menu
-! --style-- All after removing left and right bar
-kode24.no##div.frontpage.wide:style(grid-template-columns:0rem!important;)
+! --style-- main content - center with max width
+kode24.no##div.frontpage.wide:style(max-width:70rem)
+kode24.no##div.frontpage.wide:style(grid-template-columns:unset!important;)
 ! dark mode button
 kode24.no###mode-toggle
 ! blinking article border
@@ -271,7 +272,6 @@ kode24.no##.commercial
 kode24.no##div[id*="ad-banner"]
 ! nav bar
 kode24.no###nav-top
-!:not(#search-component-wrapper)
 ! remove banner
 kode24.no###banner-top-wide-container
 ! sort button, siste, reaksjoner and kommentarer
@@ -292,18 +292,20 @@ kode24.no##.article-content-wrapper > .article-preview-text > .article-social > 
 kode24.no##aside.panel
 kode24.no###desktop-rows
 kode24.no###tip-us-call-to-action
+! main center - ads container?
+kode24.no##main#main-content > article > div > div > div.quotebox
 ! --style-- more compact layout
 kode24.no##.article-entity .columns.byline, footer.main-footer div.row:style(padding:0rem!important;)
 kode24.no###hyvor-talk-iframe, div.row, .main-footer:style(margin:0rem!important;)
 kode24.no##div.frontpage.wide:style(padding-bottom:0rem!important;)
 kode24.no##div.frontpage.wide:style(padding-top:4rem!important;)
-! --style-- less visible extra articles
-kode24.no##.article-entity.artikkel article.medium-12.small-12.large-12.preview:style(opacity: 0.3 !important;)
+! --style-- main center - less visible extra articles
+kode24.no##main#main-content > article > div > div > article:style(opacity: 0.3 !important;)
 
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: nrk.no
-! //// Update: 2024-03-13
+! //// Update: 2024-04-09
 ! //// Grade: Mid
 ! // Whole site and homepage
 ! banner top
@@ -326,8 +328,14 @@ nrk.no##div.radio-multi-app
 ! reminder article block
 nrk.no##dh-langlesing-v0
 ! --style-- not always important so lower opacity
-nrk.no##section.kur-floor--apartment.kur-floor--mix.kur-floor:style(opacity:0.3!important;)
-nrk.no##nrkno-oppdag-mer:style(opacity:0.3!important;)
+!nrk.no##section.kur-floor--apartment.kur-floor--mix.kur-floor:style(opacity:0.3!important;)
+! main center - more random content
+nrk.no##nrkno-oppdag-mer
+! main center - lokal news carousel
+nrk.no##nrkno-ditt-distrikt
+! main center - more recommended content
+nrk.no##section.kur-floor.kur-floor--mix.kur-floor--apartment:has(div > h2 > span:has-text(NRK TV og NRK Radio))
+nrk.no##section.kur-floor.kur-floor--mix.kur-floor--apartment:has(div > h2 > span:has-text(Videoer fra NRK))
 ! Animation red dot latest news
 nrk.no##span.kur-label__tag-icon
 
@@ -360,7 +368,7 @@ nrk.no##div.group.widget.rich.floor.floor-bottom.negative.cf.container-widget
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: e24.no
-! //// Update: 2024-03-06
+! //// Update: 2024-04-09
 ! //// Grade: Mid
 ! // Whole site and homepage
 ! top news bar
@@ -369,25 +377,35 @@ e24.no##div.component_stocks-stripe
 e24.no##header.e24-hovedmenyen div.styles-module_m4g3JW8 > *:not(button.Button-module_x8T5-5k)
 ! top bar text
 e24.no##header > div > div > a > span.styles-module_eHa7rZf.styles-module_70heY6o
-! signup sale top
+! --style-- main all - remove all borders bottom
+e24.no##.wrapper .grid-wrapper .front-container.row-with-bottom-border:style(border-bottom-width:0rem!important;)
+e24.no##.wrapper .grid-wrapper .row.row-with-bottom-border:style(border-bottom-width:0rem!important;)
+e24.no##.article-teaser:style(border-bottom-width:0rem!important;)
+! main top - signup sale
 e24.no##main > div > div.touchpoint
+! main top - remove all extra rows
+e24.no##main.wrapper > div.grid-wrapper > div.row
+! main top - extra padding first element
+e24.no##main.wrapper > div.grid-wrapper > div.front-container[data-row-id="2"]:style(margin-top:0rem!important;)
+! main center - pluss articles
+e24.no##main.wrapper > div.grid-wrapper > div.front-container:has(div > article > a.article-teaser-link[href="https://e24.no/pluss"])
 ! --style-- spacing top
 e24.no##main > div.grid-wrapper:style(padding-top:0rem!important;)
 ! --style-- spacing top first article
 e24.no##main > div.grid-wrapper > div[data-row-id="1"]:style(margin-top:0rem!important;)
-! ads
+! main - ads
 e24.no##div[class*="advertory-e24"]
 e24.no##.row-with-bottom-border:has(.advertory-e24-brandboard-wrapper__front)
 e24.no##div.row:has(.component_content-marketing)
-! ad job positions
+! main center - ad job positions
 e24.no##.carousel
-! video
+! main center - video
 e24.no##.front-container > div:has(#player)
-! message if you want to contact
+! main - message if you want to contact
 e24.no##.front-container > .row :has(a[href^="https://calendly.com"])
-! real time info
+! main center -real time info
 e24.no##.netboard-row
-! --style-- paid article less visible
+! --style-- main - paid article less visible
 e24.no##.has-icon-e24pluss.article-teaser:style(opacity: 0.3 !important;)
 
 ! // article page
