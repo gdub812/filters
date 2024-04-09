@@ -498,6 +498,51 @@ tek.no##main#maincontent > div > article > div > iframe
 
 
 ! //////////////////////////////////////////////////////////////
+! Div other sites
+! //////////////////////////////////////////////////////////////
+! //// Site: prisjakt.no
+! //// Update: 2024-04-09
+! //// Grade: Low
+! // Whole site
+! header center - search button (not search field)
+prisjakt.no##button[class*="SearchButton"]
+! header right - logg inn button
+prisjakt.no##div[class*="RightColumn"] > div[class*="UserArea"] > button
+! left-sidebar top - favorite button
+prisjakt.no##button[aria-label="Lister"]
+! left-sidebar top - alerts button
+prisjakt.no##button[aria-label="Varsler"]
+! left-sidebar bottom - remove whole
+prisjakt.no##div[class*="BottomBar"]
+! right-sidebar - 
+prisjakt.no##aside.outsider-ads
+! footer top - email list
+prisjakt.no##div[class*="TopSection"]
+! bottom right - feedback button
+prisjakt.no##div[class*="Wrapper"][tabindex="0"][role="button"]
+
+! // Search and category pages
+! --style-- main top - navigation breadcrumbs less visibility
+prisjakt.no##div[class*="DesktopBreadcrumbs"]:style(opacity: 0.3;)
+! --style-- main top - category or search term less visibility
+prisjakt.no##section header:style(opacity: 0.3;)
+! main top - text "close to search words"
+prisjakt.no##div[class*="Keywords"]
+! --style-- main top - related kategories less visibility
+prisjakt.no##div#\#categories:style(opacity: 0.3;)
+! --stle-- main top - related filters less visibility
+prisjakt.no##div[class*="ListWrapper"]:style(opacity: 0.3;)
+! main center - feedback buttons
+prisjakt.no##li[class*="StyledFeedbackPrompt"]
+! main center - top right of cards, favorite button
+prisjakt.no##div[class*="StyledTopRightArea"]
+! --style-- main all - cards fix all images center and better size
+prisjakt.no##div[class*="CardMedia"]:style(height:200px!important;width:200px!important;margin-left:auto!important;margin-right:auto!important;)
+prisjakt.no##div[class*="CardMedia"] > img[class*="ProductImage"]:style(margin:auto!important;max-height:180px!important;)
+
+
+
+! //////////////////////////////////////////////////////////////
 ! Manga sites
 ! //////////////////////////////////////////////////////////////
 ! //// Site: asuratoon.com
