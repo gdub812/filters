@@ -584,6 +584,10 @@ reaperscans.com##main.mb-auto > div.mx-auto > img.max-w-full[src*="999.jpg"]
 ! //// Update: 2024-02-26
 ! //// Grade: 
 ! // Whole site and homepage
+! --js local storage-- fullwidth
+lumitoon.com##+js(trusted-set-local-storage-item, flamefullwidth, yes, ,none, reload, 1)
+! --js local storage-- load all images at once
+lumitoon.com##+js(trusted-set-local-storage-item, flameloadall, yes, ,none, reload, 1)
 ! radio button
 lumitoon.com###radio_content
 ! show only header, article and footer
@@ -597,12 +601,14 @@ lumitoon.com###content:style(margin-top:0rem!important;padding-bottom:0rem!impor
 lumitoon.com##div.postbody > div.bixbox:has(a[href^="https://home.luminousscans.gg/genres/novel/"])
 
 ! // Article
+! main top - Chapter tags
+lumitoon.com##div.chaptertags
+! --style-- main top - button "load all images" and "full width" less visibility
+lumitoon.com##div.flamewidthwrap:style(opacity:0.3;)
 ! Text about manga
 lumitoon.com##article > div.entry-content > div.chdesc
-! Discord image
+! main bottom - Discord image
 lumitoon.com##a[href*="discord.gg"]
-! Chapter tags
-lumitoon.com##div.chaptertags
 
 
 ! //////////////////////////////////////////////////////////////
