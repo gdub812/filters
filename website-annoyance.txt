@@ -185,7 +185,7 @@ youtube.com##:matches-path(watch?v=) div#hover-overlays.ytd-thumbnail
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: reddit.com
-! //// Update: 2024-03-28
+! //// Update: 2024-05-25
 ! //// Grade: Mid - not checked or fixed mobile
 ! // Whole site
 ! --js local storage-- remove popup "see reddit in" app or browser
@@ -216,6 +216,12 @@ reddit.com##button[upvote=""]:style(pointer-events: none; cursor: default;)
 reddit.com##button[downvote=""]:style(pointer-events: none; cursor: default;)
 ! --style-- content post bottom - less visible stats likes and comments
 reddit.com##div.flex.flex-row.overflow-hidden.justify-start:last-child:style(opacity: 0.3;)
+! content all - hide hover over profile info
+reddit.com##div[part="content-container"]
+! --style-- content - award buttons disable click
+reddit.com##award-button:style(pointer-events: none; cursor: default;)
+! content - empty awards button
+reddit.com##award-button[count="0"]
 
 ! // Homepage
 ! Content - hide alle content homepage
@@ -230,18 +236,28 @@ reddit.com##aside[aria-label="Community information"]:style(transition-property:
 reddit.com##aside[aria-label="Community information"]:active:style(opacity: 1; transition-delay: 0s; transition-duration: 0s;)
 ! --style-- sidebar right - hide scrollbar
 reddit.com##div#right-sidebar-container:style(scrollbar-width: none;)
+! sidebar right - extra content under forum info
+reddit.com###right-sidebar-container > div.px-md
 ! content top-right - "create post" and "join" button
 reddit.com##div.masthead > section > div > div:last-child
 ! content top - community banner
 reddit.com##div.community-banner
 ! --style-- content top - fix logo layout mobile and desktop
 reddit.com##div.masthead > section:style(position: static!important;)
+! content - share button
+reddit.com##shreddit-post-share-button
 
 ! // Posts
 ! sidebar right - popular content
 reddit.com##pdp-right-rail
 ! content middle - comment button
 reddit.com##faceplate-tracker[source="shreddit_comment_count_button"]
+! content - share button
+reddit.com##shreddit-comment-share-button
+! content - more menu for reporting
+reddit.com##shreddit-overflow-menu
+! content - reply button
+reddit.com##faceplate-tracker[slot="comment-reply"]
 
 
 ! //////////////////////////////////////////////////////////////
@@ -580,35 +596,35 @@ reaperscans.com##main.mb-auto > div.mx-auto > img.max-w-full[src*="999.jpg"]
 
 
 ! //////////////////////////////////////////////////////////////
-! //// Site: lumitoon.com
-! //// Update: 2024-02-26
+! //// Site: luminouscomics.org (lumitoon.com)
+! //// Update: 2024-05-25
 ! //// Grade: 
 ! // Whole site and homepage
 ! --js local storage-- fullwidth
-lumitoon.com##+js(trusted-set-local-storage-item, flamefullwidth, yes, ,none, reload, 1)
+luminouscomics.org##+js(trusted-set-local-storage-item, flamefullwidth, yes, ,none, reload, 1)
 ! --js local storage-- load all images at once
-lumitoon.com##+js(trusted-set-local-storage-item, flameloadall, yes, ,none, reload, 1)
+luminouscomics.org##+js(trusted-set-local-storage-item, flameloadall, yes, ,none, reload, 1)
 ! radio button
-lumitoon.com###radio_content
+luminouscomics.org###radio_content
 ! show only header, article and footer
-lumitoon.com##body > *:not(.th, #content, #footer)
+luminouscomics.org##body > *:not(.th, #content, #footer)
 ! show only need content
-lumitoon.com###content > *:not(.wrapper)
-lumitoon.com###content > div.wrapper > *:not(div.postbody, div.chapterbody)
+luminouscomics.org###content > *:not(.wrapper)
+luminouscomics.org###content > div.wrapper > *:not(div.postbody, div.chapterbody)
 ! --style-- remove extra space around content
-lumitoon.com###content:style(margin-top:0rem!important;padding-bottom:0rem!important;)
+luminouscomics.org###content:style(margin-top:0rem!important;padding-bottom:0rem!important;)
 ! hide novels
-lumitoon.com##div.postbody > div.bixbox:has(a[href^="https://home.luminousscans.gg/genres/novel/"])
+luminouscomics.org##div.postbody > div.bixbox:has(a[href^="https://home.luminousscans.gg/genres/novel/"])
 
 ! // Article
 ! main top - Chapter tags
-lumitoon.com##div.chaptertags
+luminouscomics.org##div.chaptertags
 ! --style-- main top - button "load all images" and "full width" less visibility
-lumitoon.com##div.flamewidthwrap:style(opacity:0.3;)
+luminouscomics.org##div.flamewidthwrap:style(opacity:0.3;)
 ! Text about manga
-lumitoon.com##article > div.entry-content > div.chdesc
+luminouscomics.org##article > div.entry-content > div.chdesc
 ! main bottom - Discord image
-lumitoon.com##a[href*="discord.gg"]
+luminouscomics.org##a[href*="discord.gg"]
 
 
 ! //////////////////////////////////////////////////////////////
