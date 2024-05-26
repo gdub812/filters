@@ -2,7 +2,7 @@
 ! Title: GDUB - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on sites
-! Version: 2024-04-09
+! Version: 2024-05-26
 ! Homepage: https://github.com/gdub812/filters
 ! Author: GDUB
 ! //////////////////////////////////////////////////////////////
@@ -654,3 +654,30 @@ flamecomics.com##div.postbody.full > article > *:not(#comments, div.main-info)
 flamecomics.com##div.promo-banner
 ! Other series
 flamecomics.com##div.chapterbody > .postarea > .bixbox:not(#comments)
+
+! //////////////////////////////////////////////////////////////
+! //// Site: discuss.privacyguides.net
+! //// Update: 2024-05-26
+! //// Grade: High - cleanup UI
+! // Whole site
+! top menu center - show links only "knowledge base" and "recommendations"
+discuss.privacyguides.net##ul.custom-header-links > li:nth-child(n+3)
+! top menu right - accounts: login and signup
+discuss.privacyguides.net##span.auth-buttons
+! Sidebar left - hide
+discuss.privacyguides.net##+js(trusted-set-local-storage-item, discourse_sidebar-hidden, true)
+! content top - welcome message
+discuss.privacyguides.net##+js(trusted-set-local-storage-item, discourse_dismissedWelcomeLinkBanner, true)
+! footer - no to signup
+discuss.privacyguides.net##+js(trusted-set-local-storage-item, discourse_anon-cta-never, t)
+
+!// Homepage
+! sidebar right - extra info
+discuss.privacyguides.net##div.tc-right-sidebar
+
+! // Posts
+! footer - related topics
+discuss.privacyguides.net##div.more-topics__container
+! footer - reply button
+discuss.privacyguides.net##div#topic-footer-buttons
+
