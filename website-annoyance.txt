@@ -102,11 +102,11 @@
 ! //// Resource: https://www.reddit.com/r/uBlockOrigin/wiki/solutions/youtube/#wiki_shorts
 ! // Whole site
 ! --cookie-- dark mode -- need to before reject cookie
-youtube.com##+js(trusted-set-cookie, PREF, tz=UTC&f4=4000000&f7=100&f6=400, ,none, reload, 1)
+youtube.com##+js(trusted-set-cookie, PREF, tz=UTC&f4=4000000&f7=100&f6=400, ,/, reload, 1)
 ! --cookie-- theator mode
 youtube.com##+js(set-cookie, wide, 1)
 ! --cookie-- reject cookie set
-youtube.com##+js(trusted-set-cookie, SOCS, CAESEwgDEgk2MTQ0OTE3NDMaAmVuIAEaBgiAtr6vBg, ,none, reload, 1)
+youtube.com##+js(trusted-set-cookie, SOCS, CAESEwgDEgk2MTQ0OTE3NDMaAmVuIAEaBgiAtr6vBg, ,/, reload, 1)
 ! Remove annontations video
 /annotations_module.js$script,xhr,important,domain=youtube.com
 ! Remove end screen
@@ -188,6 +188,18 @@ youtube.com##:matches-path(watch?v=) div#hover-overlays.ytd-thumbnail
 ! //// Update: 2024-05-25
 ! //// Grade: Mid - not checked or fixed mobile
 ! // Whole site
+! / NSFW filters
+! source: https://www.reddit.com/r/uBlockOrigin/comments/15u0bb4/remove_reddit_nsfw_blur_filter_for_users_browsing/
+! Content - show NSFW posts
+reddit.com##+js(trusted-set-cookie, over18, true, ,/, reload, 1)
+! scripts - access NSFW without account
+||www.redditstatic.com/shreddit/en-US/xpromo-nsfw-blocking-modal-desktop-*.js
+||www.redditstatic.com/shreddit/en-US/icon-nsfw-outline-*.js
+||www.redditstatic.com/shreddit/en-US/xpromo-nsfw-blocking-modal-*.js
+||www.redditstatic.com/shreddit/en-US/nsfw-blocking-*.js
+! content - warning "mature content" box
+reddit.com##xpromo-nsfw-blocking-modal,slot+.prompt
+
 ! --js local storage-- remove popup "see reddit in" app or browser
 reddit.com##+js(trusted-set-local-storage-item, xpromo-consolidation, $now$)
 ! --js cookie-- card view
@@ -601,9 +613,9 @@ reaperscans.com##main.mb-auto > div.mx-auto > img.max-w-full[src*="999.jpg"]
 ! //// Grade: 
 ! // Whole site and homepage
 ! --js local storage-- fullwidth
-luminouscomics.org##+js(trusted-set-local-storage-item, flamefullwidth, yes, ,none, reload, 1)
+luminouscomics.org##+js(trusted-set-local-storage-item, flamefullwidth, yes, ,/, reload, 1)
 ! --js local storage-- load all images at once
-luminouscomics.org##+js(trusted-set-local-storage-item, flameloadall, yes, ,none, reload, 1)
+luminouscomics.org##+js(trusted-set-local-storage-item, flameloadall, yes, ,/, reload, 1)
 ! radio button
 luminouscomics.org###radio_content
 ! show only header, article and footer
@@ -628,32 +640,32 @@ luminouscomics.org##a[href*="discord.gg"]
 
 
 ! //////////////////////////////////////////////////////////////
-! //// Site: flamecomics.com
+! //// Site: flamecomics.me (flamecomics.com)
 ! //// Update: 2024-02-09
 ! //// Grade: Mid
 ! // Whole site and homepage
 ! radio button
-flamecomics.com###radio_content
+flamecomics.me###radio_content
 ! slider top
-flamecomics.com##div.big-slider.swiper-container.swiper-pointer-events
+flamecomics.me##div.big-slider.swiper-container.swiper-pointer-events
 ! discord and other element
-flamecomics.com###content > *:not(div.wrapper)
+flamecomics.me###content > *:not(div.wrapper)
 ! sliders
-flamecomics.com##div.hotslid
-flamecomics.com##div.big-slider.swiper-container
+flamecomics.me##div.hotslid
+flamecomics.me##div.big-slider.swiper-container
 ! more info elements
-flamecomics.com##div.postbody > *:not(div.bixbox, article)
+flamecomics.me##div.postbody > *:not(div.bixbox, article)
 ! remove image
-flamecomics.com##div.bixbox > div.flame.flame-1
+flamecomics.me##div.bixbox > div.flame.flame-1
 
 ! // Category
-flamecomics.com##div.postbody.full > article > *:not(#comments, div.main-info)
+flamecomics.me##div.postbody.full > article > *:not(#comments, div.main-info)
 
 ! // Article
 ! promo banner
-flamecomics.com##div.promo-banner
+flamecomics.me##div.promo-banner
 ! Other series
-flamecomics.com##div.chapterbody > .postarea > .bixbox:not(#comments)
+flamecomics.me##div.chapterbody > .postarea > .bixbox:not(#comments)
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: discuss.privacyguides.net
