@@ -2,7 +2,7 @@
 ! Title: GDUB - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on sites
-! Version: 2024-05-26
+! Version: 2024-06-12
 ! Homepage: https://github.com/gdub812/filters
 ! Author: GDUB
 ! //////////////////////////////////////////////////////////////
@@ -79,14 +79,58 @@
 ! 3. Specific filters put under which part of the website targeted (homepage, category). Comments over filters explaining where on webpage and what purpose. Filters should go in the order of where on the webpage the content is removed from top to bottom (header -> content -> footer), and starting from left to right. Therefore this order top-left, top-center, top-rigt then middle-left, middle-center...
 ! //////////////////////////////////////////////////////////////
 
+! //////////////////////////////////////////////////////////////
+! Add custom search engines in firefox: name, url and alias (shortcut)
+! //////////////////////////////////////////////////////////////
+! //// Enable "add" search engine button in settings
+! about:config
+! browser.urlbar.update2.engineAliasRefresh
+! -> True
+
+! // DuckDuckGo HTML
+! https://html.duckduckgo.com/html/?q=%s
+!html
+
+! // DuckDuckGo
+! https://duckduckgo.com/?q=%s
+!ddg
+
+! // DuckDuckGo AI
+! https://duckduckgo.com/?q=%s&ia=chat&bang=true
+!chat
+
+! // YouTube Search
+! https://www.youtube.com/results?search_query=%s
+!yt
+
+! // Reddit
+! https://www.reddit.com/search?q=%s
+!r
+
+! // SubReddit - Top Today
+! https://www.reddit.com/r/%s/top/
+!sr
+!rs (extra)
+
+! // SubReddit - Top Week
+! https://www.reddit.com/r/%s/top/?t=week
+!srw
+!rsw (extra)
+
+! // SubReddit - Privacy
+! https://www.reddit.com/r/privacy/search/?q=%s
+!privacy
+
+! // Privacy Guides Forum
+! https://discuss.privacyguides.net/search?q=%s
+!pg
+
 
 ! //////////////////////////////////////////////////////////////
 ! Global filter (Across websites)
 ! //////////////////////////////////////////////////////////////
 ! Google login popup (reddit and other sites)
 ||accounts.google.com/gsi/iframe/select$3p
-! "uBlock filters - Privacy" removed reddit filter - when opening reddit in new tab give warning each time: "The page isn’t redirecting properly"
-@@||reddit.com^$removeparam=rdt,doc
 
 
 ! //////////////////////////////////////////////////////////////
@@ -188,6 +232,9 @@ youtube.com##:matches-path(watch?v=) div#hover-overlays.ytd-thumbnail
 ! //// Update: 2024-05-25
 ! //// Grade: Mid - not checked or fixed mobile
 ! // Whole site
+! "uBlock filters - Privacy" removed reddit filter - when opening reddit in new tab give warning each time: "The page isn’t redirecting properly"
+@@||reddit.com^$removeparam=rdt,doc
+
 ! / NSFW filters
 ! source: https://www.reddit.com/r/uBlockOrigin/comments/15u0bb4/remove_reddit_nsfw_blur_filter_for_users_browsing/
 ! Content - show NSFW posts
@@ -668,6 +715,8 @@ flamecomics.me##div.promo-banner
 flamecomics.me##div.chapterbody > .postarea > .bixbox:not(#comments)
 
 ! //////////////////////////////////////////////////////////////
+! Other sites
+! //////////////////////////////////////////////////////////////
 ! //// Site: discuss.privacyguides.net
 ! //// Update: 2024-05-26
 ! //// Grade: High - cleanup UI
@@ -693,3 +742,12 @@ discuss.privacyguides.net##div.more-topics__container
 ! footer - reply button
 discuss.privacyguides.net##div#topic-footer-buttons
 
+! //////////////////////////////////////////////////////////////
+! //// Site: duckduckgo.com
+! //// Update: 2024-06-12
+! //// Grade:
+! // Whole site
+! Set chat model "GPT-3.5 Turbo"
+duckduckgo.com##+js(trusted-set-cookie, dcm, 3, ,/, reload, 1)
+! Make sure javascript is disable for HTML domain
+||html.duckduckgo.com^$csp=script-src 'none'
