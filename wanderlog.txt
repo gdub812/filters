@@ -1,0 +1,42 @@
+! //////////////////////////////////////////////////////////////
+! Title: GDUB - wanderlog cleanup
+! Expires: 1 day
+! Description: Remove website annoyance on wanderlog
+! Version: 2024-06-26
+! Homepage: https://github.com/gdub812/filters
+! Author: GDUB
+! //////////////////////////////////////////////////////////////
+! // Whole site and homepage
+! Header - Remove "get app" button
+wanderlog.com##div.PlanPageNavbar__innerContainer div.mx-1 > div.ml-2
+! Bottom right - chat buble
+wanderlog.com###tiledesk-container
+
+! // Planning trip page
+! Sidebar left top - Ai assistant button
+wanderlog.com##div.PlanNavSidebar__assistantButtonContainer
+wanderlog.com##div.invisible.pt-3
+! --mobile-- Sidebar left top - Ai assistant button
+wanderlog.com##div.PlanNavSidebar__mobileButton.pb-2
+! Sidebar left top - Remove "Explore" button
+wanderlog.com##div.PlanWideNavSidebar__innerContainer > div:first-child > div.flex-column > button.PlanWideNavSidebarItem:first-child
+
+! Content map - top right - remove export to google map button
+wanderlog.com##button.PlanMapWebMap__exportBtn
+! Content top - Extra explore tab
+wanderlog.com##div.PlanPageLoaded__grayBackground.d-print-none.pb-5.mb-3
+! Content top - Add reservations and attachments
+wanderlog.com##div.PlanBoard__addReservationButtonsGroup
+! Content - Hotel promo banner
+wanderlog.com##div.mt-4:has(div.HotelAssociatedItemLargePromo__container)
+! Content - remove optimze route, because it is premium
+wanderlog.com##div.ButtonUnpad__md_left.ButtonUnpad__md_right:has(span.Button__labelText:has-text(Optimize route))
+! Content - remove banner "Book hotels", for days not booked
+wanderlog.com##div.mt-4:has(span.Button__labelText:has-text(Book hotels))
+! Content - remove popup "Add chrome extension"
+wanderlog.com##div.react-autosuggest__suggestions-container [href^="https://chrome.google.com/webstore/"]
+
+! Footer - Remove "get app" banner
+wanderlog.com##div.OpenInAppPromo__fixedContainer
+! --style-- Footer - fix spacing "Map view" button after "get app" banner removed
+wanderlog.com##button.MapFloatingBottomButton__withPromo:style(margin-bottom: 0px!important;)
