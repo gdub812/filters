@@ -34,10 +34,12 @@ wanderlog.com##div.PlanBoard__addReservationButtonsGroup
 wanderlog.com##div.SectionComponent > div.collapse.show > div > div.mt-4
 ! Content - remove optimze route, because it is premium
 wanderlog.com##button.Button__flat-primary.Button__sm.Button__shape__pill.Button__withLabel.Button__withIcon
-! Content - remove popup "Add chrome extension"
+! Content cards search - remove popup "Add chrome extension"
 wanderlog.com##div.react-autosuggest__suggestions-container [href^="https://chrome.google.com/webstore/"]
-! Content - remove "Attach Pro" button
-wanderlog.com##div.PictureViewItem__text.form-control.form-control-gray > div.align-items-center > div.ml-3.mt-1:nth-child(2)
+! Content cards notes field - remove "Attach Pro" button
+wanderlog.com##div.PictureViewItem__text.form-control.form-control-gray > div.align-items-center > div.ml-3.mt-1:nth-last-child(2)
+! Content cards notes field - remove "Explore more" button
+wanderlog.com##div.PictureViewItem__text.form-control.form-control-gray > div.align-items-center > div.ml-3.mt-1:nth-last-child(4)
 
 ! Footer - Remove "get app" banner
 wanderlog.com##div.OpenInAppPromo__fixedContainer
