@@ -136,21 +136,28 @@
 ! //////////////////////////////////////////////////////////////
 ! Sosial media
 ! //////////////////////////////////////////////////////////////
-! Title: GDUB - youtube specific filter
-! Expires: 1 day
-! Description: Create a better youtube experience with auto set cookie, remove annoyance and change layout.
-! Version: 2024-03-15
-! Homepage: https://github.com/gdub812/filter
-! //////////////////////////////////////////////////////////////
+! //// Site: youtube.com
+! //// Update: 2024-07-21
 ! //// Grade: High
 ! //// Resource: https://www.reddit.com/r/uBlockOrigin/wiki/solutions/youtube/#wiki_shorts
+! // Imported:
+! YT consent https://www.reddit.com/r/uBlockOrigin/wiki/solutions/youtube/#wiki_consent_dialog
+youtube.com##+js(set, ytInitialData.topbar.desktopTopbarRenderer.interstitial.consentBumpRenderer.forceConsent, false)
+youtube.com##+js(json-prune, [].response.topbar.desktopTopbarRenderer.interstitial.consentBumpRenderer)
+youtube.com##+js(json-prune, topbar.desktopTopbarRenderer.interstitial.consentBumpRenderer)
+
+! 2021-12-01: When specific videos redirect persistently to consent page try this filter (discussion: https://redd.it/r3ec5x ):
+youtube.com##+js(set, ytInitialData.onResponseReceivedEndpoints, undefined)
+
+! 2021-12-14 YT consent v2 https://github.com/uBlockOrigin/uAssets/issues/7636#issuecomment-992858673
+youtube.com##+js(set, ytInitialData.topbar.desktopTopbarRenderer.interstitial.consentBumpV2Renderer, undefined)
+youtube.com##+js(json-prune, [].response.overlay.consentBumpV2Renderer topbar.desktopTopbarRenderer.interstitial.consentBumpV2Renderer overlay.consentBumpV2Renderer response.overlay.consentBumpV2Renderer)
+
+! 2022-10-16 when navigating directly to #shorts
+youtube.com##+js(set, ytInitialData.desktopTopbar.desktopTopbarRenderer.interstitial.consentBumpV2Renderer, undefined)
 ! // Whole site
-! --cookie-- dark mode -- need to before reject cookie
-youtube.com##+js(trusted-set-cookie, PREF, tz=UTC&f4=4000000&f7=100&f6=400, ,/, reload, 1)
-! --cookie-- theator mode
+! --cookie-- theator mode - also use voilentmonkey script for this
 youtube.com##+js(set-cookie, wide, 1)
-! --cookie-- reject cookie set
-youtube.com##+js(trusted-set-cookie, SOCS, CAESEwgDEgk2MTQ0OTE3NDMaAmVuIAEaBgiAtr6vBg, ,/, reload, 1)
 ! Remove annontations video
 /annotations_module.js$script,xhr,important,domain=youtube.com
 ! Remove end screen
@@ -169,6 +176,12 @@ youtube.com##tp-yt-app-drawer
 youtube.com##div#subscribe-button
 ! "join" community button
 youtube.com##div#sponsor-button
+
+! --OLD-- isn't needed after imported script
+! --cookie-- dark mode -- need to before reject cookie
+!youtube.com##+js(trusted-set-cookie, PREF, tz=UTC&f4=4000000&f7=100&f6=400, ,/, reload, 1)
+! --cookie-- reject cookie set
+!youtube.com##+js(trusted-set-cookie, SOCS, CAESEwgDEgk2MTQ0OTE3NDMaAmVuIAEaBgiAtr6vBg, ,/, reload, 1)
 
 ! // Homepage :matches-path(/^/$/)
 ! Content all - info boxes
@@ -655,35 +668,35 @@ reaperscans.com##main.mb-auto > div.mx-auto > img.max-w-full[src*="999.jpg"]
 
 
 ! //////////////////////////////////////////////////////////////
-! //// Site: luminouscomics.org (lumitoon.com)
+! //// Site: luminous-scans.com (lumitoon.com)
 ! //// Update: 2024-05-25
 ! //// Grade: 
 ! // Whole site and homepage
 ! --js local storage-- fullwidth
-luminouscomics.org##+js(trusted-set-local-storage-item, flamefullwidth, yes, ,/, reload, 1)
+luminous-scans.com##+js(trusted-set-local-storage-item, flamefullwidth, yes, ,/, reload, 1)
 ! --js local storage-- load all images at once
-luminouscomics.org##+js(trusted-set-local-storage-item, flameloadall, yes, ,/, reload, 1)
+luminous-scans.com##+js(trusted-set-local-storage-item, flameloadall, yes, ,/, reload, 1)
 ! radio button
-luminouscomics.org###radio_content
+luminous-scans.com###radio_content
 ! show only header, article and footer
-luminouscomics.org##body > *:not(.th, #content, #footer)
+luminous-scans.com##body > *:not(.th, #content, #footer)
 ! show only need content
-luminouscomics.org###content > *:not(.wrapper)
-luminouscomics.org###content > div.wrapper > *:not(div.postbody, div.chapterbody)
+luminous-scans.com###content > *:not(.wrapper)
+luminous-scans.com###content > div.wrapper > *:not(div.postbody, div.chapterbody)
 ! --style-- remove extra space around content
-luminouscomics.org###content:style(margin-top:0rem!important;padding-bottom:0rem!important;)
+luminous-scans.com###content:style(margin-top:0rem!important;padding-bottom:0rem!important;)
 ! hide novels
-luminouscomics.org##div.postbody > div.bixbox:has(a[href^="https://home.luminousscans.gg/genres/novel/"])
+luminous-scans.com##div.postbody > div.bixbox:has(a[href^="https://home.luminousscans.gg/genres/novel/"])
 
 ! // Article
 ! main top - Chapter tags
-luminouscomics.org##div.chaptertags
+luminous-scans.com##div.chaptertags
 ! --style-- main top - button "load all images" and "full width" less visibility
-luminouscomics.org##div.flamewidthwrap:style(opacity:0.3;)
+luminous-scans.com##div.flamewidthwrap:style(opacity:0.3;)
 ! Text about manga
-luminouscomics.org##article > div.entry-content > div.chdesc
+luminous-scans.com##article > div.entry-content > div.chdesc
 ! main bottom - Discord image
-luminouscomics.org##a[href*="discord.gg"]
+luminous-scans.com##a[href*="discord.gg"]
 
 
 ! //////////////////////////////////////////////////////////////
