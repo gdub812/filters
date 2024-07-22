@@ -2,7 +2,7 @@
 ! Title: GDUB - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on sites
-! Version: 2024-06-12
+! Version: 2024-07-22
 ! Homepage: https://github.com/gdub812/filters
 ! Author: GDUB
 ! //////////////////////////////////////////////////////////////
@@ -137,7 +137,7 @@
 ! Sosial media
 ! //////////////////////////////////////////////////////////////
 ! //// Site: youtube.com
-! //// Update: 2024-07-21
+! //// Update: 2024-07-22
 ! //// Grade: High
 ! //// Resource: https://www.reddit.com/r/uBlockOrigin/wiki/solutions/youtube/#wiki_shorts
 ! // Imported:
@@ -176,6 +176,8 @@ youtube.com##tp-yt-app-drawer
 youtube.com##div#subscribe-button
 ! "join" community button
 youtube.com##div#sponsor-button
+! top bar - search by voice button
+youtube.com###voice-search-button
 
 ! --OLD-- isn't needed after imported script
 ! --cookie-- dark mode -- need to before reject cookie
@@ -185,7 +187,7 @@ youtube.com##div#sponsor-button
 
 ! // Homepage :matches-path(/^/$/)
 ! Content all - info boxes
-youtube.com##ytd-feed-nudge-renderer > div#dismissible
+youtube.com##ytd-browse[page-subtype="home"]
 
 ! // Channel page :matches-path(@)
 
