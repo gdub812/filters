@@ -2,7 +2,7 @@
 ! Title: GDUB - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on sites
-! Version: 2024-07-22
+! Version: 2024-08-31
 ! Homepage: https://github.com/gdub812/filters
 ! Author: GDUB
 ! //////////////////////////////////////////////////////////////
@@ -338,7 +338,7 @@ reddit.com##faceplate-tracker[slot="comment-reply"]
 ! News sites
 ! //////////////////////////////////////////////////////////////
 ! //// Site: kode24.no
-! //// Update: 2024-04-09
+! //// Update: 2024-08-31
 ! //// Grade: Mid
 ! // Whole site and homepage
 ! notification banner bottom
@@ -358,6 +358,8 @@ kode24.no##article::before
 kode24.no##.commercial-content
 kode24.no###diamond-partners-list-tile
 kode24.no##.commercial
+! content top - ad
+kode24.no###top-bar-ad
 ! fix mobile ad banner
 kode24.no##div[id*="ad-banner"]
 ! nav bar
@@ -635,70 +637,42 @@ prisjakt.no##div[class*="CardMedia"] > img[class*="ProductImage"]:style(margin:a
 ! //////////////////////////////////////////////////////////////
 ! Manga sites
 ! //////////////////////////////////////////////////////////////
-! //// Site: asuratoon.com
-! //// Update: 2024-02-08
+! //// Site: asuracomic.net
+! //// Update: 2024-08-31
 ! //// Grade: Mid
 ! // Whole site and homepage
 ! hide all elements except nav, main content and footer
-asuratoon.com##body > *:not(div.th, div#content, div#footer, nav#main-menu)
-asuratoon.com###sidebar
+asuracomic.net##body > *:not(div.th, div#content, div#footer, nav#main-menu)
+asuracomic.net###sidebar
 ! optimized for also category pages
-asuratoon.com###content > .wrapper > .postbody > *:not(.bixbox, article.hentry)
-asuratoon.com##div.bixbox.hothome
+asuracomic.net###content > .wrapper > .postbody > *:not(.bixbox, article.hentry)
+asuracomic.net##div.bixbox.hothome
 ! button dark mode
-asuratoon.com###thememode
+asuracomic.net###thememode
 
 ! // Articles
-asuratoon.com##div.chapterbody > .postarea > article > *:not(div.headpost, div.entry-content)
-asuratoon.com##div.chapterbody > .postarea > div.bixbox:not(#comments)
-asuratoon.com##div.chdesc
+asuracomic.net##div.chapterbody > .postarea > article > *:not(div.headpost, div.entry-content)
+asuracomic.net##div.chapterbody > .postarea > div.bixbox:not(#comments)
+asuracomic.net##div.chdesc
 
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: reaperscans.com
-! //// Update: 2024-03-16
+! //// Update: 2024-08-31
 ! //// Grade: Mid
 ! // Whole site
-! content top and bottom - extra div
-reaperscans.com##main > div:not(:nth-child(2))
-! content all - show only important stuff
-reaperscans.com##main > div > :not(div.space-y-4:nth-of-type(2), nav.flex.items-center.justify-between, img, div#comments, div.p-2, div[wire\:id])
+! Navbar right - hide login and darkmode buttons
+reaperscans.com##nav > div > div.flex.flex-row.gap-2.items-center.justify-between
+! Navbar popup left - hide all links except "latest comics"
+reaperscans.com##div.h-full.w-full > div > div[data-orientation="vertical"] > a:not(a[href="/latest/comics"])
+
+! // Front page
+! Content - hide all, because using menu to find comics
+reaperscans.com##div.grid.grid-cols-12.gap-y-4:not(.gap-x-6)
 
 ! // Article
-! recruiting image
-reaperscans.com##main.mb-auto > div.mx-auto > img.max-w-full[src*="999.jpg"]
-
-
-! //////////////////////////////////////////////////////////////
-! //// Site: luminous-scans.com (lumitoon.com)
-! //// Update: 2024-05-25
-! //// Grade: 
-! // Whole site and homepage
-! --js local storage-- fullwidth
-luminous-scans.com##+js(trusted-set-local-storage-item, flamefullwidth, yes, ,/, reload, 1)
-! --js local storage-- load all images at once
-luminous-scans.com##+js(trusted-set-local-storage-item, flameloadall, yes, ,/, reload, 1)
-! radio button
-luminous-scans.com###radio_content
-! show only header, article and footer
-luminous-scans.com##body > *:not(.th, #content, #footer)
-! show only need content
-luminous-scans.com###content > *:not(.wrapper)
-luminous-scans.com###content > div.wrapper > *:not(div.postbody, div.chapterbody)
-! --style-- remove extra space around content
-luminous-scans.com###content:style(margin-top:0rem!important;padding-bottom:0rem!important;)
-! hide novels
-luminous-scans.com##div.postbody > div.bixbox:has(a[href^="https://home.luminousscans.gg/genres/novel/"])
-
-! // Article
-! main top - Chapter tags
-luminous-scans.com##div.chaptertags
-! --style-- main top - button "load all images" and "full width" less visibility
-luminous-scans.com##div.flamewidthwrap:style(opacity:0.3;)
-! Text about manga
-luminous-scans.com##article > div.entry-content > div.chdesc
-! main bottom - Discord image
-luminous-scans.com##a[href*="discord.gg"]
+! recruiting image - not working!
+!reaperscans.com##main.mb-auto > div.mx-auto > img.max-w-full[src*="999.jpg"]
 
 
 ! //////////////////////////////////////////////////////////////
@@ -766,3 +740,37 @@ discuss.privacyguides.net##div#topic-footer-buttons
 duckduckgo.com##+js(trusted-set-cookie, dcm, 3, ,/, reload, 1)
 ! Make sure javascript is disable for HTML domain
 ||html.duckduckgo.com^$csp=script-src 'none'
+
+
+! //////////////////////////////////////////////////////////////
+! Archives
+! //////////////////////////////////////////////////////////////
+! //// Site: luminous-scans.com (lumitoon.com)
+! //// Update: 2024-05-25
+! //// Grade: 
+! // Whole site and homepage
+! --js local storage-- fullwidth
+!luminous-scans.com##+js(trusted-set-local-storage-item, flamefullwidth, yes, ,/, reload, 1)
+! --js local storage-- load all images at once
+!luminous-scans.com##+js(trusted-set-local-storage-item, flameloadall, yes, ,/, reload, 1)
+! radio button
+!luminous-scans.com###radio_content
+! show only header, article and footer
+!luminous-scans.com##body > *:not(.th, #content, #footer)
+! show only need content
+!luminous-scans.com###content > *:not(.wrapper)
+!luminous-scans.com###content > div.wrapper > *:not(div.postbody, div.chapterbody)
+! --style-- remove extra space around content
+!luminous-scans.com###content:style(margin-top:0rem!important;padding-bottom:0rem!important;)
+! hide novels
+!luminous-scans.com##div.postbody > div.bixbox:has(a[href^="https://home.luminousscans.gg/genres/novel/"])
+
+! // Article
+! main top - Chapter tags
+!luminous-scans.com##div.chaptertags
+! --style-- main top - button "load all images" and "full width" less visibility
+!luminous-scans.com##div.flamewidthwrap:style(opacity:0.3;)
+! Text about manga
+!luminous-scans.com##article > div.entry-content > div.chdesc
+! main bottom - Discord image
+!luminous-scans.com##a[href*="discord.gg"]
