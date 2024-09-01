@@ -2,7 +2,7 @@
 ! Title: GDUB - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on sites
-! Version: 2024-08-31
+! Version: 2024-09-01
 ! Homepage: https://github.com/gdub812/filters
 ! Author: GDUB
 ! //////////////////////////////////////////////////////////////
@@ -338,7 +338,7 @@ reddit.com##faceplate-tracker[slot="comment-reply"]
 ! News sites
 ! //////////////////////////////////////////////////////////////
 ! //// Site: kode24.no
-! //// Update: 2024-08-31
+! //// Update: 2024-09-01
 ! //// Grade: Mid
 ! // Whole site and homepage
 ! notification banner bottom
@@ -360,6 +360,8 @@ kode24.no###diamond-partners-list-tile
 kode24.no##.commercial
 ! content top - ad
 kode24.no###top-bar-ad
+! --style-- content top - remove extra space after removing ad
+kode24.no##div.frontpage.wide:style(margin-top: -64px!important;)
 ! fix mobile ad banner
 kode24.no##div[id*="ad-banner"]
 ! nav bar
@@ -556,7 +558,7 @@ digi.no##div.related-article.related-article-placeholder:style(opacity:0.3!impor
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: tek.no
-! //// Update: 2024-03-09
+! //// Update: 2024-09-01
 ! //// Grade: Mid
 ! //// Warning: Rotating classes!
 ! // Whole site and homepage
@@ -573,6 +575,8 @@ tek.no##main#maincontent > div > div
 tek.no##body > div:nth-of-type(1) > div > div:nth-of-type(3) > div > div:nth-of-type(1)
 
 ! // Article
+! content whole - remove ads in article
+tek.no##div.advertory-common-netboard-wrapper
 ! buttons header article
 tek.no##body > div:nth-of-type(1) > header > div:nth-of-type(3):not([aria-hidden])
 tek.no##body > div:nth-of-type(1) > header > div:nth-of-type(4):not([aria-hidden])
@@ -587,7 +591,6 @@ tek.no##main#maincontent > div > article > div:has(a > div > div > img):style(op
 tek.no##body > div:nth-of-type(1) > div > div:nth-of-type(2) > div > *:not(main, footer)
 ! remove add bottom mobile
 tek.no##main#maincontent > div > article > div > iframe
-
 
 ! //////////////////////////////////////////////////////////////
 ! Div other sites
@@ -638,22 +641,19 @@ prisjakt.no##div[class*="CardMedia"] > img[class*="ProductImage"]:style(margin:a
 ! Manga sites
 ! //////////////////////////////////////////////////////////////
 ! //// Site: asuracomic.net
-! //// Update: 2024-08-31
+! //// Update: 2024-09-31
 ! //// Grade: Mid
-! // Whole site and homepage
-! hide all elements except nav, main content and footer
-asuracomic.net##body > *:not(div.th, div#content, div#footer, nav#main-menu)
-asuracomic.net###sidebar
-! optimized for also category pages
-asuracomic.net###content > .wrapper > .postbody > *:not(.bixbox, article.hentry)
-asuracomic.net##div.bixbox.hothome
-! button dark mode
-asuracomic.net###thememode
+! // Homepage
+! Content top - hide carousel and top today
+asuracomic.net##div.flex.justify-center.h-full.min-h-72 > div > div:not(div:nth-child(4))
 
 ! // Articles
-asuracomic.net##div.chapterbody > .postarea > article > *:not(div.headpost, div.entry-content)
-asuracomic.net##div.chapterbody > .postarea > div.bixbox:not(#comments)
-asuracomic.net##div.chdesc
+! Content top - social networks
+asuracomic.net##div.flex.flex-col.items-center.space-y-2.pt-6.px-5.text-center > div:nth-child(3)
+! Content top - navigation view box
+asuracomic.net##div.flex.flex-col.items-center.space-y-2.pt-6.px-5.text-center > div:nth-child(4)
+! Content top - info about asurascans
+asuracomic.net##div.flex.flex-col.items-center.space-y-2.pt-6.px-5.text-center > h2.text-sm
 
 
 ! //////////////////////////////////////////////////////////////
