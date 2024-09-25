@@ -2,7 +2,7 @@
 ! Title: GDUB - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on sites
-! Version: 2024-09-01
+! Version: 2024-09-25
 ! Homepage: https://github.com/gdub812/filters
 ! Author: GDUB
 ! //////////////////////////////////////////////////////////////
@@ -656,9 +656,10 @@ asuracomic.net##div.flex.flex-col.items-center.space-y-2.pt-6.px-5.text-center >
 asuracomic.net##div.flex.flex-col.items-center.space-y-2.pt-6.px-5.text-center > h2.text-sm
 
 
+! ========================================
 ! //////////////////////////////////////////////////////////////
 ! //// Site: reaperscans.com
-! //// Update: 2024-08-31
+! //// Update: 2024-09-25
 ! //// Grade: Mid
 ! // Whole site
 ! Navbar right - hide login and darkmode buttons
@@ -667,8 +668,11 @@ reaperscans.com##nav > div > div.flex.flex-row.gap-2.items-center.justify-betwee
 reaperscans.com##div.h-full.w-full > div > div[data-orientation="vertical"] > a:not(a[href="/latest/comics"])
 
 ! // Front page
+! Left sidebar - force showing on homepage
+reaperscans.com##main > div:first-of-type:matches-path(/^/$/):style(transform: unset!important;width: unset!important;)
 ! Content - hide all, because using menu to find comics
 reaperscans.com##div.grid.grid-cols-12.gap-y-4:not(.gap-x-6)
+
 
 ! // Article
 ! recruiting image - not working!
