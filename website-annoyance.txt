@@ -2,7 +2,7 @@
 ! Title: GDUB - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on sites
-! Version: 2024-09-25
+! Version: 2024-10-04
 ! Homepage: https://github.com/gdub812/filters
 ! Author: GDUB
 ! //////////////////////////////////////////////////////////////
@@ -462,7 +462,7 @@ nrk.no##div.group.widget.rich.floor.floor-bottom.negative.cf.container-widget
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: e24.no
-! //// Update: 2024-04-09
+! //// Update: 2024-10-04
 ! //// Grade: Mid
 ! // Whole site and homepage
 ! top news bar
@@ -492,7 +492,7 @@ e24.no##div[class*="advertory-e24"]
 e24.no##.row-with-bottom-border:has(.advertory-e24-brandboard-wrapper__front)
 e24.no##div.row:has(.component_content-marketing)
 ! main center - ad job positions
-e24.no##.carousel
+e24.no##div.grid-wrapper > div.carousel
 ! main center - video
 e24.no##.front-container > div:has(#player)
 ! main - message if you want to contact
@@ -501,6 +501,7 @@ e24.no##.front-container > .row :has(a[href^="https://calendly.com"])
 e24.no##.netboard-row
 ! --style-- main - paid article less visible
 e24.no##.has-icon-e24pluss.article-teaser:style(opacity: 0.3 !important;)
+
 
 ! // article page
 ! hide all main elements except article and timestamp
@@ -558,7 +559,7 @@ digi.no##div.related-article.related-article-placeholder:style(opacity:0.3!impor
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: tek.no
-! //// Update: 2024-09-01
+! //// Update: 2024-10-04
 ! //// Grade: Mid
 ! //// Warning: Rotating classes!
 ! // Whole site and homepage
@@ -576,7 +577,7 @@ tek.no##body > div:nth-of-type(1) > div > div:nth-of-type(3) > div > div:nth-of-
 
 ! // Article
 ! content whole - remove ads in article
-tek.no##div.advertory-common-netboard-wrapper
+tek.no##article > div.advertory-common-netboard-wrapper
 ! buttons header article
 tek.no##body > div:nth-of-type(1) > header > div:nth-of-type(3):not([aria-hidden])
 tek.no##body > div:nth-of-type(1) > header > div:nth-of-type(4):not([aria-hidden])
@@ -588,7 +589,7 @@ tek.no##main#maincontent > div > article > *:not(h1, div[tabindex]):style(margin
 ! --style-- low opacity other articles
 tek.no##main#maincontent > div > article > div:has(a > div > div > img):style(opacity:0.3!important;)
 ! mood button
-tek.no##body > div:nth-of-type(1) > div > div:nth-of-type(2) > div > *:not(main, footer)
+tek.no##body > div:nth-of-type(1) > div > div:last-child > div > *:not(main, footer)
 ! remove add bottom mobile
 tek.no##main#maincontent > div > article > div > iframe
 
