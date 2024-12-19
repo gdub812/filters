@@ -2,7 +2,7 @@
 ! Title: GDUB - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on sites
-! Version: 2024-10-04
+! Version: 2024-12-19
 ! Homepage: https://github.com/gdub812/filters
 ! Author: GDUB
 ! //////////////////////////////////////////////////////////////
@@ -399,7 +399,7 @@ kode24.no##main#main-content > article > div > div > article:style(opacity: 0.3 
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: nrk.no
-! //// Update: 2024-04-09
+! //// Update: 2024-12-19
 ! //// Grade: Mid
 ! // Whole site and homepage
 ! banner top
@@ -413,6 +413,8 @@ nrk.no##.nrk-masthead.lp_masthead:style(padding-top:0rem!important;)
 nrk.no##kur-newsfeed.kur-newsfeed.lp_newsfeed
 ! explore more block
 nrk.no##.kur-floor--oppdag-mer.kur-floor--apartment.kur-floor--mix.kur-floor
+! content center - play todays quiz
+nrk.no##section.kur-floor--apartment:has(a[href^="https://www.nrk.no/former"])
 ! district news block
 nrk.no##.exp-dh-nrkno-district-parent-room.tracklp
 ! video block
@@ -642,8 +644,11 @@ prisjakt.no##div[class*="CardMedia"] > img[class*="ProductImage"]:style(margin:a
 ! Manga sites
 ! //////////////////////////////////////////////////////////////
 ! //// Site: asuracomic.net
-! //// Update: 2024-09-31
+! //// Update: 2024-12-19
 ! //// Grade: Mid
+! // Whole site
+! Content top - hide subcription banner
+asuracomic.net##a[href="/subscription"]
 ! // Homepage
 ! Content top - hide carousel and top today
 asuracomic.net##div.flex.justify-center.h-full.min-h-72 > div > div:not(div:nth-child(4))
