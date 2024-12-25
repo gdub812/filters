@@ -2,7 +2,7 @@
 ! Title: GDUB - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on sites
-! Version: 2024-12-19
+! Version: 2024-12-25
 ! Homepage: https://github.com/gdub812/filters
 ! Author: GDUB
 ! //////////////////////////////////////////////////////////////
@@ -244,7 +244,7 @@ youtube.com##:matches-path(watch?v=) div#hover-overlays.ytd-thumbnail
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: reddit.com
-! //// Update: 2024-05-25
+! //// Update: 2024-12-25
 ! //// Grade: Mid - not checked or fixed mobile
 ! // Whole site
 ! "uBlock filters - Privacy" removed reddit filter - when opening reddit in new tab give warning each time: "The page isn’t redirecting properly"
@@ -324,6 +324,8 @@ reddit.com##shreddit-post-share-button
 ! // Posts
 ! sidebar right - popular content
 reddit.com##pdp-right-rail
+! content right - sign-in box
+reddit.com###right-sidebar-container > div:first-of-type
 ! content middle - comment button
 reddit.com##faceplate-tracker[source="shreddit_comment_count_button"]
 ! content - share button
