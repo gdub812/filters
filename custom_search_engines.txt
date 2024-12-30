@@ -1,0 +1,54 @@
+! //////////////////////////////////////////////////////////////
+! Title: GDUB812 - custom search engines
+! Expires: 1 day
+! Description: Custom search engine string URL
+! Version: 2024-12-30
+! Homepage: https://github.com/gdub812/filters
+! Author: GDUB
+! //////////////////////////////////////////////////////////////
+
+! //////////////////////////////////////////////////////////////
+! Add custom search engines in firefox: name, url and alias (shortcut)
+! //////////////////////////////////////////////////////////////
+! //// Enable "add" search engine button in settings
+! about:config
+! browser.urlbar.update2.engineAliasRefresh
+! -> True
+
+! // DuckDuckGo HTML
+! https://html.duckduckgo.com/html/?q=%s
+!html
+
+! // DuckDuckGo
+! https://duckduckgo.com/?q=%s
+!ddg
+
+! // DuckDuckGo AI
+! https://duckduckgo.com/?q=%s&ia=chat&bang=true
+!chat
+
+! // YouTube Search
+! https://www.youtube.com/results?search_query=%s
+!yt
+
+! // Reddit
+! https://www.reddit.com/search?q=%s
+!r
+
+! // SubReddit - Top Today
+! https://www.reddit.com/r/%s/top/
+!sr
+!rs (extra)
+
+! // SubReddit - Top Week
+! https://www.reddit.com/r/%s/top/?t=week
+!srw
+!rsw (extra)
+
+! // SubReddit - Privacy
+! https://www.reddit.com/r/privacy/search/?q=%s
+!privacy
+
+! // Privacy Guides Forum
+! https://discuss.privacyguides.net/search?q=%s
+!pg
