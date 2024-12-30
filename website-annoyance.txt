@@ -1,8 +1,8 @@
 ! //////////////////////////////////////////////////////////////
-! Title: GDUB - website-annoyance
+! Title: GDUB812 - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on sites
-! Version: 2024-12-25
+! Version: 2024-12-30
 ! Homepage: https://github.com/gdub812/filters
 ! Author: GDUB
 ! //////////////////////////////////////////////////////////////
@@ -78,52 +78,6 @@
 ! 2. Divided into different part of the website: whole site, homepage, category, article
 ! 3. Specific filters put under which part of the website targeted (homepage, category). Comments over filters explaining where on webpage and what purpose. Filters should go in the order of where on the webpage the content is removed from top to bottom (header -> content -> footer), and starting from left to right. Therefore this order top-left, top-center, top-rigt then middle-left, middle-center...
 ! //////////////////////////////////////////////////////////////
-
-! //////////////////////////////////////////////////////////////
-! Add custom search engines in firefox: name, url and alias (shortcut)
-! //////////////////////////////////////////////////////////////
-! //// Enable "add" search engine button in settings
-! about:config
-! browser.urlbar.update2.engineAliasRefresh
-! -> True
-
-! // DuckDuckGo HTML
-! https://html.duckduckgo.com/html/?q=%s
-!html
-
-! // DuckDuckGo
-! https://duckduckgo.com/?q=%s
-!ddg
-
-! // DuckDuckGo AI
-! https://duckduckgo.com/?q=%s&ia=chat&bang=true
-!chat
-
-! // YouTube Search
-! https://www.youtube.com/results?search_query=%s
-!yt
-
-! // Reddit
-! https://www.reddit.com/search?q=%s
-!r
-
-! // SubReddit - Top Today
-! https://www.reddit.com/r/%s/top/
-!sr
-!rs (extra)
-
-! // SubReddit - Top Week
-! https://www.reddit.com/r/%s/top/?t=week
-!srw
-!rsw (extra)
-
-! // SubReddit - Privacy
-! https://www.reddit.com/r/privacy/search/?q=%s
-!privacy
-
-! // Privacy Guides Forum
-! https://discuss.privacyguides.net/search?q=%s
-!pg
 
 
 ! //////////////////////////////////////////////////////////////
