@@ -2,7 +2,7 @@
 ! Title: GDUB812 - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on sites
-! Version: 2024-12-30
+! Version: 2025-01-08
 ! Homepage: https://github.com/gdub812/filters
 ! Author: GDUB
 ! //////////////////////////////////////////////////////////////
@@ -198,7 +198,7 @@ youtube.com##:matches-path(watch?v=) div#hover-overlays.ytd-thumbnail
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: reddit.com
-! //// Update: 2024-12-25
+! //// Update: 2025-01-08
 ! //// Grade: Mid - not checked or fixed mobile
 ! // Whole site
 ! "uBlock filters - Privacy" removed reddit filter - when opening reddit in new tab give warning each time: "The page isn’t redirecting properly"
@@ -259,6 +259,8 @@ reddit.com##shreddit-app[routename="frontpage"] > div.grid-container
 reddit.com##section[aria-label="Related people"]
 
 ! // Forums
+! r/popular - Content top - hide carousel
+reddit.com##div.subgrid-container > div.masthead.w-full
 ! --style-- sidebar right - very low visibility until clicked
 reddit.com##aside[aria-label="Community information"]:style(transition-property: opacity; transition-duration: 2s; transition-delay: 5s; opacity: 0.05;)
 reddit.com##aside[aria-label="Community information"]:active:style(opacity: 1; transition-delay: 0s; transition-duration: 0s;)
@@ -274,6 +276,8 @@ reddit.com##div.community-banner
 reddit.com##div.masthead > section:style(position: static!important;)
 ! content - share button
 reddit.com##shreddit-post-share-button
+! Sidebar right - hide popular communites
+reddit.com##aside[aria-label="Popular Communities"]
 
 ! // Posts
 ! sidebar right - popular content
@@ -355,7 +359,7 @@ kode24.no##main#main-content > article > div > div > article:style(opacity: 0.3 
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: nrk.no
-! //// Update: 2024-12-19
+! //// Update: 2025-01-08
 ! //// Grade: Mid
 ! // Whole site and homepage
 ! banner top
@@ -398,8 +402,8 @@ nrk.no##nav.rich.widget.menu
 nrk.no##div.group.widget.rich.cf.container-widget:style(padding-top:0rem!important;)
 ! audio block
 nrk.no##.audio-reference
-! sidebar related articles
-nrk.no##div.article-sidebar.lp_related
+! right sidebar - hide other articles
+nrk.no##aside.article-reference.article-sidebar
 !sidebar share
 nrk.no##aside.article-share
 ! --style-- related articles
@@ -420,9 +424,11 @@ nrk.no##div.group.widget.rich.floor.floor-bottom.negative.cf.container-widget
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: e24.no
-! //// Update: 2024-10-04
+! //// Update: 2025-01-08
 ! //// Grade: Mid
 ! // Whole site and homepage
+! All - make website scrollable from hidden cookie banner by removing inline css
+e24.no##style:has-text(.sp-message-open body):remove()
 ! top news bar
 e24.no##div.component_stocks-stripe
 ! top bar extra buttons
@@ -600,11 +606,14 @@ prisjakt.no##div[class*="CardMedia"] > img[class*="ProductImage"]:style(margin:a
 ! Manga sites
 ! //////////////////////////////////////////////////////////////
 ! //// Site: asuracomic.net
-! //// Update: 2024-12-19
+! //// Update: 2025-01-08
 ! //// Grade: Mid
 ! // Whole site
 ! Content top - hide subcription banner
 asuracomic.net##a[href="/subscription"]
+! Top - hide subscription banner big
+asuracomic.net##body > div.bg-gradient-to-br
+
 ! // Homepage
 ! Content top - hide carousel and top today
 asuracomic.net##div.flex.justify-center.h-full.min-h-72 > div > div:not(div:nth-child(4))
