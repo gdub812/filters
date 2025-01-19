@@ -2,7 +2,7 @@
 ! Title: GDUB812 - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on sites
-! Version: 2025-01-08
+! Version: 2025-01-19
 ! Homepage: https://github.com/gdub812/filters
 ! Author: GDUB
 ! //////////////////////////////////////////////////////////////
@@ -298,7 +298,7 @@ reddit.com##faceplate-tracker[slot="comment-reply"]
 ! News sites
 ! //////////////////////////////////////////////////////////////
 ! //// Site: kode24.no
-! //// Update: 2024-09-01
+! //// Update: 2025-01-19
 ! //// Grade: Mid
 ! // Whole site and homepage
 ! notification banner bottom
@@ -353,13 +353,15 @@ kode24.no##.article-entity .columns.byline, footer.main-footer div.row:style(pad
 kode24.no###hyvor-talk-iframe, div.row, .main-footer:style(margin:0rem!important;)
 kode24.no##div.frontpage.wide:style(padding-bottom:0rem!important;)
 kode24.no##div.frontpage.wide:style(padding-top:4rem!important;)
-! --style-- main center - less visible extra articles
-kode24.no##main#main-content > article > div > div > article:style(opacity: 0.3 !important;)
+! main center - less visible extra articles
+kode24.no##main#main-content > article > div > div > article
+! --style--
+!kode24.no##main#main-content > article > div > div > article:style(opacity:0.3!important;)
 
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: nrk.no
-! //// Update: 2025-01-08
+! //// Update: 2025-01-19
 ! //// Grade: Mid
 ! // Whole site and homepage
 ! banner top
@@ -392,6 +394,7 @@ nrk.no##nrkno-ditt-distrikt
 ! main center - more recommended content
 nrk.no##section.kur-floor.kur-floor--mix.kur-floor--apartment:has(div > h2 > span:has-text(NRK TV og NRK Radio))
 nrk.no##section.kur-floor.kur-floor--mix.kur-floor--apartment:has(div > h2 > span:has-text(Videoer fra NRK))
+nrk.no##section.kur-floor.kur-floor--mix.kur-floor--apartment:has(div > h2 > span:has-text(HUMOR))
 ! Animation red dot latest news
 nrk.no##span.kur-label__tag-icon
 
@@ -406,8 +409,10 @@ nrk.no##.audio-reference
 nrk.no##aside.article-reference.article-sidebar
 !sidebar share
 nrk.no##aside.article-share
-! --style-- related articles
-nrk.no##div.article.widget.reference:style(opacity:0.3!important;)
+! related articles
+nrk.no##div.article.widget.reference
+! --style--
+!nrk.no##div.article.widget.reference:style(opacity:0.3!important;)
 ! end related articles
 nrk.no##.universe-reference
 ! playlist block
@@ -424,7 +429,7 @@ nrk.no##div.group.widget.rich.floor.floor-bottom.negative.cf.container-widget
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: e24.no
-! //// Update: 2025-01-08
+! //// Update: 2025-01-19
 ! //// Grade: Mid
 ! // Whole site and homepage
 ! All - make website scrollable from hidden cookie banner by removing inline css
@@ -464,7 +469,7 @@ e24.no##.front-container > .row :has(a[href^="https://calendly.com"])
 ! main center -real time info
 e24.no##.netboard-row
 ! --style-- main - paid article less visible
-e24.no##.has-icon-e24pluss.article-teaser:style(opacity: 0.3 !important;)
+e24.no##.has-icon-e24pluss.article-teaser:style(opacity:0.3!important;)
 
 
 ! // article page
@@ -474,8 +479,10 @@ e24.no##div#main > div:nth-of-type(2) > div:nth-of-type(2) > *:not(article, .tim
 e24.no##div#main > div > div > div.hyperion-css-5qyf4o
 ! ad between text
 e24.no##div.hyperion-css-1xm198b
-! --style-- related articles opacity
-e24.no##a.inline.imagePosition-top:style(opacity: 0.3 !important;)
+! related articles
+e24.no##a.inline.imagePosition-top
+! --style--
+!e24.no##a.inline.imagePosition-top:style(opacity:0.3!important;)
 ! share buttons top and bottom
 e24.no##section[class^="hyperion-css"]
 ! podcast player
@@ -493,7 +500,7 @@ e24.no###main article > div.fullWidthMobile.hyperion-css-tqenmn
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: digi.no
-! //// Update: 2023-11-29
+! //// Update: 2025-01-19
 ! // homepage
 ! ad
 digi.no##.col-span-12:has(div:contains("annons"))
@@ -517,13 +524,15 @@ digi.no##.max-w-body.mx-auto:has(a[href^="https://digi.no/artikler/retningslinje
 digi.no##div[id^="adContainer"]
 ! ad job positions
 digi.no##.max-w-body-wide.mx-auto:has([href^="https://tekjobb.no/stillinger"])
-! style - related articles
-digi.no##div.related-article.related-article-placeholder:style(opacity:0.3!important;)
+! related articles
+digi.no##div.related-article.related-article-placeholder
+! --style--
+!digi.no##div.related-article.related-article-placeholder:style(opacity:0.3!important;)
 
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: tek.no
-! //// Update: 2024-10-04
+! //// Update: 2025-01-19
 ! //// Grade: Mid
 ! //// Warning: Rotating classes!
 ! // Whole site and homepage
@@ -550,8 +559,10 @@ tek.no##main#maincontent > div > article:style(padding-top:0rem!important;)
 tek.no##main#maincontent > div > article > div:style(margin-bottom:0rem!important)
 tek.no##main#maincontent > div > article > h1:style(padding-bottom:0.5rem!important;)
 tek.no##main#maincontent > div > article > *:not(h1, div[tabindex]):style(margin-bottom:1.2rem!important;margin-top:0rem!important; padding-bottom:0rem!important;)
-! --style-- low opacity other articles
-tek.no##main#maincontent > div > article > div:has(a > div > div > img):style(opacity:0.3!important;)
+! related articles
+tek.no##main#maincontent > div > article > div:has(a > div > div > img)
+! --style--
+!tek.no##main#maincontent > div > article > div:has(a > div > div > img):style(opacity:0.3!important;)
 ! mood button
 tek.no##body > div:nth-of-type(1) > div > div:last-child > div > *:not(main, footer)
 ! remove add bottom mobile
