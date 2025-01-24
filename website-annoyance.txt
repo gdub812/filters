@@ -2,7 +2,7 @@
 ! Title: GDUB812 - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on sites
-! Version: 2025-01-19
+! Version: 2025-01-24
 ! Homepage: https://github.com/gdub812/filters
 ! Author: GDUB
 ! //////////////////////////////////////////////////////////////
@@ -617,13 +617,15 @@ prisjakt.no##div[class*="CardMedia"] > img[class*="ProductImage"]:style(margin:a
 ! Manga sites
 ! //////////////////////////////////////////////////////////////
 ! //// Site: asuracomic.net
-! //// Update: 2025-01-08
+! //// Update: 2025-01-24
 ! //// Grade: Mid
 ! // Whole site
 ! Content top - hide subcription banner
 asuracomic.net##a[href="/subscription"]
 ! Top - hide subscription banner big
 asuracomic.net##body > div.bg-gradient-to-br
+! All - banner with signup for paid
+asuracomic.net##.fixed.inset-0.bg-gray-900.bg-opacity-75.flex.items-center.justify-center
 
 ! // Homepage
 ! Content top - hide carousel and top today
