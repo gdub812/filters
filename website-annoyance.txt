@@ -2,7 +2,7 @@
 ! Title: GDUB812 - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on sites
-! Version: 2025-01-24
+! Version: 2025-02-02
 ! Homepage: https://github.com/gdub812/filters
 ! Author: GDUB
 ! //////////////////////////////////////////////////////////////
@@ -429,73 +429,90 @@ nrk.no##div.group.widget.rich.floor.floor-bottom.negative.cf.container-widget
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: e24.no
-! //// Update: 2025-01-19
+! //// Update: 2025-02-02
 ! //// Grade: Mid
-! // Whole site and homepage
-! All - make website scrollable from hidden cookie banner by removing inline css
-e24.no##style:has-text(.sp-message-open body):remove()
-! top news bar
-e24.no##div.component_stocks-stripe
-! top bar extra buttons
-e24.no##header.e24-hovedmenyen div.styles-module_m4g3JW8 > *:not(button.Button-module_x8T5-5k)
-! top bar text
-e24.no##header > div > div > a > span.styles-module_eHa7rZf.styles-module_70heY6o
+
+! // Whole site and homepage (also fixes article pages)
+! header - extra buttons
+e24.no##header.e24-hovedmenyen > div > div > div > *:not(button:has(svg))
+! header 2 - news bar
+e24.no##div.stocks-stripe
+! header - remove text beside logo
+e24.no##header > div > div > a > span:last-child
+! content top - remove newest news
+e24.no##div[class^="_aksjeliveStripeContainer"]
+! content all - remove all extra section with ads, carousel
+e24.no##main > div > section.row
+
+! --style-- content all - paid article less visible
+e24.no##a[data-paywall="true"]:style(opacity:0.3!important;)
+! content all - remove investtech articles
+e24.no##a[data-paywall="true"]:has(p[class^="_kicker_"]:has-text(Investtech))
 ! --style-- main all - remove all borders bottom
-e24.no##.wrapper .grid-wrapper .front-container.row-with-bottom-border:style(border-bottom-width:0rem!important;)
-e24.no##.wrapper .grid-wrapper .row.row-with-bottom-border:style(border-bottom-width:0rem!important;)
-e24.no##.article-teaser:style(border-bottom-width:0rem!important;)
-! main top - signup sale
-e24.no##main > div > div.touchpoint
-! main top - remove all extra rows
-e24.no##main.wrapper > div.grid-wrapper > div.row
-! main top - extra padding first element
-e24.no##main.wrapper > div.grid-wrapper > div.front-container[data-row-id="2"]:style(margin-top:0rem!important;)
-! main center - pluss articles
-e24.no##main.wrapper > div.grid-wrapper > div.front-container:has(div > article > a.article-teaser-link[href="https://e24.no/pluss"])
-! --style-- spacing top
-e24.no##main > div.grid-wrapper:style(padding-top:0rem!important;)
-! --style-- spacing top first article
-e24.no##main > div.grid-wrapper > div[data-row-id="1"]:style(margin-top:0rem!important;)
-! main - ads
+e24.no##main > div > section.batch-container > a:style(border-bottom-width:0rem!important;padding-bottom:0px!important;)
+e24.no##main > div > section.batch-container > astro-island > a:style(border-bottom-width:0rem!important;padding-bottom:0px!important;)
+e24.no##main > div > section.tower:style(border-bottom-width:0rem!important;)
+e24.no##.batch-container.breaking-tower:style(border-bottom-width:0rem!important;)
+
+! content - ads
 e24.no##div[class*="advertory-e24"]
-e24.no##.row-with-bottom-border:has(.advertory-e24-brandboard-wrapper__front)
-e24.no##div.row:has(.component_content-marketing)
-! main center - ad job positions
-e24.no##div.grid-wrapper > div.carousel
-! main center - video
-e24.no##.front-container > div:has(#player)
-! main - message if you want to contact
-e24.no##.front-container > .row :has(a[href^="https://calendly.com"])
-! main center -real time info
-e24.no##.netboard-row
-! --style-- main - paid article less visible
-e24.no##.has-icon-e24pluss.article-teaser:style(opacity:0.3!important;)
 
 
 ! // article page
-! hide all main elements except article and timestamp
+! content all - hide all main elements except article and timestamp
 e24.no##div#main > div:nth-of-type(2) > div:nth-of-type(2) > *:not(article, .timestamp)
-! signup sale top
+! content top - signup sale
 e24.no##div#main > div > div > div.hyperion-css-5qyf4o
 ! ad between text
 e24.no##div.hyperion-css-1xm198b
 ! related articles
 e24.no##a.inline.imagePosition-top
-! --style--
-!e24.no##a.inline.imagePosition-top:style(opacity:0.3!important;)
-! share buttons top and bottom
+! content top and bottom - share buttons
 e24.no##section[class^="hyperion-css"]
-! podcast player
+! content bottom - podcast player
 e24.no###main article > div.fullWidthMobile.hyperion-css-tqenmn
 
-
-! // old removed 2024-03-06
-! more article bottom
-!e24.no##.hyperion-css-ryevka
-! bottom ad
-!e24.no##.hyperion-css-18sd1a9
-! job ads bottom
-!e24.no##div.hyperion-css-0:has(iframe[src*="e24.no/stilling"])
+! ////////////
+! //// OLD not working anymore and updated after 2025-02-02
+! // Whole site and homepage
+! All - make website scrollable from hidden cookie banner by removing inline css
+!e24.no##style:has-text(.sp-message-open body):remove()
+! top news bar
+!e24.no##div.component_stocks-stripe
+! top bar extra buttons
+!e24.no##header.e24-hovedmenyen div.styles-module_m4g3JW8 > *:not(button.Button-module_x8T5-5k)
+! top bar text
+!e24.no##header > div > div > a > span.styles-module_eHa7rZf.styles-module_70heY6o
+! --style-- main all - remove all borders bottom
+!e24.no##.wrapper .grid-wrapper .front-container.row-with-bottom-border:style(border-bottom-width:0rem!important;)
+!e24.no##.wrapper .grid-wrapper .row.row-with-bottom-border:style(border-bottom-width:0rem!important;)
+!e24.no##.article-teaser:style(border-bottom-width:0rem!important;)
+! main top - signup sale
+!e24.no##main > div > div.touchpoint
+! main top - remove all extra rows
+!e24.no##main.wrapper > div.grid-wrapper > div.row
+! main top - extra padding first element
+!e24.no##main.wrapper > div.grid-wrapper > div.front-container[data-row-id="2"]:style(margin-top:0rem!important;)
+! main center - pluss articles
+!e24.no##main.wrapper > div.grid-wrapper > div.front-container:has(div > article > a.article-teaser-link[href="https://e24.no/pluss"])
+! --style-- spacing top
+!e24.no##main > div.grid-wrapper:style(padding-top:0rem!important;)
+! --style-- spacing top first article
+!e24.no##main > div.grid-wrapper > div[data-row-id="1"]:style(margin-top:0rem!important;)
+! main - ads
+!e24.no##div[class*="advertory-e24"]
+!e24.no##.row-with-bottom-border:has(.advertory-e24-brandboard-wrapper__front)
+!e24.no##div.row:has(.component_content-marketing)
+! main center - ad job positions
+!e24.no##div.grid-wrapper > div.carousel
+! main center - video
+!e24.no##.front-container > div:has(#player)
+! main - message if you want to contact
+!e24.no##.front-container > .row :has(a[href^="https://calendly.com"])
+! main center -real time info
+!e24.no##.netboard-row
+! --style-- main - paid article less visible
+!e24.no##.has-icon-e24pluss.article-teaser:style(opacity:0.3!important;)
 
 
 ! //////////////////////////////////////////////////////////////
@@ -617,15 +634,12 @@ prisjakt.no##div[class*="CardMedia"] > img[class*="ProductImage"]:style(margin:a
 ! Manga sites
 ! //////////////////////////////////////////////////////////////
 ! //// Site: asuracomic.net
-! //// Update: 2025-01-24
+! //// Update: 2025-02-02
 ! //// Grade: Mid
 ! // Whole site
-! Content top - hide subcription banner
-asuracomic.net##a[href="/subscription"]
-! Top - hide subscription banner big
-asuracomic.net##body > div.bg-gradient-to-br
-! All - banner with signup for paid
-asuracomic.net##.fixed.inset-0.bg-gray-900.bg-opacity-75.flex.items-center.justify-center
+! Popup - remove login or signup
+asuracomic.net##div[role="dialog"]
+asuracomic.net##body > div.inset-0
 
 ! // Homepage
 ! Content top - hide carousel and top today
@@ -638,6 +652,15 @@ asuracomic.net##div.flex.flex-col.items-center.space-y-2.pt-6.px-5.text-center >
 asuracomic.net##div.flex.flex-col.items-center.space-y-2.pt-6.px-5.text-center > div:nth-child(4)
 ! Content top - info about asurascans
 asuracomic.net##div.flex.flex-col.items-center.space-y-2.pt-6.px-5.text-center > h2.text-sm
+
+! //// Old 2025-02-02
+! // Whole site
+! Content top - hide subcription banner
+!asuracomic.net##a[href="/subscription"]
+! Top - hide subscription banner big
+!asuracomic.net##body > div.bg-gradient-to-br
+! Popup - banner with signup for paid
+!asuracomic.net##.fixed.inset-0.bg-gray-900.bg-opacity-75.flex.items-center.justify-center
 
 
 ! //////////////////////////////////////////////////////////////
