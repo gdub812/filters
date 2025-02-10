@@ -2,7 +2,7 @@
 ! Title: GDUB812 - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on sites
-! Version: 2025-02-02
+! Version: 2025-02-10
 ! Homepage: https://github.com/gdub812/filters
 ! Author: GDUB
 ! //////////////////////////////////////////////////////////////
@@ -634,12 +634,20 @@ prisjakt.no##div[class*="CardMedia"] > img[class*="ProductImage"]:style(margin:a
 ! Manga sites
 ! //////////////////////////////////////////////////////////////
 ! //// Site: asuracomic.net
-! //// Update: 2025-02-02
+! //// Update: 2025-02-10
 ! //// Grade: Mid
 ! // Whole site
 ! Popup - remove login or signup
 asuracomic.net##div[role="dialog"]
 asuracomic.net##body > div.inset-0
+! Content top - hide subcription banner
+asuracomic.net##a[href="/subscription"]
+! Top - hide subscription banner big
+asuracomic.net##body > div.bg-gradient-to-br
+! Popup - banner with signup for paid
+asuracomic.net##.fixed.inset-0.bg-gray-900.bg-opacity-75.flex.items-center.justify-center
+! Header - remove login
+asuracomic.net##a[href^='/login']
 
 ! // Homepage
 ! Content top - hide carousel and top today
@@ -652,15 +660,6 @@ asuracomic.net##div.flex.flex-col.items-center.space-y-2.pt-6.px-5.text-center >
 asuracomic.net##div.flex.flex-col.items-center.space-y-2.pt-6.px-5.text-center > div:nth-child(4)
 ! Content top - info about asurascans
 asuracomic.net##div.flex.flex-col.items-center.space-y-2.pt-6.px-5.text-center > h2.text-sm
-
-! //// Old 2025-02-02
-! // Whole site
-! Content top - hide subcription banner
-!asuracomic.net##a[href="/subscription"]
-! Top - hide subscription banner big
-!asuracomic.net##body > div.bg-gradient-to-br
-! Popup - banner with signup for paid
-!asuracomic.net##.fixed.inset-0.bg-gray-900.bg-opacity-75.flex.items-center.justify-center
 
 
 ! //////////////////////////////////////////////////////////////
