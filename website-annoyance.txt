@@ -225,7 +225,7 @@ reddit.com##body > div#credential_picker_container
 ! header right - log in and other nav buttons
 reddit.com##header > nav > :last-child > :not(button#expand-search-button)
 ! left - sticky navigation
-reddit.com##div#left-sidebar-container
+reddit.com###left-sidebar-container
 ! header center searchbar - hide trending info
 reddit.com##div.reddit-search-bar > div > ul#reddit-trending-searches-partial-container
 reddit.com##div.reddit-search-bar > div > div
