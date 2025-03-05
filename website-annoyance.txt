@@ -294,48 +294,6 @@ reddit.com##shreddit-overflow-menu
 ! content - reply button
 reddit.com##faceplate-tracker[slot="comment-reply"]
 
-! // Homepage
-! Content - hide alle content homepage
-reddit.com##shreddit-app[routename="frontpage"] > div.grid-container
-
-! // Search page
-reddit.com##section[aria-label="Related people"]
-
-! // Forums
-! r/popular - Content top - hide carousel
-reddit.com##div.subgrid-container > div.masthead.w-full
-! --style-- sidebar right - very low visibility until clicked
-reddit.com##aside[aria-label="Community information"]:style(transition-property: opacity; transition-duration: 2s; transition-delay: 5s; opacity: 0.05;)
-reddit.com##aside[aria-label="Community information"]:active:style(opacity: 1; transition-delay: 0s; transition-duration: 0s;)
-! --style-- sidebar right - hide scrollbar
-reddit.com##div#right-sidebar-container:style(scrollbar-width: none;)
-! sidebar right - extra content under forum info
-reddit.com###right-sidebar-container > div.px-md
-! content top-right - "create post" and "join" button
-reddit.com##div.masthead > section > div > div:last-child
-! content top - community banner
-reddit.com##div.community-banner
-! --style-- content top - fix logo layout mobile and desktop
-reddit.com##div.masthead > section:style(position: static!important;)
-! content - share button
-reddit.com##shreddit-post-share-button
-! Sidebar right - hide popular communites
-reddit.com##aside[aria-label="Popular Communities"]
-
-! // Posts
-! sidebar right - popular content
-reddit.com##pdp-right-rail
-! content right - sign-in box
-reddit.com###right-sidebar-container > div:first-of-type
-! content middle - comment button
-reddit.com##faceplate-tracker[source="shreddit_comment_count_button"]
-! content - share button
-reddit.com##shreddit-comment-share-button
-! content - more menu for reporting
-reddit.com##shreddit-overflow-menu
-! content - reply button
-reddit.com##faceplate-tracker[slot="comment-reply"]
-
 
 ! //////////////////////////////////////////////////////////////
 ! News sites
