@@ -2,7 +2,7 @@
 ! Title: GDUB812 - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on sites
-! Version: 2025-03-05
+! Version: 2025-04-07
 ! Homepage: https://github.com/gdub812/filters
 ! Author: GDUB
 ! //////////////////////////////////////////////////////////////
@@ -299,7 +299,7 @@ reddit.com##faceplate-tracker[slot="comment-reply"]
 ! News sites
 ! //////////////////////////////////////////////////////////////
 ! //// Site: kode24.no
-! //// Update: 2025-02-17
+! //// Update: 2025-04-07
 ! //// Grade: Mid
 ! // Whole site and homepage
 ! notification banner bottom
@@ -329,10 +329,6 @@ kode24.no##div[id*="ad-banner"]
 kode24.no###nav-top
 ! remove banner
 kode24.no###banner-top-wide-container
-! sort button, siste, reaksjoner and kommentarer
-kode24.no###sort-latest-articles
-! lasts comments box
-kode24.no##div.show-for-medium-up.row
 ! news card for old articles in categories
 kode24.no##.card.desktop-row.row
 ! --style-- background color fix
@@ -343,6 +339,10 @@ kode24.no###top-bar-logo:style(margin:0.5rem;)
 kode24.no##.article-content-wrapper > .article-preview-text > .article-social > .oneline.comment-tile
 ! content - remove ekstra adds
 kode24.no##div.banner-container
+! content center - remove latest comments overview
+kode24.no##div.newest-comments
+! content - remove comments under article headings
+kode24.no##a.comment-tile
 
 ! // Article
 ! info box article
@@ -432,7 +432,7 @@ nrk.no##div.group.widget.rich.floor.floor-bottom.negative.cf.container-widget
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: e24.no
-! //// Update: 2025-03-05
+! //// Update: 2025-04-07
 ! //// Grade: Mid
 
 ! // Whole site and homepage (also fixes article pages)
@@ -467,14 +467,14 @@ e24.no##div[class*="advertory-e24"]
 e24.no##div#main > div:nth-of-type(2) > div:nth-of-type(2) > *:not(article, .timestamp)
 ! content top - signup sale
 e24.no##div#main > div > div > div.hyperion-css-5qyf4o
-! ad between text
-e24.no##div.hyperion-css-1xm198b
 ! related articles
 e24.no##a.inline.imagePosition-top
 ! content top and bottom - share buttons
 e24.no##section[class^="hyperion-css"]
 ! content bottom - podcast player
 e24.no###main article > div.fullWidthMobile.hyperion-css-tqenmn
+! content all - ad between text
+e24.no##div[id^="dr-edition-teaser"]
 
 ! ////////////
 ! //// OLD not working anymore and updated after 2025-02-02
