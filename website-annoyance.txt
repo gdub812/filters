@@ -2,7 +2,7 @@
 ! Title: GDUB812 - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on sites
-! Version: 2025-04-07
+! Version: 2025-04-28
 ! Homepage: https://github.com/gdub812/filters
 ! Author: GDUB
 ! //////////////////////////////////////////////////////////////
@@ -298,8 +298,10 @@ reddit.com##faceplate-tracker[slot="comment-reply"]
 ! //////////////////////////////////////////////////////////////
 ! News sites
 ! //////////////////////////////////////////////////////////////
+! News sites
+! //////////////////////////////////////////////////////////////
 ! //// Site: kode24.no
-! //// Update: 2025-04-07
+! //// Update: 2025-04-28
 ! //// Grade: Mid
 ! // Whole site and homepage
 ! notification banner bottom
@@ -343,6 +345,8 @@ kode24.no##div.banner-container
 kode24.no##div.newest-comments
 ! content - remove comments under article headings
 kode24.no##a.comment-tile
+! content top - hide latest articles, reaction and comments
+kode24.no##ul#sort-latest-articles
 
 ! // Article
 ! info box article
@@ -364,7 +368,7 @@ kode24.no##main#main-content > article > div > div > article
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: nrk.no
-! //// Update: 2025-02-17
+! //// Update: 2025-04-28
 ! //// Grade: Mid
 ! // Whole site and homepage
 ! banner top
@@ -400,6 +404,7 @@ nrk.no##section.kur-floor.kur-floor--mix.kur-floor--horizontal-scroll
 nrk.no##span.kur-label__tag-icon
 ! content center - info TV and radio
 nrk.no##section.kur-floor.kur-floor--mix:has(div[id="svelte-announcer"])
+nrk.no##section.kur-floor.kur-floor--mix:has(span.kur-floor__title-text):has-text(NRK Radio)
 
 ! // Article
 ! nav bar
@@ -638,7 +643,7 @@ prisjakt.no##div[class*="CardMedia"] > img[class*="ProductImage"]:style(margin:a
 ! Manga sites
 ! //////////////////////////////////////////////////////////////
 ! //// Site: asuracomic.net
-! //// Update: 2025-02-10
+! //// Update: 2025-04-28
 ! //// Grade: Mid
 ! // Whole site
 ! Popup - remove login or signup
@@ -652,6 +657,8 @@ asuracomic.net##body > div.bg-gradient-to-br
 asuracomic.net##.fixed.inset-0.bg-gray-900.bg-opacity-75.flex.items-center.justify-center
 ! Header - remove login
 asuracomic.net##a[href^='/login']
+! Header - remove alert comment section
+asuracomic.net##div.bg-red-500
 
 ! // Homepage
 ! Content top - hide carousel and top today
@@ -664,6 +671,7 @@ asuracomic.net##div.flex.flex-col.items-center.space-y-2.pt-6.px-5.text-center >
 asuracomic.net##div.flex.flex-col.items-center.space-y-2.pt-6.px-5.text-center > div:nth-child(4)
 ! Content top - info about asurascans
 asuracomic.net##div.flex.flex-col.items-center.space-y-2.pt-6.px-5.text-center > h2.text-sm
+
 
 
 ! //////////////////////////////////////////////////////////////
@@ -746,13 +754,24 @@ discuss.privacyguides.net##div#topic-footer-buttons
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: duckduckgo.com
-! //// Update: 2024-06-12
-! //// Grade:
+! //// Update: 2025-04-28
 ! // Whole site
 ! Set chat model "GPT-3.5 Turbo"
 duckduckgo.com##+js(trusted-set-cookie, dcm, 3, ,/, reload, 1)
+! Remove alert that chat are saved
+duckduckgo.com##+js(trusted-set-cookie, dcs, 1, ,/, reload, 1)
 ! Make sure javascript is disable for HTML domain
 ||html.duckduckgo.com^$csp=script-src 'none'
+! content center - hide new chat page info
+duckduckgo.com##body.is-duckchat div#react-layout > div > div > main > section > div > div > div:has(button > svg[xmlns="http://www.w3.org/2000/svg"] > path[d*="9.021"][fill="currentColor"])
+! sidebar left bottom - hide extra info
+duckduckgo.com##body.is-duckchat div#react-layout > div > div > main > section > div > div:last-child > *
+! content bottom - hide warning about ai models
+duckduckgo.com##body.is-duckchat div#react-layout main > section form > div:last-child
+! header - remove header, could keep duckduckgo logo but I never used it
+duckduckgo.com##body.is-duckchat div#header_wrapper
+! --style-- content - after removing header make content full height
+duckduckgo.com##body.is-duckchat div#react-layout main:style(height: 100vh !important;max-height: 100vh !important;)
 
 
 ! //////////////////////////////////////////////////////////////
