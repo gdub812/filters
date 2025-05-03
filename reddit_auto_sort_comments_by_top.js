@@ -1,9 +1,8 @@
 // ==UserScript==
 // @name         Reddit Auto Sort Comments by Top
-// @namespace    http://tampermonkey.net/
-// @version      1.5
+// @version      1.0
 // @description  Automatically sorts Reddit comments by top replies by updating the URL and modifying comment links on new Reddit layout
-// @author       ChatGPT
+// @author       gdub812
 // @match        *://www.reddit.com/*
 // @grant        none
 // ==/UserScript==
