@@ -2,7 +2,7 @@
 ! Title: GDUB812 - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on sites
-! Version: 2025-04-28
+! Version: 2025-05-03
 ! Homepage: https://github.com/gdub812/filters
 ! Author: GDUB
 ! //////////////////////////////////////////////////////////////
@@ -90,8 +90,8 @@
 ! //////////////////////////////////////////////////////////////
 ! Sosial media
 ! //////////////////////////////////////////////////////////////
-! //// Site: youtube.com
-! //// Update: 2024-07-22
+! //// Site: youtube.com and m.youtube.com
+! //// Update: 2025-05-03
 ! //// Grade: High
 ! //// Resource: https://www.reddit.com/r/uBlockOrigin/wiki/solutions/youtube/#wiki_shorts
 ! // Imported:
@@ -114,7 +114,7 @@ youtube.com##+js(set, ytInitialData.desktopTopbar.desktopTopbarRenderer.intersti
 youtube.com##+js(set-cookie, wide, 1)
 ! Remove annontations video
 /annotations_module.js$script,xhr,important,domain=youtube.com
-! Remove end screen
+! Remove end screen / autoplay next
 /endscreen.js$script,xhr,important,domain=youtube.com
 ! stop youtube viewcount from updating live
 https://www.youtube.com/youtubei/v1/updated_metadata*
@@ -136,8 +136,10 @@ youtube.com###voice-search-button
 ! --OLD-- isn't needed after imported script
 ! --cookie-- dark mode -- need to before reject cookie
 !youtube.com##+js(trusted-set-cookie, PREF, tz=UTC&f4=4000000&f7=100&f6=400, ,/, reload, 1)
+! the one below is modified version of the one above
+!youtube.com##+js(trusted-set-cookie, PREF, tz=UTC&f4=4000000&f7=140&f6=400&f5=30000, ,/, reload, 1)
 ! --cookie-- reject cookie set
-!youtube.com##+js(trusted-set-cookie, SOCS, CAESEwgDEgk2MTQ0OTE3NDMaAmVuIAEaBgiAtr6vBg, ,/, reload, 1)
+!!youtube.com##+js(trusted-set-cookie, SOCS, CAESEwgDEgk2MTQ0OTE3NDMaAmVuIAEaBgiAtr6vBg, ,/, reload, 1)
 
 ! // Homepage :matches-path(/^/$/)
 ! Content all - info boxes
@@ -153,7 +155,7 @@ youtube.com##ytd-secondary-search-container-renderer
 youtube.com##ytd-search-header-renderer > div#chip-bar
 youtube.com##ytd-search-header-renderer > div#about-these-results
 
-! // Video page :matches-path(watch?v=)
+! // Video page (desktop) :matches-path(watch?v=)
 ! / player
 ! player - "next video"
 youtube.com##:matches-path(watch?v=) a.ytp-next-button.ytp-button[data-title-no-tooltip="Next"]
@@ -195,6 +197,36 @@ youtube.com##:matches-path(watch?v=) ytd-menu-renderer.ytd-compact-video-rendere
 ! hover buttons on related videos
 youtube.com##:matches-path(watch?v=) div#hover-overlays.ytd-thumbnail
 
+! // Video page (mobile) :matches-path(watch?v=)
+! Content center - show only play/pause and not previous or next video
+!m.youtube.com##:matches-path(watch?v=) player-middle-controls > div > div:not(:nth-child(3))
+m.youtube.com##:matches-path(watch?v=) player-middle-controls > div > div:first-child
+m.youtube.com##:matches-path(watch?v=) player-middle-controls > div > div:last-child
+! Header right - show only search icon
+m.youtube.com##:matches-path(watch?v=) div.mobile-topbar-header-content > *:not(:first-child)
+! Content top - hide caption shortcut
+m.youtube.com##:matches-path(watch?v=) yt-closed-captions-toggle-button
+! Content top - hide autoplay button when off, because script toggles it off 
+m.youtube.com##:matches-path(watch?v=) button.ytm-autonav-toggle-button-container[aria-pressed="false"]
+! popup bottom - remove extra stuff like cinematic, debug and stas for nerds
+m.youtube.com##:matches-path(watch?v=) player-settings-menu > cinematic-setting-component
+m.youtube.com##:matches-path(watch?v=) player-settings-menu > *:last-child
+m.youtube.com##:matches-path(watch?v=) player-settings-menu > *:nth-last-child(2)
+! content bottom - fullscreen hide interactive stuff at the bottom
+m.youtube.com##:matches-path(watch?v=) player-fullscreen-controls
+! content center - subscribe button
+m.youtube.com##:matches-path(watch?v=) div.slim-owner-subscribe-button
+! content center - show only likes button, hide dislike, share, report etc.
+m.youtube.com##:matches-path(watch?v=) ytm-slim-video-action-bar-renderer > div > *:not(:first-child)
+m.youtube.com##:matches-path(watch?v=) ytm-slim-video-action-bar-renderer dislike-button-view-model
+! content all - hide three dots button for save for later
+m.youtube.com##:matches-path(watch?v=) ytm-bottom-sheet-renderer
+! content all - comment section hide extra action button
+m.youtube.com##:matches-path(watch?v=) button.icon-button.comment-menu[aria-label="More options"][aria-haspopup="true"]
+! content top - comment hide "add a comment"
+m.youtube.com##:matches-path(watch?v=) ytm-comments-header-renderer
+! --style-- content - push recommended vidoes down
+m.youtube.com##:matches-path(watch?v=) ytm-single-column-watch-next-results-renderer > div:style(margin-top:50vh;)
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: reddit.com
