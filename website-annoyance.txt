@@ -2,7 +2,7 @@
 ! Title: GDUB812 - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on sites
-! Version: 2025-05-03
+! Version: 2025-06-09
 ! Homepage: https://github.com/gdub812/filters
 ! Author: GDUB
 ! //////////////////////////////////////////////////////////////
@@ -400,7 +400,7 @@ kode24.no##main#main-content > article > div > div > article
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: nrk.no
-! //// Update: 2025-04-28
+! //// Update: 2025-06-09
 ! //// Grade: Mid
 ! // Whole site and homepage
 ! banner top
@@ -434,9 +434,12 @@ nrk.no##nrkno-ditt-distrikt
 nrk.no##section.kur-floor.kur-floor--mix.kur-floor--horizontal-scroll
 ! Animation red dot latest news
 nrk.no##span.kur-label__tag-icon
-! content center - info TV and radio
-nrk.no##section.kur-floor.kur-floor--mix:has(div[id="svelte-announcer"])
-nrk.no##section.kur-floor.kur-floor--mix:has(span.kur-floor__title-text):has-text(NRK Radio)
+! content center - info TV, radio and spill
+nrk.no##section.kur-floor.kur-floor--mix:has(a[href="https://nrk.no/spill"])
+nrk.no##section.kur-floor.kur-floor--mix:has(a[href^="https://tv.nrk.no/"])
+nrk.no##section.kur-floor.kur-floor--mix:has(a[href^="https://radio.nrk.no/"])
+! Disabled 2025-06-09
+!nrk.no##section.kur-floor.kur-floor--mix:has(div[id="svelte-announcer"])
 
 ! // Article
 ! nav bar
@@ -469,9 +472,8 @@ nrk.no##div.group.widget.rich.floor.floor-bottom.negative.cf.container-widget
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: e24.no
-! //// Update: 2025-04-07
+! //// Update: 2025-06-09
 ! //// Grade: Mid
-
 ! // Whole site and homepage (also fixes article pages)
 ! header - extra buttons
 e24.no##header.e24-hovedmenyen > div > div > div > *:not(button:has(svg))
@@ -485,6 +487,8 @@ e24.no##div[class^="_aksjeliveStripeContainer"]
 e24.no##astro-island[component-export="SalesStripe"]
 ! content all - remove all extra section with ads, carousel
 e24.no##main > div > section.row
+! content center - remove stripe about leder talent
+e24.no##ledertalentene-stripe
 
 ! --style-- content all - paid article less visible
 e24.no##a[data-access-level="Paid"]:style(opacity:0.3!important;)
@@ -675,7 +679,7 @@ prisjakt.no##div[class*="CardMedia"] > img[class*="ProductImage"]:style(margin:a
 ! Manga sites
 ! //////////////////////////////////////////////////////////////
 ! //// Site: asuracomic.net
-! //// Update: 2025-04-28
+! //// Update: 2025-06-09
 ! //// Grade: Mid
 ! // Whole site
 ! Popup - remove login or signup
@@ -691,6 +695,8 @@ asuracomic.net##.fixed.inset-0.bg-gray-900.bg-opacity-75.flex.items-center.justi
 asuracomic.net##a[href^='/login']
 ! Header - remove alert comment section
 asuracomic.net##div.bg-red-500
+! header top - remove upsell banner
+asuracomic.net##body > div.relative.z-50.overflow-hidden
 
 ! // Homepage
 ! Content top - hide carousel and top today
