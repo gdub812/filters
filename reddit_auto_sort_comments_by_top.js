@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name         Reddit Auto Sort Comments by Top
-// @version      1.0
+// @version      1.1
 // @description  Automatically sorts Reddit comments by top replies by updating the URL and modifying comment links on new Reddit layout
 // @author       gdub812
 // @match        *://www.reddit.com/*
+// @run-at       document-start
 // @grant        none
 // ==/UserScript==
 
@@ -11,50 +12,51 @@
     'use strict';
 
     /**
-     * Updates the current URL to include ?sort=top if it's a comment page.
+     * Updates the current URL to include ?sort=top if it's a comment page with no sort parameter.
      * This ensures that comments are sorted by top replies when visiting directly.
      */
     function updateUrl() {
-        // Check if the current URL is a Reddit comment page and doesn't already include ?sort=top or &sort=top
-        if (window.location.href.match(/\/comments\/[a-z0-9]+/i) && !window.location.href.includes('?sort=top') && !window.location.href.includes('&sort=top')) {
+        // Check if the current URL is a Reddit comment page and doesn't already include any sort parameter
+        if (window.location.href.match(/\/comments\/[a-z0-9]+/i) && !window.location.href.includes('sort=')) {
             // Update the URL to include ?sort=top or &sort=top
             const newUrl = window.location.href.includes('?') ? window.location.href + '&sort=top' : window.location.href + '?sort=top';
             window.location.replace(newUrl);
         }
     }
 
-    /**
-     * Updates all links to Reddit comment pages on the current page to include ?sort=top.
-     * This ensures that comments are sorted by top replies when navigating within Reddit.
-     */
-    function updateCommentLinks() {
-        // Select all links that lead to Reddit comment pages
-        const links = document.querySelectorAll('a[href*="/comments/"]');
-        links.forEach(link => {
-            // If the link doesn't already include ?sort=top or &sort=top, update the href attribute
-            if (!link.href.includes('?sort=top') && !link.href.includes('&sort=top')) {
-                link.href += link.href.includes('?') ? '&sort=top' : '?sort=top';
-            }
-        });
-    }
+    // Store the current URL to detect changes
+    let currentUrl = window.location.href;
 
     /**
-     * Observes the DOM for changes and updates new comment links to include ?sort=top.
-     * This ensures that dynamically loaded content is also handled.
+     * Check for URL changes and update if needed
      */
-    function observeLinks() {
-        const observer = new MutationObserver(() => {
-            updateCommentLinks();  // Call updateCommentLinks whenever the DOM changes
-        });
-
-        // Start observing the document body for changes in the child elements and subtree
-        observer.observe(document.body, { childList: true, subtree: true });
+    function checkUrlChange() {
+        if (currentUrl !== window.location.href) {
+            currentUrl = window.location.href;
+            updateUrl();
+        }
     }
 
-    // Initialize the script: update the URL and comment links, and start observing for changes
-    window.addEventListener('load', () => {
-        updateUrl();  // Update the URL on page load
-        updateCommentLinks();  // Update all comment links on page load
-        observeLinks();  // Start observing the DOM for new comment links
-    });
+    // Execute URL update immediately for faster response on slow connections
+    updateUrl();
+
+    // Listen for popstate events (back/forward navigation)
+    window.addEventListener('popstate', updateUrl);
+
+    // Override pushState and replaceState to catch programmatic navigation
+    const originalPushState = history.pushState;
+    const originalReplaceState = history.replaceState;
+
+    history.pushState = function() {
+        originalPushState.apply(history, arguments);
+        setTimeout(updateUrl, 0); // Use setTimeout to ensure URL has updated
+    };
+
+    history.replaceState = function() {
+        originalReplaceState.apply(history, arguments);
+        setTimeout(updateUrl, 0);
+    };
+
+    // Fallback: Poll for URL changes every 500ms
+    setInterval(checkUrlChange, 500);
 })();
