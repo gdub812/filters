@@ -2,7 +2,7 @@
 ! Title: GDUB812 - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on sites
-! Version: 2025-06-09
+! Version: 2025-06-19
 ! Homepage: https://github.com/gdub812/filters
 ! Author: GDUB
 ! //////////////////////////////////////////////////////////////
@@ -230,7 +230,7 @@ m.youtube.com##:matches-path(watch?v=) ytm-single-column-watch-next-results-rend
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: reddit.com
-! //// Update: 2025-03-05
+! //// Update: 2025-06-19
 ! //// Grade: Mid - not checked or fixed mobile
 ! // Whole site
 ! "uBlock filters - Privacy" removed reddit filter - when opening reddit in new tab give warning each time: "The page isn’t redirecting properly"
@@ -244,10 +244,12 @@ reddit.com##+js(trusted-set-cookie, over18, true, ,/, reload, 1)
 ||www.redditstatic.com/shreddit/en-US/xpromo-nsfw-blocking-modal-desktop-*.js
 ||www.redditstatic.com/shreddit/en-US/icon-nsfw-outline-*.js
 ||www.redditstatic.com/shreddit/en-US/xpromo-nsfw-blocking-modal-*.js
-! removed this line because it made the comment disappear, don't know if it needs another fix
-!||www.redditstatic.com/shreddit/en-US/nsfw-blocking-*.js
-! content - warning "mature content" box
-reddit.com##xpromo-nsfw-blocking-modal,slot+.prompt
+! source: https://www.reddit.com/r/uBlockOrigin/comments/1j72407/comment/mgwff4i/
+! content - Hide prompt in single post, backdrop overlay, etc...
+www.reddit.com##.prompt, .bg-scrim, .viewInApp, #blocking-modal, #nsfw-qr-dialog, body > [style*="blur(4px)"]
+
+! Reddit - Remove scroll/click block
+www.reddit.com##body:style(pointer-events: auto !important; overflow: auto !important;)
 
 ! --js local storage-- remove popup "see reddit in" app or browser
 reddit.com##+js(trusted-set-local-storage-item, xpromo-consolidation, $now$)
@@ -267,22 +269,22 @@ reddit.com##ul#reddit-typeahead-results-partial-container > div[data-testid="typ
 reddit.com##ul#reddit-typeahead-results-partial-container > faceplate-tracker[data-faceplate-tracking-context*='"profile"']
 ! --mobile-- header navbar left - hamburger menu
 reddit.com##nav > div > faceplate-tracker[noun="hamburger_menu"]
-
-! content post top - remove join and other button
-reddit.com##shreddit-post > span > span:last-child
-! --style-- content post top - less visible reddit forum og publish time
-reddit.com##span[slot="credit-bar"]:nth-child(2):style(opacity: 0.3;)
-! --style-- content post bottom - disable clicking like and dislike
-reddit.com##button[upvote=""]:style(pointer-events: none; cursor: default;)
-reddit.com##button[downvote=""]:style(pointer-events: none; cursor: default;)
-! --style-- content post bottom - less visible stats likes and comments
-reddit.com##div.flex.flex-row.overflow-hidden.justify-start:last-child:style(opacity: 0.3;)
+! content - report button
+reddit.com##shreddit-async-loader[bundlename="shreddit_post_overflow_menu"]
 ! content all - hide hover over profile info
 reddit.com##div[part="content-container"]
 ! --style-- content - award buttons disable click
 reddit.com##award-button:style(pointer-events: none; cursor: default;)
 ! content - empty awards button
 reddit.com##award-button[count="0"]
+! sidebar right bottom - legal info
+reddit.com###right-sidebar-container > div.legal-links
+! content - share button
+reddit.com##shreddit-post-share-button
+! header left - hide hamburger menu
+reddit.com###hamburger-button-tooltip
+! --style-- header center - search align center
+reddit.com##header div.flex.justify-stretch.w-full > div:style(max-width:700px!important;margin: 0 auto!important;)
 
 ! // Homepage
 ! Content - hide alle content homepage
@@ -291,32 +293,25 @@ reddit.com##shreddit-app[routename="frontpage"] > div.grid-container
 ! // Search page
 reddit.com##section[aria-label="Related people"]
 
-! // Forums
-! r/popular - Content top - hide carousel
-reddit.com##div.subgrid-container > div.masthead.w-full
-! --style-- sidebar right - very low visibility until clicked
-reddit.com##aside[aria-label="Community information"]:style(transition-property: opacity; transition-duration: 2s; transition-delay: 5s; opacity: 0.05;)
-reddit.com##aside[aria-label="Community information"]:active:style(opacity: 1; transition-delay: 0s; transition-duration: 0s;)
-! --style-- sidebar right - hide scrollbar
-reddit.com##div#right-sidebar-container:style(scrollbar-width: none;)
-! sidebar right - extra content under forum info
-reddit.com###right-sidebar-container > div.px-md
-! content top-right - "create post" and "join" button
-reddit.com##div.masthead > section > div > div:last-child
-! content top - community banner
-reddit.com##div.community-banner
+! // Forums / subreddit
+! r/popular - sidebar right
+reddit.com##shreddit-app[routename="popular"] #right-sidebar-container
 ! --style-- content top - fix logo layout mobile and desktop
 reddit.com##div.masthead > section:style(position: static!important;)
-! content - share button
-reddit.com##shreddit-post-share-button
-! Sidebar right - hide popular communites
-reddit.com##aside[aria-label="Popular Communities"]
+! sidebar right - show only sub description and wiki link 
+reddit.com##shreddit-app[routename="subreddit"] #right-sidebar-container .py-md.xs\:block > *
+reddit.com##shreddit-app[routename="subreddit"] #right-sidebar-container .py-md.xs\:block > :first-child:style(display: block!important;)
+reddit.com##shreddit-app[routename="subreddit"] #right-sidebar-container .py-md.xs\:block > :has(.text-12.flex.flex-col.gap-xs):style(display: block!important;)
+! content top - community highlights carousel
+reddit.com##community-highlight-carousel
+! content top - view layout settings button
+reddit.com##shreddit-layout-event-setter
+! content - Hide lots of extra stuff
+reddit.com##shreddit-app:not([pagetype="search_results"]) div.subgrid-container > div.masthead.w-full
+! r/popular - content - join button
+reddit.com##shreddit-join-button
 
 ! // Posts
-! sidebar right - popular content
-reddit.com##pdp-right-rail
-! content right - sign-in box
-reddit.com###right-sidebar-container > div:first-of-type
 ! content middle - comment button
 reddit.com##faceplate-tracker[source="shreddit_comment_count_button"]
 ! content - share button
@@ -325,6 +320,20 @@ reddit.com##shreddit-comment-share-button
 reddit.com##shreddit-overflow-menu
 ! content - reply button
 reddit.com##faceplate-tracker[slot="comment-reply"]
+! sidebar right - remove on posts
+reddit.com##shreddit-app[routename="post_page"] #right-sidebar-container 
+! --style-- content top - less visible reddit forum og publish time
+reddit.com##span[slot="credit-bar"]:nth-child(2):style(opacity: 0.3;)
+! --style-- content bottom - disable clicking like and dislike
+reddit.com##button[upvote=""]:style(pointer-events: none; cursor: default;)
+reddit.com##button[downvote=""]:style(pointer-events: none; cursor: default;)
+! --style-- content bottom - less visible stats likes and comments
+reddit.com##div.flex.flex-row.overflow-hidden.justify-start:last-child:style(opacity: 0.3;)
+! --style-- content - center layout on posts
+reddit.com##shreddit-app[routename="post_page"] .main-container:style(display:block!important;)
+reddit.com##shreddit-app[routename="post_page"] #main-content:style(margin: 0 auto!important; max-width: 756px;)
+! --style-- desktop wide - content - align center
+reddit.com##shreddit-app[routename="post_page"] div.grid-container.theme-rpl.grid.flex-nav-expanded:style(display:block!important;)
 
 
 ! //////////////////////////////////////////////////////////////
