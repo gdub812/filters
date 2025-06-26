@@ -2,7 +2,7 @@
 ! Title: GDUB812 - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on sites
-! Version: 2025-06-19
+! Version: 2025-06-26
 ! Homepage: https://github.com/gdub812/filters
 ! Author: GDUB
 ! //////////////////////////////////////////////////////////////
@@ -230,8 +230,7 @@ m.youtube.com##:matches-path(watch?v=) ytm-single-column-watch-next-results-rend
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: reddit.com
-! //// Update: 2025-06-19
-! //// Grade: Mid - not checked or fixed mobile
+! //// Update: 2025-06-26
 ! // Whole site
 ! "uBlock filters - Privacy" removed reddit filter - when opening reddit in new tab give warning each time: "The page isn’t redirecting properly"
 @@||reddit.com^$removeparam=rdt,doc
@@ -334,16 +333,15 @@ reddit.com##shreddit-app[routename="post_page"] .main-container:style(display:bl
 reddit.com##shreddit-app[routename="post_page"] #main-content:style(margin: 0 auto!important; max-width: 756px;)
 ! --style-- desktop wide - content - align center
 reddit.com##shreddit-app[routename="post_page"] div.grid-container.theme-rpl.grid.flex-nav-expanded:style(display:block!important;)
+! content - remove share comment button
+reddit.com##a[slot="comment-share-as-post-topline"]
 
 
-! //////////////////////////////////////////////////////////////
-! News sites
 ! //////////////////////////////////////////////////////////////
 ! News sites
 ! //////////////////////////////////////////////////////////////
 ! //// Site: kode24.no
-! //// Update: 2025-04-28
-! //// Grade: Mid
+! //// Update: 2025-06-26
 ! // Whole site and homepage
 ! notification banner bottom
 kode24.no###top-notification
@@ -388,6 +386,13 @@ kode24.no##div.newest-comments
 kode24.no##a.comment-tile
 ! content top - hide latest articles, reaction and comments
 kode24.no##ul#sort-latest-articles
+! --style-- homepage and article - content all - center layout
+kode24.no##body > section#main:style(display: flex!important;)
+kode24.no##body > section.frontpage:style(display: flex!important;)
+kode24.no###main-content:style(margin: 0 auto!important;)
+! --style-- header - less height
+kode24.no##body:style(padding-top: 56px!important;)
+
 
 ! // Article
 ! info box article
@@ -405,6 +410,20 @@ kode24.no##div.frontpage.wide:style(padding-top:4rem!important;)
 kode24.no##main#main-content > article > div > div > article
 ! --style--
 !kode24.no##main#main-content > article > div > div > article:style(opacity:0.3!important;)
+! --style-- content all - max-width
+kode24.no##body.article #main-content:style(max-width: 800px!important;)
+! --style-- content top - smaller header
+kode24.no##body.article #main-content h1:style(font-size: clamp(20px, 7vw, 50px) !important;)
+! content top - info box with "leserinnlegg" or "forrigeuke"
+kode24.no##body.article div[id^="factbox"]
+! content - link to other articles
+kode24.no##body.article #main > div.bodytext > article[itemtype="http://schema.org/NewsArticle"]
+! content - twitter box align center
+kode24.no##body.article div.twitter-tweet:style(margin: 10px auto!important;)
+! --style-- content - less margin figure
+kode24.no##body.article div.bodytext > figure:style(margin-top: 10px!important; margin-bottom: 10px!important;)
+! --style-- content - after removing commercial then remove hidden padding
+kode24.no##body.article div.bodytext > div:style(padding: 0px!important;)
 
 
 ! //////////////////////////////////////////////////////////////
