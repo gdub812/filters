@@ -36,14 +36,14 @@
 !r
 
 ! // SubReddit - Top Today
-! https://www.reddit.com/r/%s/top/
-!sr
-!rs (extra)
+! https://www.reddit.com/r/%s/top/?t=today
+!rs
+!sr (extra)
 
 ! // SubReddit - Top Week
 ! https://www.reddit.com/r/%s/top/?t=week
-!srw
-!rsw (extra)
+!rsw
+!srw (extra)
 
 ! // SubReddit - Privacy
 ! https://www.reddit.com/r/privacy/search/?q=%s
