@@ -2,7 +2,7 @@
 ! Title: GDUB812 - website-annoyance
 ! Expires: 1 day
 ! Description: Remove website annoyance on sites
-! Version: 2025-06-26
+! Version: 2025-08-19
 ! Homepage: https://github.com/gdub812/filters
 ! Author: GDUB
 ! //////////////////////////////////////////////////////////////
@@ -428,11 +428,9 @@ kode24.no##body.article div.bodytext > div:style(padding: 0px!important;)
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: nrk.no
-! //// Update: 2025-06-09
+! //// Update: 2025-08-19
 ! //// Grade: Mid
 ! // Whole site and homepage
-! banner top
-nrk.no##.nrk-masthead__apps
 ! nav buttons
 nrk.no##header.nrk-masthead > *:not(#nrk-masthead__jump-anchor, .nrk-masthead__logo)
 nrk.no##div.nrk-masthead__user
@@ -452,8 +450,6 @@ nrk.no##.kur-floor--video
 nrk.no##div.radio-multi-app
 ! reminder article block
 nrk.no##dh-langlesing-v0
-! --style-- not always important so lower opacity
-!nrk.no##section.kur-floor--apartment.kur-floor--mix.kur-floor:style(opacity:0.3!important;)
 ! main center - more random content
 nrk.no##nrkno-oppdag-mer
 ! main center - lokal news carousel
@@ -466,8 +462,12 @@ nrk.no##span.kur-label__tag-icon
 nrk.no##section.kur-floor.kur-floor--mix:has(a[href="https://nrk.no/spill"])
 nrk.no##section.kur-floor.kur-floor--mix:has(a[href^="https://tv.nrk.no/"])
 nrk.no##section.kur-floor.kur-floor--mix:has(a[href^="https://radio.nrk.no/"])
-! Disabled 2025-06-09
-!nrk.no##section.kur-floor.kur-floor--mix:has(div[id="svelte-announcer"])
+! header - cookie banner
+nrk.no##nrkno-cookie-banner
+! header - all links in header
+nrk.no##nrkno-nav-menu
+! --style-- header - remove extra spacing after removing buttons
+nrk.no##header.nrkno-header:style(padding-top:0px!important)
 
 ! // Article
 ! nav bar
@@ -622,7 +622,7 @@ digi.no##div.related-article.related-article-placeholder
 
 ! //////////////////////////////////////////////////////////////
 ! //// Site: tek.no
-! //// Update: 2025-01-19
+! //// Update: 2025-08-19
 ! //// Grade: Mid
 ! //// Warning: Rotating classes!
 ! // Whole site and homepage
@@ -657,6 +657,8 @@ tek.no##main#maincontent > div > article > div:has(a > div > div > img)
 tek.no##body > div:nth-of-type(1) > div > div:last-child > div > *:not(main, footer)
 ! remove add bottom mobile
 tek.no##main#maincontent > div > article > div > iframe
+! content all - remove banners for ads
+tek.no##div.advertory-common-netboard-wrapper
 
 ! //////////////////////////////////////////////////////////////
 ! Div other sites
@@ -706,25 +708,30 @@ prisjakt.no##div[class*="CardMedia"] > img[class*="ProductImage"]:style(margin:a
 ! //////////////////////////////////////////////////////////////
 ! Manga sites
 ! //////////////////////////////////////////////////////////////
+! Manga sites
+! //////////////////////////////////////////////////////////////
 ! //// Site: asuracomic.net
-! //// Update: 2025-06-09
+! //// Update: 2025-08-19
 ! //// Grade: Mid
 ! // Whole site
 ! Popup - remove login or signup
-asuracomic.net##div[role="dialog"]
-asuracomic.net##body > div.inset-0
+!asuracomic.net##div[role="dialog"]
+!asuracomic.net##body > div.inset-0
 ! Content top - hide subcription banner
-asuracomic.net##a[href="/subscription"]
+!asuracomic.net##a[href="/subscription"]
 ! Top - hide subscription banner big
-asuracomic.net##body > div.bg-gradient-to-br
+!asuracomic.net##body > div.bg-gradient-to-br
 ! Popup - banner with signup for paid
-asuracomic.net##.fixed.inset-0.bg-gray-900.bg-opacity-75.flex.items-center.justify-center
+!asuracomic.net##.fixed.inset-0.bg-gray-900.bg-opacity-75.flex.items-center.justify-center
 ! Header - remove login
 asuracomic.net##a[href^='/login']
 ! Header - remove alert comment section
-asuracomic.net##div.bg-red-500
+!asuracomic.net##div.bg-red-500
 ! header top - remove upsell banner
-asuracomic.net##body > div.relative.z-50.overflow-hidden
+!asuracomic.net##body > div.relative.z-50.overflow-hidden
+! all - show only header and comics overview (hides popup ads)
+asuracomic.net##body > div:not(.max-w-\[1220px\])
+
 
 ! // Homepage
 ! Content top - hide carousel and top today
@@ -738,57 +745,6 @@ asuracomic.net##div.flex.flex-col.items-center.space-y-2.pt-6.px-5.text-center >
 ! Content top - info about asurascans
 asuracomic.net##div.flex.flex-col.items-center.space-y-2.pt-6.px-5.text-center > h2.text-sm
 
-
-
-! //////////////////////////////////////////////////////////////
-! //// Site: reaperscans.com
-! //// Update: 2024-09-25
-! //// Grade: Mid
-! // Whole site
-! Navbar right - hide login and darkmode buttons
-reaperscans.com##nav > div > div.flex.flex-row.gap-2.items-center.justify-between
-! Navbar popup left - hide all links except "latest comics"
-reaperscans.com##div.h-full.w-full > div > div[data-orientation="vertical"] > a:not(a[href="/latest/comics"])
-
-! // Front page
-! Left sidebar - force showing on homepage
-reaperscans.com##main > div:first-of-type:matches-path(/^/$/):style(transform: unset!important;width: unset!important;)
-! Content - hide all, because using menu to find comics
-reaperscans.com##div.grid.grid-cols-12.gap-y-4:not(.gap-x-6)
-
-
-! // Article
-! recruiting image - not working!
-!reaperscans.com##main.mb-auto > div.mx-auto > img.max-w-full[src*="999.jpg"]
-
-
-! //////////////////////////////////////////////////////////////
-! //// Site: flamecomics.me (flamecomics.com)
-! //// Update: 2024-02-09
-! //// Grade: Mid
-! // Whole site and homepage
-! radio button
-flamecomics.me###radio_content
-! slider top
-flamecomics.me##div.big-slider.swiper-container.swiper-pointer-events
-! discord and other element
-flamecomics.me###content > *:not(div.wrapper)
-! sliders
-flamecomics.me##div.hotslid
-flamecomics.me##div.big-slider.swiper-container
-! more info elements
-flamecomics.me##div.postbody > *:not(div.bixbox, article)
-! remove image
-flamecomics.me##div.bixbox > div.flame.flame-1
-
-! // Category
-flamecomics.me##div.postbody.full > article > *:not(#comments, div.main-info)
-
-! // Article
-! promo banner
-flamecomics.me##div.promo-banner
-! Other series
-flamecomics.me##div.chapterbody > .postarea > .bixbox:not(#comments)
 
 ! //////////////////////////////////////////////////////////////
 ! Other sites
@@ -837,11 +793,41 @@ duckduckgo.com##body.is-duckchat div#react-layout main > section form > div:last
 ! header - remove header, could keep duckduckgo logo but I never used it
 duckduckgo.com##body.is-duckchat div#header_wrapper
 ! --style-- content - after removing header make content full height
-duckduckgo.com##body.is-duckchat div#react-layout main:style(height: 100vh !important;max-height: 100vh !important;)
+duckduckgo.com##body.is-duckchat div#react-layout main:style(height: 100dvh !important;max-height: 100dvh !important;)
 
 
 ! //////////////////////////////////////////////////////////////
 ! Archives
+! //////////////////////////////////////////////////////////////
+! //// Site: flamecomics.me (flamecomics.com)
+! //// Update: 2024-02-09
+! //// Archived: 2025-08-19
+! //// Grade: Mid
+! // Whole site and homepage
+! radio button
+flamecomics.me###radio_content
+! slider top
+flamecomics.me##div.big-slider.swiper-container.swiper-pointer-events
+! discord and other element
+flamecomics.me###content > *:not(div.wrapper)
+! sliders
+flamecomics.me##div.hotslid
+flamecomics.me##div.big-slider.swiper-container
+! more info elements
+flamecomics.me##div.postbody > *:not(div.bixbox, article)
+! remove image
+flamecomics.me##div.bixbox > div.flame.flame-1
+
+! // Category
+flamecomics.me##div.postbody.full > article > *:not(#comments, div.main-info)
+
+! // Article
+! promo banner
+flamecomics.me##div.promo-banner
+! Other series
+flamecomics.me##div.chapterbody > .postarea > .bixbox:not(#comments)
+
+
 ! //////////////////////////////////////////////////////////////
 ! //// Site: luminous-scans.com (lumitoon.com)
 ! //// Update: 2024-05-25
