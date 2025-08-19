@@ -30,7 +30,7 @@
         // Check if the current URL is a base subreddit page (ends with /r/subreddit_name/)
         if (window.location.href.match(/\/r\/[a-zA-Z0-9_]+\/$/)) {
             // Append 'top/' to the URL
-            const newUrl = window.location.href + 'top/';
+            const newUrl = window.location.href + 'top/?t=day';
             window.location.replace(newUrl);
         }
     }
